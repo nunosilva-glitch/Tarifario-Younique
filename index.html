@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarifário Younique Tailor Tours — Cotações</title>
+<style>
+:root{
+  --navy:#1c2b4a; --gold:#b98a2f; --bg:#f5f2ec; --card:#ffffff; --line:#e3ddd0;
+  --txt:#2b2b2b; --muted:#7a7468; --ok:#2e7d32; --warn:#b26a00;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:15px}
+header{background:var(--navy);color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+header h1{font-size:19px;font-weight:600;letter-spacing:.3px}
+header h1 span{color:var(--gold)}
+header .meta{font-size:12px;opacity:.85;text-align:right;line-height:1.5}
+nav.tabs{background:#14213a;display:flex;gap:0;padding:0 28px}
+nav.tabs button{background:none;border:none;color:#cfd6e4;padding:12px 22px;font-size:14px;cursor:pointer;border-bottom:3px solid transparent}
+nav.tabs button.active{color:#fff;border-bottom-color:var(--gold);font-weight:600}
+nav.tabs button:hover{color:#fff}
+main{max-width:1200px;margin:0 auto;padding:24px 28px;display:flex;gap:24px;min-height:70vh}
+aside{width:250px;flex-shrink:0}
+aside .box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+aside h3{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:10px}
+aside ul{list-style:none}
+aside li{padding:6px 8px;border-radius:6px;cursor:pointer;font-size:13.5px}
+aside li:hover{background:#efe9dc}
+aside li.active{background:var(--navy);color:#fff}
+aside li .grp{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:8px 8px 2px;cursor:default}
+aside li.active .grp,aside li:hover .grp{color:inherit}
+section.content{flex:1;min-width:0}
+h2.page-title{font-size:17px;color:var(--navy);margin-bottom:4px}
+p.page-sub{font-size:12.5px;color:var(--muted);margin-bottom:16px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13.5px;margin-bottom:18px}
+th{background:var(--navy);color:#fff;padding:9px 10px;text-align:left;font-weight:600;font-size:12.5px}
+td{padding:8px 10px;border-top:1px solid var(--line)}
+tr.subth td{background:#eef1f7;font-weight:600;color:var(--navy);font-size:12.5px}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.or{color:var(--muted);font-style:italic}
+button.act{background:var(--gold);color:#fff;border:none;border-radius:6px;padding:6px 12px;font-size:12.5px;cursor:pointer}
+button.act:hover{background:#a3761f}
+button.ghost{background:none;border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:12.5px;cursor:pointer;color:var(--txt)}
+button.ghost:hover{border-color:var(--navy)}
+.note{background:#fdf6e3;border:1px solid #ead9a8;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#6b5a1e;margin-bottom:16px}
+/* cotação */
+.quote-layout{display:grid;grid-template-columns:1fr 380px;gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:18px}
+.card h3{font-size:14px;color:var(--navy);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+label{display:block;font-size:12.5px;color:var(--muted);margin:10px 0 4px}
+select,input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;font-size:14px;background:#fff}
+.row{display:flex;gap:12px}
+.row>div{flex:1}
+.chk{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--txt)}
+.chk input{width:auto}
+.cart-item{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:10px;font-size:13px}
+.cart-item .t{font-weight:600;color:var(--navy)}
+.cart-item .d{color:var(--muted);font-size:12px;margin-top:2px}
+.cart-item .p{font-weight:700;text-align:right;margin-top:4px}
+.cart-item button{margin-top:6px}
+.total{display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:var(--navy);border-top:2px solid var(--gold);padding-top:10px;margin-top:8px}
+.empty{color:var(--muted);font-size:13px;text-align:center;padding:20px 0}
+.warnbox{background:#fdecea;border:1px solid #f2b8b5;border-radius:8px;padding:8px 12px;font-size:12.5px;color:#8a2320;margin-top:10px}
+.okbox{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:8px 12px;font-size:12.5px;color:#2e5d32;margin-top:10px}
+textarea{width:100%;height:220px;font-family:Consolas,monospace;font-size:12px;padding:10px;border:1px solid var(--line);border-radius:6px;background:#fbfaf7}
+footer{background:var(--navy);color:#9aa5bd;font-size:11.5px;padding:14px 28px;text-align:center}
+@media(max-width:900px){main{flex-direction:column}aside{width:100%}.quote-layout{grid-template-columns:1fr}}
+@media print{header,nav,aside,footer,.no-print{display:none!important}main{display:block}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Younique Tailor <span>Tours</span> — Tarifário Portugal FIT</h1>
+  <div class="meta">
+    Válido de 01/04/2026 a 31/12/2026 · Valores NET em EUR<br>
+    Cotações e reservas: bookings@youniquetailortours.com
+  </div>
+</header>
+<nav class="tabs">
+  <button id="tab-tar" class="active" onclick="showTab('tar')">Tarifário</button>
+  <button id="tab-quo" onclick="showTab('quo')">Cotação</button>
+</nav>
+
+<main>
+  <!-- ===================== TARIFÁRIO ===================== -->
+  <aside id="side-tar">
+    <div class="box">
+      <h3>Categorias</h3>
+      <ul id="cat-list"></ul>
+    </div>
+  </aside>
+
+  <section class="content" id="tarifario" style="display:none">
+    <h2 class="page-title" id="tar-title"></h2>
+    <p class="page-sub" id="tar-sub"></p>
+    <div id="tar-body"></div>
+  </section>
+
+  <!-- ===================== COTAÇÃO ===================== -->
+  <section class="content" id="cotacao" style="display:none">
+    <div class="quote-layout">
+      <div>
+        <div class="card">
+          <h3>1 · Traslado Privativo</h3>
+          <div class="row">
+            <div>
+              <label>Origem / Zona</label>
+              <select id="q-tr-zone" onchange="fillTrRoutes()"></select>
+            </div>
+            <div>
+              <label>Trajeto</label>
+              <select id="q-tr-route"></select>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Nº de passageiros</label>
+              <input type="number" id="q-tr-pax" value="2" min="1" max="12" onchange="renderQuote()">
+            </div>
+            <div>
+              <label>Viatura adaptada (01-03 pax)</label>
+              <select id="q-tr-adapt">
+                <option value="no">Não</option>
+                <option value="yes">Sim</option>
+              </select>
+            </div>
+          </div>
+          <div class="chk">
+            <input type="checkbox" id="q-tr-night" onchange="renderQuote()">
+            <label for="q-tr-night" style="margin:0;color:var(--txt)">Serviço entre 22h00 e 06h00 (acréscimo 25%)</label>
+          </div>
+          <div class="chk">
+            <input type="checkbox" id="q-tr-assist" onchange="renderQuote()">
+            <label for="q-tr-assist" style="margin:0;color:var(--txt)">Incluir Assistência no aeroporto/estação (215,00 €) — obrigatória a partir de 06 pax</label>
+          </div>
+          <div style="margin-top:14px">
+            <button class="act" onclick="addTransfer()">Adicionar traslado à cotação</button>
+          </div>
+          <div id="q-tr-msg"></div>
+        </div>
+
+        <div class="card">
+          <h3>2 · Tour Privativo com Motorista de Turismo</h3>
+          <div class="row">
+            <div>
+              <label>Local</label>
+              <select id="q-tu-loc" onchange="fillTours()"></select>
+            </div>
+            <div>
+              <label>Tour</label>
+              <select id="q-tu-tour"></select>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Nº de passageiros</label>
+              <input type="number" id="q-tu-pax" value="2" min="1" max="7" onchange="renderQuote()">
+            </div>
+            <div>
+              <label>Guia oficial</label>
+              <select id="q-tu-guide">
+                <option value="no">Não incluir</option>
+                <option value="hd">Guia Oficial Half Day (325,00 €)</option>
+                <option value="fd">Guia Oficial Full Day (425,00 €)</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top:14px">
+            <button class="act" onclick="addTour()">Adicionar tour à cotação</button>
+          </div>
+          <div id="q-tu-msg"></div>
+        </div>
+
+        <div class="card">
+          <h3>3 · Experiências (por passageiro)</h3>
+          <div class="row">
+            <div>
+              <label>Experiência</label>
+              <select id="q-ex-item"></select>
+            </div>
+            <div>
+              <label>Nº de passageiros</label>
+              <input type="number" id="q-ex-pax" value="2" min="1" max="7" onchange="renderQuote()">
+            </div>
+          </div>
+          <div style="margin-top:14px">
+            <button class="act" onclick="addExp()">Adicionar experiência à cotação</button>
+          </div>
+          <div id="q-ex-msg"></div>
+        </div>
+
+        <div class="card">
+          <h3>4 · Reserva de mesa em restaurante</h3>
+          <div class="row">
+            <div>
+              <label>Nº de passageiros</label>
+              <input type="number" id="q-rt-pax" value="2" min="1" max="60">
+            </div>
+            <div>
+              <label>Nº de refeições (por pessoa)</label>
+              <input type="number" id="q-rt-meals" value="1" min="1" max="5">
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin-top:8px">Taxa de reserva de mesa: 10,00 € por pessoa, por refeição. Podem existir taxas adicionais conforme o restaurante.</p>
+          <div style="margin-top:14px">
+            <button class="act" onclick="addMesa()">Adicionar à cotação</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card no-print">
+          <h3>Cotação atual</h3>
+          <div id="cart"></div>
+          <div class="total"><span>TOTAL (NET)</span><span id="cart-total">0,00 €</span></div>
+          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="act" onclick="exportQuote()">Gerar resumo</button>
+            <button class="ghost" onclick="clearCart()">Limpar</button>
+            <button class="ghost" onclick="window.print()">Imprimir</button>
+          </div>
+        </div>
+        <div class="card no-print" id="export-card" style="display:none">
+          <h3>Resumo da cotação</h3>
+          <textarea id="quote-text" readonly></textarea>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <button class="act" onclick="copyQuote()">Copiar</button>
+            <a class="ghost" style="text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:6px;font-size:12.5px" id="mailto-btn" href="#">Enviar por e-mail</a>
+          </div>
+        </div>
+        <div class="note">
+          Os valores apresentados servem apenas para cotação/orçamentação. Os serviços só ficam reservados após confirmação formal da Younique Tailor Tours (Fatura Proforma). Alterações/cancelamentos até 48h: sem custos; menos de 48h: 100% custos; No show: 100%.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Younique Tailor Tours DMC · Rua das Azenhas, 26 A — Barcarena, 2730-270 Lisboa · T (+351) 219 263 381 · RNAVT 4279<br>
+  Emergência 24/7 (pax em trânsito): +351 968 629 112 · WhatsApp Operações (dias úteis): +351 924 451 271
+</footer>
+
+<script>
+/* ==================== DADOS DO TARIFÁRIO 2026 ==================== */
+const ONR = null; // "On Request"
+
+const TRANSFERS = [
+ {zone:"Lisboa", label:"Lisboa", rows:[
+  ["Aeroporto / Porto de Cruzeiros* / Estação de Trem de Lisboa",50,70,110],
+  ["Costa de Cascais / Sintra",100,125,145],
+  ["Évora",320,355,430],
+  ["Coimbra",430,495,530],
+  ["Fátima",320,355,430],
+  ["Faro (Portimão a Faro)",625,685,760],
+  ["Porto",655,710,785]]},
+ {zone:"Porto", label:"Porto", rows:[
+  ["Aeroporto / Porto de Cruzeiros* / Estação de Trem do Porto",50,80,120],
+  ["Vila Nova de Gaia",60,90,130],
+  ["Braga",130,200,230],
+  ["Aveiro",200,250,275],
+  ["Coimbra",270,350,450],
+  ["Lamego / Pinhão / Régua",255,350,400],
+  ["Lisboa",655,710,785],
+  ["Fátima",390,450,510],
+  ["Viana do Castelo",170,230,270],
+  ["Santiago de Compostela (Espanha)",485,595,725]]},
+ {zone:"Madeira – Funchal", label:"Madeira – Funchal", rows:[
+  ["Aeroporto do Funchal / Porto de Cruzeiros*",65,75,85],
+  ["Caniço / Santa Cruz / Machico",65,75,85],
+  ["Estreito Câmara de Lobos",90,100,120],
+  ["Ponta do Sol",110,120,130],
+  ["Calheta / São Vicente / Encumeada",120,130,140]]},
+ {zone:"Açores – Ilha de São Miguel", label:"Açores – S. Miguel", rows:[
+  ["Aeroporto de Ponta Delgada",55,80,110],
+  ["Lagoa",55,95,130],
+  ["Ribeira Grande / Caloura",60,90,140],
+  ["Capelas / Rabo de Peixe",60,90,135],
+  ["Vila Franca",70,105,140],
+  ["Furnas",90,150,225],
+  ["Povoação",120,200,265],
+  ["Nordeste",130,225,305]]},
+ {zone:"Açores – Ilha Terceira", label:"Açores – Terceira", rows:[
+  ["Praia da Vitória / Angra do Heroísmo",40,65,75]]},
+ {zone:"Açores – Ilha do Faial", label:"Açores – Faial", rows:[
+  ["Horta",45,70,95]]},
+ {zone:"Açores – Ilha do Pico", label:"Açores – Pico", rows:[
+  ["Madalena",80,100,130],["Lajes",90,170,185]]},
+ {zone:"Açores – Ilha das Flores", label:"Açores – Flores", rows:[
+  ["Lajes das Flores / Fajã Grande",ONR,ONR,ONR]]},
+ {zone:"Açores – Ilha de São Jorge", label:"Açores – S. Jorge", rows:[
+  ["Velas",55,80,90]]},
+ {zone:"Açores – Ilha de Santa Maria", label:"Açores – Sta. Maria", rows:[
+  ["Santa Maria",60,100,110]]},
+ {zone:"Açores – Ilha Graciosa", label:"Açores – Graciosa", rows:[
+  ["Graciosa",50,80,110]]},
+ {zone:"Algarve – Faro", label:"Algarve – Faro", rows:[
+  ["Aeroporto de Faro",60,80,ONR],
+  ["Portimão",140,160,ONR],
+  ["Vilamoura",60,80,ONR],
+  ["Albufeira",90,110,ONR],
+  ["Carvoeiro",130,150,ONR],
+  ["Lisboa",625,685,ONR]]},
+ {zone:"Coimbra", label:"Coimbra", rows:[
+  ["Estação Trem Coimbra-B",80,115,ONR],
+  ["Lisboa",430,495,530],
+  ["Porto",270,350,450]]}
+];
+
+const TOURS = [
+ {loc:"Lisboa", label:"Lisboa", tours:[
+  ["HD Lisboa 9h-13h ou 14h-18h",225,245,285],
+  ["HD Sintra, Cascais e Estoril 9h-13h ou 14h-18h",230,290,305],
+  ["HD Fátima 8h-13h ou 14h-19h",390,455,510],
+  ["Lisboa by Night 20h-00h",240,260,295],
+  ["Serviço à Disposição 04hrs com 120km 9h-13h ou 14h-18h",230,275,310],
+  ["FD Lisboa 9h-17h",285,340,370],
+  ["FD Sintra, Cabo da Roca, Cascais e Estoril 9h-17h",285,340,370],
+  ["FD Arrábida, Sesimbra, Setúbal e Palmela 9h-17h",330,365,425],
+  ["FD Évora 9h-17h",460,520,620],
+  ["FD Fátima, Batalha, Nazaré e Óbidos 9h-17h",450,500,550],
+  ["Serviço à Disposição 08hrs com 150km 9h-17h",280,340,385]]},
+ {loc:"Porto", label:"Porto", tours:[
+  ["HD Porto 09h-13h ou 14h-18h",225,270,300],
+  ["HD Aveiro 08h-13h ou 14h-19h",325,450,475],
+  ["Porto by Night 20h-00h",250,300,350],
+  ["Serviço à Disposição 04hrs com 80km 09h-13h ou 14h-18h",250,300,350],
+  ["FD Porto 9h-17h",320,420,480],
+  ["FD Braga e Guimarães 9h-17h",365,470,550],
+  ["FD Viana do Castelo, Ponte de Lima e Barcelos 9h-17h",365,470,550],
+  ["FD Douro 9h-17h",365,470,550],
+  ["FD Aveiro e Coimbra 9h-17h",380,520,590],
+  ["FD Santiago de Compostela 9h-17h",625,700,800],
+  ["Serviço à Disposição 08hrs com 130km",350,470,510]]},
+ {loc:"Funchal", label:"Funchal (Madeira)", tours:[
+  ["HD Funchal 09h-13h ou 14h-18h",190,220,260],
+  ["HD Eira do Serrado, Curral das Freiras 09h-13h ou 14h-18h",190,225,260],
+  ["HD Cabo Girão, Pico dos Barcelos, Cristo Rei 09h-13h ou 14h-18h",190,225,260],
+  ["HD Câmara de Lobos, Monte 09h-13h ou 14h-18h",190,225,260],
+  ["Funchal by Night 20h-00h",200,225,260],
+  ["FD Funchal 09h-17h",375,400,450],
+  ["FD Grande Madeira 09h-17h",410,535,610]]},
+ {loc:"Ponta Delgada", label:"Ponta Delgada (S. Miguel)", tours:[
+  ["HD Lagoa do Fogo e Cerâmica 09h-13h ou 14h-18h",150,310,450],
+  ["HD Sete Cidades e Estufas de Ananás 09h-13h ou 14h-18h",150,310,450],
+  ["FD Lagoa do Fogo e Sete Cidades 09h-17h",320,700,1100],
+  ["FD Sete Cidades e Estufas de Ananás 09h-17h",320,700,1050],
+  ["FD Nordeste e Povoação 09h-17h",320,700,1050],
+  ["FD Vale das Furnas 09h-17h",340,785,1100],
+  ["FD Lagoa do Fogo e Furnas 09h-17h",330,790,1100]]},
+ {loc:"Ilha Terceira", label:"Ilha Terceira (Açores)", tours:[
+  ["HD Biscoitos e Praia da Vitória 09h-13h ou 14h-18h",210,325,450],
+  ["FD Biscoitos e Praia da Vitória c/ Almoço 09h-17h",320,500,700]]},
+ {loc:"Ilha do Faial", label:"Ilha do Faial (Açores)", tours:[
+  ["HD Capelinhos e Caldeira 09h-13h ou 14h-18h",195,395,550],
+  ["FD Capelinhos e Caldeira c/ Almoço 09h-17h",335,620,875]]},
+ {loc:"Ilha do Pico", label:"Ilha do Pico (Açores)", tours:[
+  ["FD Madalena, Lajes e Montanha c/ Almoço + Ferry + Museu 09h-17h",340,700,1000]]},
+ {loc:"Ilha das Flores", label:"Ilha das Flores (Açores)", tours:[
+  ["FD Caldeirão e Vila Nova do Corvo c/ Almoço 09h-17h",ONR,ONR,ONR],
+  ["FD Rocha dos Bordões e Lagoas c/ Almoço 09h-17h",ONR,ONR,ONR]]},
+ {loc:"Ilha de São Jorge", label:"Ilha de S. Jorge (Açores)", tours:[
+  ["FD Urzelina, Topo e Fajãs c/ Almoço 09h-17h",380,635,800]]},
+ {loc:"Ilha de Santa Maria", label:"Ilha de Sta. Maria (Açores)", tours:[
+  ["FD Vila do Porto e S. Lourenço 09h-17h",775,990,1300]]},
+ {loc:"Ilha Graciosa", label:"Ilha Graciosa (Açores)", tours:[
+  ["FD Santa Cruz e Vila da Praia c/ Almoço 09h-17h",260,550,760]]},
+ {loc:"Coimbra", label:"Coimbra", tours:[
+  ["HD Coimbra 09h-13h ou 14h-18h",330,430,ONR],
+  ["FD Coimbra 9h-17h",455,530,ONR],
+  ["FD Aveiro, Bussaco, Curia, Ílhavo, Costa Nova 9h-17h",580,755,ONR],
+  ["FD Fátima, Tomar e Penela 9h-17h",580,755,ONR],
+  ["FD Conímbriga, Rabaçal e Castelo de Penela 9h-17h",580,755,ONR],
+  ["FD Foz d'Égua, Piódão e Fraga da Pena 9h-17h",580,755,ONR],
+  ["FD Tomar, Batalha e Alcobaça 9h-17h",580,755,ONR]]},
+ {loc:"Faro", label:"Faro (Algarve)", tours:[
+  ["HD Algarve 09h-13h ou 14h-18h",300,400,ONR],
+  ["FD Algarve 9h-17h",550,700,ONR]]}
+];
+
+/* Experiências com preço NET por pax (base mínima + pax extra até 07 pax) */
+const EXPS = [
+ {name:"Ticket Universidade de Coimbra (inclui guia) — Coimbra/Aveiro", base:360, extra:25, min:1, note:"Mín. 05 participantes ou pagamento do valor equivalente. Não reembolsável."},
+ {name:"HD Coimbra by Night c/ Jantar e Show de Fado 04hrs (inclui guia)", base:410, extra:130, min:1, note:"Mín. 01 pax."},
+ {name:"HD Walking Tour Petiscos 04 hrs (inclui guia)", base:310, extra:110, min:2, note:"Mín. 02 pax."},
+ {name:"FD Bairrada Wine Tour c/ Visita a Caves + Almoço + Museu 08hrs", base:610, extra:135, min:1, note:"Mín. 01 pax."}
+];
+
+const REGULARS = {
+ "Tours Regulares Lisboa":[
+  "HD Lisboa Monumental AM","HD Sintra, Cabo da Roca, Cascais e Estoril PM",
+  "HD DIY Fátima Santuário com Audioguia AM","Lisboa by Night com Jantar e Show de Fado",
+  "FD Palácio Real de Sintra sem almoço","FD Fátima, Óbidos, Nazaré, Batalha sem almoço","FD Évora sem almoço"],
+ "Tours Regulares Porto":[
+  "HD Porto City Tour AM ou PM","HD Porto City Tour AM + Cruzeiro das 6 Pontes",
+  "HD Aveiro e Costa Nova AM ou PM","FD Porto + Cruzeiro das 6 Pontes + Cave",
+  "FD Braga e Guimarães sem almoço","FD Douro Histórico com almoço","FD Douro Ví­nico com almoço",
+  "FD Santiago de Compostela e Valença sem almoço","FD Coimbra e Fátima sem almoço"],
+ "Tours Regulares Funchal":[
+  "HD Pico de Barcelos, Eira do Serrado e Curral das Freiras AM ou PM",
+  "Passeio a bordo da Nau Santa Maria 3h","Passeio de Catamaran 3h",
+  "Funchal by Night com Jantar Típico","FD Leste da Madeira sem almoço","FD Oeste da Madeira sem almoço"]
+};
+
+const OPCIONAIS = {
+ "Experiências Lisboa":[
+  ["Passeio de tuk tuk (1hr)","On Request"],["Passeio de Barco no Rio Tejo (1hr)","On Request"],
+  ["Ticket Palácio da Pena com Audioguia e transfer","On Request"],["Ticket Palácio da Vila com Audioguia","On Request"],
+  ["Ticket Quinta da Regaleira com Audioguia","On Request"],["Visita e Prova de Vinhos em Vinícola em Sintra","On Request"],
+  ["Visita e Prova de Vinhos nas Caves José Maria Fonseca","On Request"],["Visita e Prova de Vinhos na Quinta da Bacalhoa","On Request"],
+  ["Visita e Prova de Vinhos em Vinícola no Alentejo","On Request"],["Visita e Prova de Azeites em Vinícola no Alentejo","On Request"],
+  ["Almoço com bebidas em Vinícola no Alentejo","On Request"],
+  ["Jantar com Show de Fados em Casa de Fados em Lisboa (após 19h)","On Request"],
+  ["Degustação de Vinhos e Tapas em Wine Bar em Lisboa (após 19h)","On Request"]],
+ "Experiências Porto":[
+  ["Cruzeiro das 6 Pontes","On Request"],["Ticket Livraria Lello – livre","On Request"],
+  ["Visita e Prova de Vinhos em Cave no Porto","On Request"],["Passeio de tuk tuk (1hr)","On Request"],
+  ["Passeio de Moliceiro com degustação de ovos moles (Aveiro)","On Request"],
+  ["Cruzeiro de 1 hora no Pinhão (Douro)","On Request"],
+  ["Visita e Prova de Vinhos em Vinícola no Douro","On Request"],
+  ["Prova de Vinhos e Almoço em Vinícola no Douro","On Request"],
+  ["Almoço com bebidas em Vinícola no Douro","On Request"],
+  ["Ticket Catedral Santiago de Compostela (Pórtico) – livre","On Request"]],
+ "Experiências Ilhas":[
+  ["Descida de Cestos (Funchal)","On Request"],["Ticket Jardim Botânico (Funchal)","On Request"],
+  ["Prova de Vinho da Madeira","On Request"],
+  ["Jantar Típico da Madeira com Folclore (após 19h, mín. 02 pax)","On Request"]],
+ "Experiências Outras Cidades":[
+  ["Ticket Museu Vista Alegre (Ílhavo) – livre","On Request"],
+  ["Passeio de Moliceiro com degustação de ovos moles","On Request"],
+  ["Passeio de Barco pelas Grutas de Benagil (Algarve)","On Request"]]
+};
+
+const VEH = [{k:"sedan",n:"SEDAN",p:"01-02 PAX"},{k:"minivan",n:"MINI VAN",p:"03-05 PAX"},
+             {k:"van",n:"VAN",p:"06-07 PAX"},{k:"minibus",n:"MINI BUS",p:"08-12 PAX"},{k:"adapt",n:"ADAPTADO",p:"01-03 PAX"}];
+
+const eur = v => v===null||v===undefined ? '<span class="or">On Request</span>' : v.toFixed(2).replace(".",",")+" €";
+const eurS = v => v===null||v===undefined ? "On Request" : v.toFixed(2).replace(".",",")+" €";
+
+/* ==================== NAVEGAÇÃO TARIFÁRIO ==================== */
+const CATS = [];
+TRANSFERS.forEach((z,i)=>CATS.push({id:"tr"+i,g:"Traslados Privativos",n:z.label}));
+TOURS.forEach((l,i)=>CATS.push({id:"tu"+i,g:"Tours Privativos",n:l.label}));
+Object.keys(OPCIONAIS).forEach((k,i)=>CATS.push({id:"op"+i,g:"Experiências",n:k.replace("Experiências ","")}));
+EXPS.forEach((e,i)=>CATS.push({id:"ex"+i,g:"Experiências",n:e.name.split("—")[0].trim().slice(0,28)+"…"}));
+Object.keys(REGULARS).forEach((k,i)=>CATS.push({id:"rg"+i,g:"Tours Regulares",n:k.replace("Tours Regulares ","")}));
+CATS.push({id:"cond",g:"Informações",n:"Condições Gerais"});
+
+function buildSidebar(){
+  const ul=document.getElementById("cat-list");let lastG="";
+  CATS.forEach(c=>{
+    if(c.g!==lastG){const li=document.createElement("li");li.className="grp";li.textContent=c.g;ul.appendChild(li);lastG=c.g;}
+    const li=document.createElement("li");li.textContent=c.n;li.dataset.id=c.id;
+    li.onclick=()=>showCat(c.id);ul.appendChild(li);
+  });
+}
+function showCat(id){
+  document.querySelectorAll("#cat-list li").forEach(li=>li.classList.toggle("active",li.dataset.id===id));
+  const c=CATS.find(x=>x.id===id);const body=document.getElementById("tar-body");
+  document.getElementById("tar-title").textContent=(c.g+" — "+c.n);
+  document.getElementById("tar-sub").textContent="Tarifas NET em EUR. "+(c.g==="Traslados Privativos"?"Por trajeto. Acréscimo de 25% entre 22h00 e 06h00. IVA e pedágios incluídos.":c.g==="Tours Privativos"?"Por serviço, com motorista de turismo. HD até 04hrs, FD até 08hrs.":"");
+  if(id==="cond"){body.innerHTML=condHTML();return;}
+  if(id.startsWith("tr")){const z=TRANSFERS[+id.slice(2)];body.innerHTML=trTable(z);return;}
+  if(id.startsWith("tu")){const l=TOURS[+id.slice(2)];body.innerHTML=tuTable(l);return;}
+  if(id.startsWith("op")){const k=Object.keys(OPCIONAIS)[+id.slice(2)];body.innerHTML=opTable(k);return;}
+  if(id.startsWith("ex")){const e=EXPS[+id.slice(2)];body.innerHTML=expTable(e);return;}
+  if(id.startsWith("rg")){const k=Object.keys(REGULARS)[+id.slice(2)];body.innerHTML=rgTable(k);return;}
+}
+function trTable(z){
+  let h=`<div class="note">Tarifas por trajeto, válidas todos os dias exceto feriados/datas festivas. Entre 22h00 e 06h00: +25%. IVA e pedágios incluídos. Bagagens: 01 mala por pax até 23kg. Assistência no aeroporto/estação: 215,00 € (obrigatória a partir de 06 pax).</div>
+  <table><tr><th>${z.zone}</th>${VEH.map(v=>`<th class="num">${v.n}<br><small>${v.p}</small></th>`).join("")}</tr>`;
+  z.rows.forEach(r=>{h+=`<tr><td>${r[0]}</td>${[r[1],r[2],r[3],ONR,ONR].map(x=>`<td class="num">${eur(x)}</td>`).join("")}</tr>`;});
+  h+=`</table><p style="font-size:12px;color:var(--muted)">*Pode haver custos adicionais para acesso ao porto de cruzeiros (on request).</p>`;
+  return h;
+}
+function tuTable(l){
+  let h=`<div class="note">Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD 325,00 € / FD 425,00 €.</div>
+  <table><tr><th>PICK UP & DROP OFF — ${l.loc}</th><th class="num">SEDAN<br><small>01-02 PAX</small></th><th class="num">MINI VAN<br><small>03-05 PAX</small></th><th class="num">VAN<br><small>06-07 PAX</small></th><th class="num">ADAPTADO<br><small>01-03 PAX</small></th></tr>`;
+  l.tours.forEach(t=>{h+=`<tr><td>${t[0]}</td><td class="num">${eur(t[1])}</td><td class="num">${eur(t[2])}</td><td class="num">${eur(t[3])}</td><td class="num">${eur(ONR)}</td></tr>`;});
+  return h+"</table>";
+}
+function opTable(k){
+  let h=`<table><tr><th>${k}</th><th>Preço</th></tr>`;
+  OPCIONAIS[k].forEach(o=>{h+=`<tr><td>${o[0]}</td><td class="or">${o[1]} (mediante disponibilidade)</td></tr>`;});
+  return h+`</table><div class="note">Reserva de mesa em restaurante: taxa de 10,00 € por pessoa, por refeição.</div>`;
+}
+function expTable(e){
+  return `<table><tr><th>${e.name}</th><th class="num">Preço NET</th></tr>
+  <tr><td>Base (mín. ${e.min} pax)</td><td class="num">${eur(e.base)}</td></tr>
+  <tr><td>Pax extra (máx. 07 pax, cada)</td><td class="num">${eur(e.extra)}</td></tr></table>
+  <p style="font-size:12px;color:var(--muted)">${e.note}</p>`;
+}
+function rgTable(k){
+  let h=`<div class="note">Tarifas NET em EUR por pax. Não inclui refeições nem entradas (salvo indicado). Preço para crianças on request. Preço, frequência e operação podem sofrer alterações sem aviso prévio.</div>
+  <table><tr><th>${k} — Meeting point & drop off</th><th>Frequência / Preço</th></tr>`;
+  REGULARS[k].forEach(r=>{h+=`<tr><td>${r}</td><td class="or">ON REQUEST</td></tr>`;});
+  return h+"</table>";
+}
+function condHTML(){
+  return `<div class="note">
+  <b>Validade:</b> 01/04/2026 a 31/12/2026 ou até publicação de novo tarifário/adenda.<br><br>
+  <b>Confirmação:</b> os valores servem apenas para cotação. Os serviços só ficam reservados com Fatura Proforma da Younique Tailor Tours.<br><br>
+  <b>Cotações e reservas:</b> bookings@youniquetailortours.com · WhatsApp Operações +351 924 451 271 (seg-sex 09h-13h e 14h-18h; não serve para reservas).<br><br>
+  <b>Emergência 24/7 (passageiros em trânsito):</b> +351 968 629 112. Nenhuma reclamação é aceite sem acionar a linha de emergência.<br><br>
+  <b>Alterações/cancelamentos:</b> até 48h sem custos; menos de 48h: 100% custos. No show: 100%.<br><br>
+  <b>Seguro de viagem:</b> obrigatório para todos os passageiros, contratado na origem.<br><br>
+  <b>Motorista de turismo:</b> profissional de turismo uniformizado (terno e gravata), não é guia — não pode acompanhar em monumentos. Para acompanhamento personalizado, solicitar guia oficial.<br><br>
+  <b>Força maior:</b> greves, manifestações ou fenómenos naturais — a Younique Tailor Tours não se responsabiliza por serviços impossíveis de executar.<br><br>
+  <b>Atrasos de voos:</b> serviços considerados No Show por atraso/perda de conexão não são da responsabilidade da Younique Tailor Tours.</div>`;
+}
+
+/* ==================== COTAÇÃO ==================== */
+let cart=[];
+
+function vehicleFor(pax,adapt){
+  if(adapt==="yes")return {k:"adapt",n:"ADAPTADO (01-03 pax)",cap:3};
+  if(pax<=2)return {k:"sedan",n:"SEDAN (01-02 pax)",cap:2};
+  if(pax<=5)return {k:"minivan",n:"MINI VAN (03-05 pax)",cap:5};
+  if(pax<=7)return {k:"van",n:"VAN (06-07 pax)",cap:7};
+  return {k:"minibus",n:"MINI BUS (08-12 pax)",cap:12};
+}
+function fillSelect(el,items){el.innerHTML=items.map(i=>`<option value="${i[0]}">${i[1]}</option>`).join("");}
+function fillTrRoutes(){
+  const z=TRANSFERS[+document.getElementById("q-tr-zone").value];
+  fillSelect(document.getElementById("q-tr-route"),z.rows.map((r,i)=>[i,r[0]]));
+  renderQuote();
+}
+function fillTours(){
+  const l=TOURS[+document.getElementById("q-tu-loc").value];
+  fillSelect(document.getElementById("q-tu-tour"),l.tours.map((t,i)=>[i,t[0]]));
+  renderQuote();
+}
+function addTransfer(){
+  const zi=+document.getElementById("q-tr-zone").value, ri=+document.getElementById("q-tr-route").value;
+  const pax=+document.getElementById("q-tr-pax").value||1;
+  const adapt=document.getElementById("q-tr-adapt").value;
+  const night=document.getElementById("q-tr-night").checked;
+  const assist=document.getElementById("q-tr-assist").checked;
+  const z=TRANSFERS[zi], r=z.rows[ri];
+  const msg=document.getElementById("q-tr-msg");
+  if(pax>12){msg.innerHTML=`<div class="warnbox">Máximo 12 pax por viatura. Para grupos superiores, contacte-nos (On Request).</div>`;return;}
+  const v=vehicleFor(pax,adapt);
+  let price;
+  if(v.k==="adapt")price=ONR;
+  else if(v.k==="minibus")price=ONR;
+  else price=r[v.k==="sedan"?1:v.k==="minivan"?2:3];
+  if(price===null||price===undefined){msg.innerHTML=`<div class="warnbox">Este trajeto está On Request para ${v.n}. Contacte bookings@youniquetailortours.com.</div>`;return;}
+  let base=price;let nightAdd=0;
+  if(night){nightAdd=base*0.25;base=base*1.25;}
+  const items=[{d:`Traslado ${z.label} → ${r[0]} · ${v.n} · ${pax} pax${night?" (serviço noturno +25%)":""}`,v:base}];
+  if(assist)items.push({d:"Assistência no aeroporto/estação",v:215});
+  if(pax>=6&&!assist)msg.innerHTML=`<div class="warnbox">Atenção: a assistência é obrigatória para serviços a partir de 06 pax. Adicione-a ou confirme connosco.</div>`;
+  else msg.innerHTML="";
+  items.forEach(it=>cart.push(it));
+  renderQuote();
+}
+function addTour(){
+  const li=+document.getElementById("q-tu-loc").value, ti=+document.getElementById("q-tu-tour").value;
+  const pax=+document.getElementById("q-tu-pax").value||1;
+  const g=document.getElementById("q-tu-guide").value;
+  const loc=TOURS[li], t=loc.tours[ti];
+  const msg=document.getElementById("q-tu-msg");
+  if(pax>7){msg.innerHTML=`<div class="warnbox">Tours privativos até 07 pax. Para grupos superiores, contacte-nos (On Request).</div>`;return;}
+  const v=vehicleFor(pax,"no");
+  const idx=v.k==="sedan"?1:v.k==="minivan"?2:3;
+  const price=t[idx];
+  if(price===null||price===undefined){msg.innerHTML=`<div class="warnbox">Este tour está On Request para ${v.n}. Contacte bookings@youniquetailortours.com.</div>`;return;}
+  msg.innerHTML="";
+  cart.push({d:`Tour ${loc.loc}: ${t[0]} · ${v.n} · ${pax} pax`,v:price});
+  if(g==="hd")cart.push({d:"Guia Oficial Half Day 09h-13h ou 14h-18h",v:325});
+  if(g==="fd")cart.push({d:"Guia Oficial Full Day 09h-17h",v:425});
+  renderQuote();
+}
+function addExp(){
+  const ei=+document.getElementById("q-ex-item").value;
+  const pax=+document.getElementById("q-ex-pax").value||1;
+  const e=EXPS[ei];const msg=document.getElementById("q-ex-msg");
+  if(pax>7){msg.innerHTML=`<div class="warnbox">Preços de experiências válidos até 07 pax. Para grupos superiores, contacte-nos.</div>`;return;}
+  const eff=Math.max(pax,e.min);
+  const total=e.base+e.extra*(eff-1);
+  if(pax<e.min)msg.innerHTML=`<div class="warnbox">Esta experiência requer mínimo de ${e.min} pax — foi cotado o valor equivalente a ${e.min} pax.</div>`;
+  else msg.innerHTML="";
+  cart.push({d:`${e.name} · ${pax} pax (base ${eurS(e.base)} + ${eff-1}× ${eurS(e.extra)})`,v:total});
+  renderQuote();
+}
+function addMesa(){
+  const pax=+document.getElementById("q-rt-pax").value||1, meals=+document.getElementById("q-rt-meals").value||1;
+  cart.push({d:`Reserva de mesa em restaurante · ${pax} pax × ${meals} refeição(ões) (10,00 €/pax/refeição)`,v:10*pax*meals});
+  renderQuote();
+}
+function removeItem(i){cart.splice(i,1);renderQuote();}
+function clearCart(){cart=[];renderQuote();document.getElementById("export-card").style.display="none";}
+function renderQuote(){
+  const c=document.getElementById("cart");
+  if(!cart.length){c.innerHTML='<div class="empty">Sem serviços na cotação.</div>';}
+  else{
+    c.innerHTML=cart.map((it,i)=>`<div class="cart-item"><div class="t">Serviço ${i+1}</div><div class="d">${it.d}</div><div class="p">${eur(it.v)}</div><button class="ghost" onclick="removeItem(${i})">Remover</button></div>`).join("");
+  }
+  const tot=cart.reduce((s,it)=>s+(it.v||0),0);
+  document.getElementById("cart-total").textContent=tot.toFixed(2).replace(".",",")+" €";
+}
+function exportQuote(){
+  const tot=cart.reduce((s,it)=>s+(it.v||0),0);
+  const now=new Date().toLocaleDateString("pt-PT");
+  let txt=`COTAÇÃO — Younique Tailor Tours DMC (Tarifário Portugal FIT 2026)\nData: ${now}\n${"=".repeat(60)}\n\n`;
+  cart.forEach((it,i)=>{txt+=`${String(i+1).padStart(2,"0")}. ${it.d}\n    ${eurS(it.v)}\n`;});
+  txt+=`\n${"=".repeat(60)}\nTOTAL NET: ${tot.toFixed(2).replace(".",",")} EUR\n\n`;
+  txt+=`Os valores servem apenas para cotação. Os serviços só ficam reservados após\nconfirmação formal (Fatura Proforma) da Younique Tailor Tours.\nAlterações/cancelamentos: até 48h sem custos; menos de 48h: 100% custos; No show: 100%.\nCotações e reservas: bookings@youniquetailortours.com`;
+  document.getElementById("quote-text").value=txt;
+  document.getElementById("export-card").style.display="block";
+  const mail="mailto:bookings@youniquetailortours.com?subject="+encodeURIComponent("Pedido de cotação — serviços Portugal")+"&body="+encodeURIComponent(txt);
+  document.getElementById("mailto-btn").href=mail;
+}
+function copyQuote(){
+  const ta=document.getElementById("quote-text");ta.select();
+  navigator.clipboard?navigator.clipboard.writeText(ta.value):document.execCommand("copy");
+}
+
+/* ==================== TABS / INIT ==================== */
+function showTab(t){
+  document.getElementById("tab-tar").classList.toggle("active",t==="tar");
+  document.getElementById("tab-quo").classList.toggle("active",t==="quo");
+  document.getElementById("tarifario").style.display=t==="tar"?"block":"none";
+  document.getElementById("cotacao").style.display=t==="quo"?"block":"none";
+  document.getElementById("side-tar").style.display=t==="tar"?"block":"none";
+  document.querySelector("main").style.flexDirection=t==="tar"?"row":"column";
+  if(t==="tar"&&!document.getElementById("cat-list").children.length){buildSidebar();showCat("tr0");}
+}
+fillSelect(document.getElementById("q-tr-zone"),TRANSFERS.map((z,i)=>[i,z.label]));
+fillSelect(document.getElementById("q-tu-loc"),TOURS.map((l,i)=>[i,l.loc]));
+fillSelect(document.getElementById("q-ex-item"),EXPS.map((e,i)=>[i,e.name]));
+fillTrRoutes();fillTours();renderQuote();
+showTab("tar");
+</script>
+</body>
+</html>
