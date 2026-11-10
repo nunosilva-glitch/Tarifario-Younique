@@ -116,7 +116,7 @@ footer{background:var(--navy);color:#9aa5bd;font-size:11.5px;padding:14px 28px;t
           <div class="row">
             <div>
               <label>Nº de passageiros</label>
-              <input type="number" id="q-tr-pax" value="2" min="1" max="12" onchange="renderQuote()">
+              <input type="number" id="q-tr-pax" value="2" min="1" max="12" onchange="autoAssist()">
             </div>
             <div>
               <label>Viatura adaptada (01-03 pax)</label>
@@ -131,8 +131,8 @@ footer{background:var(--navy);color:#9aa5bd;font-size:11.5px;padding:14px 28px;t
             <label for="q-tr-night" style="margin:0;color:var(--txt)">Serviço entre 22h00 e 06h00 (acréscimo 25%)</label>
           </div>
           <div class="chk">
-            <input type="checkbox" id="q-tr-assist" onchange="renderQuote()">
-            <label for="q-tr-assist" style="margin:0;color:var(--txt)">Incluir Assistência no aeroporto/estação (215,00 €) — obrigatória a partir de 06 pax</label>
+            <input type="checkbox" id="q-tr-assist" checked onchange="renderQuote()">
+            <label for="q-tr-assist" style="margin:0;color:var(--txt)">Assistência no aeroporto/estação (215,00 €) — incluída automaticamente a partir de 06 pax</label>
           </div>
           <div style="margin-top:14px">
             <button class="act" onclick="addTransfer()">Adicionar traslado à cotação</button>
@@ -530,14 +530,20 @@ function fillTours(){
   fillSelect(document.getElementById("q-tu-tour"),l.tours.map((t,i)=>[i,t[0]]));
   renderQuote();
 }
+function autoAssist(){
+  const pax=+document.getElementById("q-tr-pax").value||1;
+  if(pax>=6)document.getElementById("q-tr-assist").checked=true;
+}
 function addTransfer(){
   const zi=+document.getElementById("q-tr-zone").value, ri=+document.getElementById("q-tr-route").value;
   const pax=+document.getElementById("q-tr-pax").value||1;
   const adapt=document.getElementById("q-tr-adapt").value;
   const night=document.getElementById("q-tr-night").checked;
-  const assist=document.getElementById("q-tr-assist").checked;
   const z=TRANSFERS[zi], r=z.rows[ri];
   const msg=document.getElementById("q-tr-msg");
+  const paxAssist = pax>=6;
+  if(paxAssist) document.getElementById("q-tr-assist").checked=true;
+  const assist = paxAssist || document.getElementById("q-tr-assist").checked;
   if(pax>12){msg.innerHTML=`<div class="warnbox">Máximo 12 pax por viatura. Para grupos superiores, contacte-nos (On Request).</div>`;return;}
   const v=vehicleFor(pax,adapt);
   let price;
@@ -548,9 +554,8 @@ function addTransfer(){
   let base=price;let nightAdd=0;
   if(night){nightAdd=base*0.25;base=base*1.25;}
   const items=[{d:`Traslado ${z.label} → ${r[0]} · ${v.n} · ${pax} pax${night?" (serviço noturno +25%)":""}`,v:base}];
-  if(assist)items.push({d:"Assistência no aeroporto/estação",v:215});
-  if(pax>=6&&!assist)msg.innerHTML=`<div class="warnbox">Atenção: a assistência é obrigatória para serviços a partir de 06 pax. Adicione-a ou confirme connosco.</div>`;
-  else msg.innerHTML="";
+  if(assist)items.push({d:"Assistência no aeroporto/estação (obrigatória a partir de 06 pax)",v:215});
+  msg.innerHTML = paxAssist?`<div class="okbox">Assistência de aeroporto/estação (215,00 €) incluída automaticamente — obrigatória para ${pax} pax.</div>`:"";
   items.forEach(it=>cart.push(it));
   renderQuote();
 }
