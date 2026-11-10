@@ -532,7 +532,7 @@ function fillTours(){
 }
 function autoAssist(){
   const pax=+document.getElementById("q-tr-pax").value||1;
-  if(pax>=6)document.getElementById("q-tr-assist").checked=true;
+  document.getElementById("q-tr-assist").checked = pax>=6;
 }
 function addTransfer(){
   const zi=+document.getElementById("q-tr-zone").value, ri=+document.getElementById("q-tr-route").value;
