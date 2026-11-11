@@ -223,6 +223,10 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
           <h3 data-i18n="card3">3 · Experiências (por passageiro)</h3>
           <div class="row">
             <div>
+              <label data-i18n="lbl_loc">Local</label>
+              <select id="q-ex-loc" onchange="fillExps()"></select>
+            </div>
+            <div>
               <label data-i18n="lbl_exp">Experiência</label>
               <select id="q-ex-item"></select>
             </div>
@@ -427,10 +431,10 @@ const TOURS = [
 
 /* Experiências com preço NET por pax (base mínima + pax extra até 07 pax) */
 const EXPS = [
- {name:"Ticket Universidade de Coimbra (inclui guia) — Coimbra/Aveiro", base:360, extra:25, min:1, note:"Mín. 05 participantes ou pagamento do valor equivalente. Não reembolsável."},
- {name:"HD Coimbra by Night c/ Jantar e Show de Fado 04hrs (inclui guia)", base:410, extra:130, min:1, note:"Mín. 01 pax."},
- {name:"HD Walking Tour Petiscos 04 hrs (inclui guia)", base:310, extra:110, min:2, note:"Mín. 02 pax."},
- {name:"FD Bairrada Wine Tour c/ Visita a Caves + Almoço + Museu 08hrs", base:610, extra:135, min:1, note:"Mín. 01 pax."}
+ {loc:"Coimbra",name:"Ticket Universidade de Coimbra (inclui guia) — Coimbra/Aveiro", base:360, extra:25, min:1, note:"Mín. 05 participantes ou pagamento do valor equivalente. Não reembolsável."},
+ {loc:"Coimbra",name:"HD Coimbra by Night c/ Jantar e Show de Fado 04hrs (inclui guia)", base:410, extra:130, min:1, note:"Mín. 01 pax."},
+ {loc:"Coimbra",name:"HD Walking Tour Petiscos 04 hrs (inclui guia)", base:310, extra:110, min:2, note:"Mín. 02 pax."},
+ {loc:"Coimbra",name:"FD Bairrada Wine Tour c/ Visita a Caves + Almoço + Museu 08hrs", base:610, extra:135, min:1, note:"Mín. 01 pax."}
 ];
 
 const REGULARS = {
@@ -1290,7 +1294,7 @@ function applyLang(){
   document.getElementById("lang-es").classList.toggle("active",LANG==="es");
   buildSidebar();
   if(currentCat)showCat(currentCat);
-  fillTrRoutes();fillTours();renderQuote();
+  fillTrRoutes();fillTours();fillExps();renderQuote();
 }
 function setLang(l){LANG=l;try{localStorage.setItem("lang",l);}catch(e){}applyLang();}
 
@@ -1306,7 +1310,16 @@ function showTab(t){
 }
 fillSelect(document.getElementById("q-tr-zone"),TRANSFERS.map((z,i)=>[i,z.label]));
 fillSelect(document.getElementById("q-tu-loc"),TOURS.map((l,i)=>[i,l.loc]));
-fillSelect(document.getElementById("q-ex-item"),EXPS.map((e,i)=>[i,e.name]));
+function fillExps(){
+  const locs=[...new Set(EXPS.map(e=>e.loc||"—"))];
+  const sel=document.getElementById("q-ex-loc");
+  const cur=+sel.value||0;
+  fillSelect(sel,locs.map((l,i)=>[i,tx(l)]));
+  if(cur>0&&cur<locs.length)sel.value=cur;
+  const loc=locs[+sel.value||0];
+  fillSelect(document.getElementById("q-ex-item"),EXPS.map((e,i)=>[i,e.name]).filter(x=>EXPS[x[0]].loc===loc));
+}
+fillExps();
 fillTrRoutes();fillTours();renderQuote();
 showTab("tar");
 applyLang();
