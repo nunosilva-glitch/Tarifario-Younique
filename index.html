@@ -436,6 +436,21 @@ const EXPS = [
  {loc:"Coimbra",name:"HD Walking Tour Petiscos 04 hrs (inclui guia)", base:310, extra:110, min:2, note:"Mín. 02 pax."},
  {loc:"Coimbra",name:"FD Bairrada Wine Tour c/ Visita a Caves + Almoço + Museu 08hrs", base:610, extra:135, min:1, note:"Mín. 01 pax."}
 ];
+function expList(){
+  const L=[];
+  EXPS.forEach((e,i)=>L.push({city:e.loc,name:e.name,i}));
+  const addKey=(city,key)=>{if(OPCIONAIS[key])OPCIONAIS[key].forEach(o=>L.push({city,name:o[0],or:true}));};
+  addKey("Lisboa","Experiências Lisboa");
+  addKey("Porto","Experiências Porto");
+  addKey("Madeira","Experiências Ilhas");
+  addKey("Algarve","Experiências Algarve");
+  addKey("Coimbra","Experiências Centro");
+  addKey("Madrid","Experiências Madrid");
+  addKey("Barcelona","Experiências Barcelona");
+  addKey("Sevilha","Experiências Sevilha");
+  addKey("Outras Cidades","Experiências Outras Cidades");
+  return L;
+}
 
 const REGULARS = {
  "Tours Regulares Lisboa":[
@@ -1184,10 +1199,13 @@ function addTour(){
   renderQuote();
 }
 function addExp(){
-  const ei=+document.getElementById("q-ex-item").value;
+  const L=expList();
+  const it=L[+document.getElementById("q-ex-item").value];
   const pax=+document.getElementById("q-ex-pax").value||1;
-  const e=EXPS[ei];const msg=document.getElementById("q-ex-msg");
+  const msg=document.getElementById("q-ex-msg");
   if(pax>7){msg.innerHTML=`<div class="warnbox">${t("msg_exp7")}</div>`;return;}
+  if(it.or){msg.innerHTML="";cart.push({d:`${tx(it.name)} · ${pax} pax · ${t("med_disp")}`,v:null});renderQuote();return;}
+  const e=EXPS[it.i];
   const eff=Math.max(pax,e.min);
   const total=e.base+e.extra*(eff-1);
   if(pax<e.min)msg.innerHTML=`<div class="warnbox">${tf("msg_min",{M:e.min})}</div>`;
@@ -1311,13 +1329,13 @@ function showTab(t){
 fillSelect(document.getElementById("q-tr-zone"),TRANSFERS.map((z,i)=>[i,z.label]));
 fillSelect(document.getElementById("q-tu-loc"),TOURS.map((l,i)=>[i,l.loc]));
 function fillExps(){
-  const locs=[...new Set(EXPS.map(e=>e.loc||"—"))];
+  const L=expList();
+  const locs=[...new Set(L.map(e=>e.city))];
   const sel=document.getElementById("q-ex-loc");
-  const cur=+sel.value||0;
+  const curLoc=locs[+sel.value||0];
   fillSelect(sel,locs.map((l,i)=>[i,tx(l)]));
-  if(cur>0&&cur<locs.length)sel.value=cur;
-  const loc=locs[+sel.value||0];
-  fillSelect(document.getElementById("q-ex-item"),EXPS.map((e,i)=>[i,e.name]).filter(x=>EXPS[x[0]].loc===loc));
+  const loc=locs[+sel.value||0]||curLoc;
+  fillSelect(document.getElementById("q-ex-item"),L.map((e,i)=>[i,tx(e.name)+(e.or?" — On Request":"")]).filter(x=>L[x[0]].city===loc));
 }
 fillExps();
 fillTrRoutes();fillTours();renderQuote();
