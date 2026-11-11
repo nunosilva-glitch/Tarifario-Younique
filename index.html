@@ -943,8 +943,9 @@ function buildSidebar(){
   const ul=document.getElementById("cat-list");ul.innerHTML="";
   const li=document.createElement("li");li.textContent=t("cond");li.dataset.id="cond";
   li.onclick=()=>showCat("cond");ul.appendChild(li);
-  let lastCountry="",grp=null,sub=null;
+  let lastCountry="";
   DESTS.forEach(d=>{
+    let grp=null,sub=null;
     const country=d.id==="madrid"||d.id==="barcelona"||d.id==="sevilha"||d.id==="esoutras"||d.id==="esilhas"?(LANG==="es"?"ESPAÑA":"ESPANHA"):"PORTUGAL";
     if(country!==lastCountry){
       grp=document.createElement("li");grp.className="grp";grp.textContent=country;
