@@ -276,6 +276,7 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
           <textarea id="quote-text" readonly></textarea>
           <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
             <button class="act" onclick="copyQuote()" data-i18n="btn_copy">Copiar</button>
+            <button class="act" onclick="printQuote()" data-i18n="btn_pdf">Imprimir / PDF</button>
             <a class="ghost" style="text-decoration:none;padding:6px 12px;border:1px solid var(--line);border-radius:6px;font-size:12.5px" id="mailto-btn" href="#" data-i18n="btn_mail">Enviar por e-mail</a>
           </div>
         </div>
@@ -833,7 +834,7 @@ const T={
   btn_add_ex:"Adicionar experiência à cotação",btn_add:"Adicionar à cotação",
   mesa_note:"Taxa de reserva de mesa: 10,00 € por pessoa, por refeição. Podem existir taxas adicionais conforme o restaurante.",
   cart_title:"Cotação atual",cart_empty:"Sem serviços na cotação.",cart_total:"TOTAL (NET)",
-  cart_svc:"Serviço",btn_rm:"Remover",btn_gen:"Gerar resumo",btn_clear:"Limpar",btn_print:"Imprimir",
+  cart_svc:"Serviço",btn_rm:"Remover",btn_gen:"Gerar resumo",btn_clear:"Limpar",btn_print:"Imprimir",btn_pdf:"Imprimir / PDF",
   exp_title:"Resumo da cotação",btn_copy:"Copiar",btn_mail:"Enviar por e-mail",
   th_price:"Preço",th_freq:"Frequência / Preço",th_net:"Preço NET",
   lbl_base:"Base (mín. ",lbl_extra:"Pax extra (máx. 07 pax, cada)",
@@ -877,7 +878,7 @@ const T={
   btn_add_ex:"Añadir experiencia a la cotización",btn_add:"Añadir a la cotización",
   mesa_note:"Tasa de reserva de mesa: 10,00 € por persona, por comida. Pueden existir tasas adicionales según las políticas de cada restaurante.",
   cart_title:"Cotización actual",cart_empty:"Sin servicios en la cotización.",cart_total:"TOTAL (NET)",
-  cart_svc:"Servicio",btn_rm:"Eliminar",btn_gen:"Generar resumen",btn_clear:"Limpiar",btn_print:"Imprimir",
+  cart_svc:"Servicio",btn_rm:"Eliminar",btn_gen:"Generar resumen",btn_clear:"Limpiar",btn_print:"Imprimir",btn_pdf:"Imprimir / PDF",
   exp_title:"Resumen de la cotización",btn_copy:"Copiar",btn_mail:"Enviar por correo electrónico",
   th_price:"Precio",th_freq:"Frecuencia / Precio",th_net:"Precio NET",
   lbl_base:"Base (mín. ",lbl_extra:"Pax extra (máx. 07 pax, cada)",
@@ -1244,6 +1245,39 @@ function exportQuote(){
 function copyQuote(){
   const ta=document.getElementById("quote-text");ta.select();
   navigator.clipboard?navigator.clipboard.writeText(ta.value):document.execCommand("copy");
+}
+function printQuote(){
+  const logoEl=document.querySelector("img.logo");
+  const logo=logoEl?logoEl.src:"";
+  const now=new Date().toLocaleDateString(LANG==="es"?"es-ES":"pt-PT");
+  const rows=cart.map((it,i)=>`<tr><td class="n">${String(i+1).padStart(2,"0")}</td><td>${it.d}</td><td class="r">${it.v==null?"On Request":it.v.toFixed(2).replace(".",",")+" €"}</td></tr>`).join("");
+  const tot=cart.reduce((s,it)=>s+(it.v||0),0);
+  const w=window.open("","_blank");
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${t("exp_hdr")}</title>
+<style>
+body{font-family:Georgia,'Times New Roman',serif;color:#231F20;margin:36px;font-size:12.5px}
+.hdr{display:flex;align-items:center;gap:18px;border-bottom:3px solid #8F7745;padding-bottom:14px;margin-bottom:18px}
+.hdr img{height:64px}
+h1{font-size:15px;margin:0 0 4px;color:#231F20}
+.hdr p{margin:0;font-size:11px;color:#8F7745;letter-spacing:1px;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;margin-bottom:16px}
+th{background:#231F20;color:#fff;font-size:10.5px;text-transform:uppercase;letter-spacing:1px;padding:7px 9px;text-align:left}
+td{padding:7px 9px;border-bottom:1px solid #e4ddcd;vertical-align:top}
+td.n{color:#8F7745;font-weight:bold;width:26px}
+td.r{text-align:right;white-space:nowrap;font-weight:bold;width:110px}
+tr:nth-child(even) td{background:#faf7ef}
+.tot{background:#8F7745;color:#fff;padding:10px 14px;font-weight:bold;font-size:14px;display:flex;justify-content:space-between;margin-bottom:18px}
+.disc{white-space:pre-wrap;font-family:inherit;font-size:10px;line-height:1.55;color:#555;border-top:1px solid #8F7745;padding-top:12px}
+.ft{margin-top:20px;font-size:10px;color:#8F7745;text-align:center;letter-spacing:.5px}
+</style></head><body>
+<div class="hdr">${logo?`<img src="${logo}" alt="Younique Tailor Tours">`:""}<div><h1>${t("exp_hdr")}</h1><p>${t("exp_date")} ${now} · RNAVT 4279</p></div></div>
+<table><tr><th>#</th><th>${t("cart_svc")}</th><th style="text-align:right">NET</th></tr>${rows}</table>
+<div class="tot"><span>${t("exp_total")}</span><span>${tot.toFixed(2).replace(".",",")} EUR</span></div>
+<pre class="disc">${t("exp_disclaimer_block")}</pre>
+<div class="ft">Younique Tailor Tours DMC · bookings@youniquetailortours.com · www.youniquetailortours.com</div>
+<script>window.onload=function(){setTimeout(function(){window.print()},250)}<\/script>
+</body></html>`);
+  w.document.close();
 }
 
 
