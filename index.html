@@ -195,7 +195,7 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
             </div>
             <div>
               <label data-i18n="lbl_tour">Tour</label>
-              <select id="q-tu-tour"></select>
+              <select id="q-tu-tour" onchange="syncGuide()"></select>
             </div>
           </div>
           <div class="row">
@@ -1099,8 +1099,25 @@ function fillTours(){
   const l=TOURS[+document.getElementById("q-tu-loc").value];
   fillSelect(document.getElementById("q-tu-tour"),l.tours.map((t,i)=>[i,t[0]]));
   const ghd=l.guideHD||325,gfd=l.guideFD||425;
-  document.getElementById("q-tu-guide").innerHTML=`<option value="no">${t("no_guide")}</option><option value="hd">${tx("Guia Oficial")} Half Day (${ghd.toFixed(2).replace(".",",")} €)</option><option value="fd">${tx("Guia Oficial")} Full Day (${gfd.toFixed(2).replace(".",",")} €)</option>`;
+  const gs=document.getElementById("q-tu-guide");
+  gs.innerHTML=`<option value="no">${t("no_guide")}</option><option value="hd">${tx("Guia Oficial")} Half Day (${ghd.toFixed(2).replace(".",",")} €)</option><option value="fd">${tx("Guia Oficial")} Full Day (${gfd.toFixed(2).replace(".",",")} €)</option>`;
+  syncGuide();
   renderQuote();
+}
+function syncGuide(){
+  const li=+document.getElementById("q-tu-loc").value, ti=+document.getElementById("q-tu-tour").value;
+  const gs=document.getElementById("q-tu-guide");
+  if(!TOURS[li]||!TOURS[li].tours[ti]||!gs.options.length)return;
+  const name=TOURS[li].tours[ti][0];
+  const dur=name.trim().startsWith("FD")?"fd":name.trim().startsWith("HD")?"hd":null;
+  for(const o of gs.options){
+    if(o.value==="no")continue;
+    o.disabled=(dur!==null&&o.value!==dur);
+    o.hidden=o.disabled;
+  }
+  if(gs.selectedOptions[0]&&gs.selectedOptions[0].disabled){
+    gs.value=dur||"no";
+  }
 }
 function autoAssist(){
   const pax=+document.getElementById("q-tr-pax").value||1;
@@ -1149,8 +1166,9 @@ function addTour(){
   if(price===null||price===undefined){msg.innerHTML=`<div class="warnbox">${tf("msg_or_tour",{V:v.n})}</div>`;return;}
   msg.innerHTML="";
   cart.push({d:`${tx("Tour")} ${tx(loc.loc)}: ${tx(t[0])} · ${v.n} · ${pax} pax`,v:price});
-  if(g==="hd")cart.push({d:tx("Guia Oficial")+" Half Day 09h-13h ou 14h-18h",v:loc.guideHD||325});
-  if(g==="fd")cart.push({d:tx("Guia Oficial")+" Full Day 09h-17h",v:loc.guideFD||425});
+  const dur=t[0].trim().startsWith("FD")?"fd":t[0].trim().startsWith("HD")?"hd":null;
+  if(g==="hd"&&(dur===null||dur==="hd"))cart.push({d:tx("Guia Oficial")+" Half Day 09h-13h ou 14h-18h",v:loc.guideHD||325});
+  if(g==="fd"&&(dur===null||dur==="fd"))cart.push({d:tx("Guia Oficial")+" Full Day 09h-17h",v:loc.guideFD||425});
   renderQuote();
 }
 function addExp(){
