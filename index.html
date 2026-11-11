@@ -6,20 +6,21 @@
 <title>Tarifário Younique Tailor Tours — Cotações</title>
 <style>
 :root{
-  --navy:#1c2b4a; --navy2:#14213a; --gold:#8F7745; --gold2:#a68b52; --bg:#f5f2ec; --card:#ffffff; --line:#e3ddd0;
+  --navy:#231F20; --navy2:#1a1714; --gold:#8F7745; --gold2:#a68b52; --bg:#f7f4ec; --card:#ffffff; --line:#e6dfd2;
   --txt:#231F20; --muted:#7a7468; --ok:#2e7d32; --warn:#b26a00;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:15px}
+h1,h2,h3,.hero h2,.brand-txt h1{font-family:Georgia,"Times New Roman",serif}
 header{background:#fff;color:var(--txt);padding:14px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;box-shadow:0 2px 10px rgba(35,31,32,.12);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center}
 .logo{height:58px;width:auto;display:block}
 header .meta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 .badge{background:#f6f3ec;border:1px solid var(--line);color:#5c5136;font-size:11px;padding:5px 12px;border-radius:999px;letter-spacing:.4px}
 .hero{max-width:1200px;margin:0 auto;padding:34px 28px 6px;flex:0 0 100%;order:-1}
-.hero-inner{background:linear-gradient(115deg,var(--navy2) 0%,var(--navy) 48%,#31446e 100%);border-radius:18px;padding:40px 44px;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(28,43,74,.25)}
+.hero-inner{background:linear-gradient(115deg,#141110 0%,var(--navy) 55%,#3a3126 100%);border-radius:18px;padding:40px 44px;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(35,31,32,.3)}
 .hero-inner::after{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(212,169,74,.35),transparent 70%)}
-.hero h2{font-size:26px;font-weight:800;line-height:1.25;max-width:560px}
+.hero h2{font-size:28px;font-weight:700;line-height:1.3;max-width:620px;letter-spacing:.3px}
 .hero h2 em{color:var(--gold2);font-style:normal}
 .hero p{margin-top:12px;font-size:14px;line-height:1.65;color:#c6d0e6;max-width:640px}
 .hero-cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
@@ -29,16 +30,16 @@ header .meta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 .btn-line:hover{border-color:var(--gold2);color:var(--gold2)}
 nav.tabs{background:var(--navy2);display:flex;gap:0;padding:0 30px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.18)}
 nav.tabs button{background:none;border:none;color:#aeb9d3;padding:13px 24px;font-size:14px;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s}
-nav.tabs button.active{color:#fff;border-bottom-color:var(--gold2);font-weight:700}
+nav.tabs button.active{color:#fff;border-bottom-color:var(--gold2);font-weight:700;letter-spacing:.4px}
 nav.tabs button:hover{color:#fff}
 main{max-width:1200px;margin:0 auto;padding:22px 28px 40px;display:flex;flex-wrap:wrap;gap:24px;min-height:70vh}
 aside{width:252px;flex-shrink:0}
-aside .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 3px 14px rgba(28,43,74,.07);position:sticky;top:64px;max-height:calc(100vh - 84px);overflow:auto}
+aside .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 3px 14px rgba(35,31,32,.07);position:sticky;top:64px;max-height:calc(100vh - 84px);overflow:auto}
 aside h3{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:10px}
 aside ul{list-style:none}
 aside li{padding:7px 10px;border-radius:8px;cursor:pointer;font-size:13.5px;transition:background .12s}
 aside li:hover{background:#efe9dc;padding-left:13px}
-aside li.active{background:linear-gradient(90deg,var(--navy),#2a3d63);color:#fff;box-shadow:0 2px 6px rgba(28,43,74,.25)}
+aside li.active{background:linear-gradient(90deg,var(--navy),#3a3126);color:#fff;box-shadow:0 2px 6px rgba(35,31,32,.25)}
 aside li .grp{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:8px 8px 2px;cursor:default}
 aside li.active .grp,aside li:hover .grp{color:inherit}
 section.content{flex:1;min-width:0}
@@ -83,6 +84,7 @@ footer b{color:var(--gold2)}
 details{margin:4px 0}
 details summary{cursor:pointer;font-size:12px;color:var(--gold);font-weight:600}
 details p{font-size:13px;color:var(--txt);line-height:1.55;margin-top:8px;padding:10px 12px;background:#faf7f0;border-radius:8px}
+details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:italic}
 .desc-row td{border-top:none;padding:0 10px 8px}
 @media print{header,nav,aside,footer,.no-print{display:none!important}main{display:block}body{background:#fff}}
 </style>
@@ -108,7 +110,7 @@ details p{font-size:13px;color:var(--txt);line-height:1.55;margin-top:8px;paddin
   <section class="hero">
     <div class="hero-inner">
       <h2>Tarifário Geral de Serviços <em>Portugal FIT 2026</em></h2>
-      <p>Traslados privativos, tours com motorista de turismo, experiências e tours regulares em Lisboa, Porto, Madeira, Açores e resto de Portugal. Consulte os preços e construa a sua cotação em segundos.</p>
+      <p>Memórias para a vida. Traslados privativos, tours com motorista de turismo, experiências e tours regulares em Lisboa, Porto, Madeira, Açores e resto de Portugal. Consulte os preços e construa a sua cotação em segundos.</p>
       <div class="hero-cta">
         <button class="btn-gold" onclick="showTab('tar')">Consultar Tarifário</button>
         <button class="btn-line" onclick="showTab('quo')">Fazer uma Cotação</button>
@@ -586,7 +588,7 @@ function tuTable(l){
   let h=`<div class="note">Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD 325,00 € / FD 425,00 €.</div>
   <table><tr><th>PICK UP & DROP OFF — ${l.loc}</th><th class="num">SEDAN<br><small>01-02 PAX</small></th><th class="num">MINI VAN<br><small>03-05 PAX</small></th><th class="num">VAN<br><small>06-07 PAX</small></th><th class="num">ADAPTADO<br><small>01-03 PAX</small></th></tr>`;
   l.tours.forEach(t=>{h+=`<tr><td>${t[0]}</td><td class="num">${eur(t[1])}</td><td class="num">${eur(t[2])}</td><td class="num">${eur(t[3])}</td><td class="num">${eur(ONR)}</td></tr>`;
-    if(DESCR[t[0]])h+=`<tr class="desc-row"><td colspan="5"><details><summary>Descritivo</summary><p>${DESCR[t[0]]}</p></details></td></tr>`;});
+    if(DESCR[t[0]])h+=`<tr class="desc-row"><td colspan="5"><details><summary>Descritivo</summary><p>${DESCR[t[0]]}</p><p class="d-note">Descritivo meramente informativo e não vinculativo, podendo ser adaptado conforme as preferências dos passageiros, respeitando sempre o horário e a rota acordados. Não inclui entradas para monumentos e/ou atividades, guias nem refeições. A programação refere-se a um serviço panorâmico; a compra de ingressos poderá implicar ajustes.</p></details></td></tr>`;});
   return h+"</table>";
 }
 function opTable(k){
@@ -604,20 +606,57 @@ function rgTable(k){
   let h=`<div class="note">Tarifas NET em EUR por pax. Não inclui refeições nem entradas (salvo indicado). Preço para crianças on request. Preço, frequência e operação podem sofrer alterações sem aviso prévio.</div>
   <table><tr><th>${k} — Meeting point & drop off</th><th>Frequência / Preço</th></tr>`;
   REGULARS[k].forEach(r=>{h+=`<tr><td>${r}</td><td class="or">ON REQUEST</td></tr>`;
-    if(REGDESCR[r])h+=`<tr class="desc-row"><td colspan="2"><details><summary>Descritivo</summary><p>${REGDESCR[r]}</p></details></td></tr>`;});
+    if(REGDESCR[r])h+=`<tr class="desc-row"><td colspan="2"><details><summary>Descritivo</summary><p>${REGDESCR[r]}</p><p class="d-note">Descritivo apenas informativo e não vinculativo, podendo sofrer alterações por motivos que nos sejam alheios. Frequência e operação poderão sofrer alterações sem aviso prévio.</p></details></td></tr>`;});
   return h+"</table>";
 }
 function condHTML(){
-  return `<div class="note">
-  <b>Validade:</b> 01/04/2026 a 31/12/2026 ou até publicação de novo tarifário/adenda.<br><br>
-  <b>Confirmação:</b> os valores servem apenas para cotação. Os serviços só ficam reservados com Fatura Proforma da Younique Tailor Tours.<br><br>
-  <b>Cotações e reservas:</b> bookings@youniquetailortours.com · WhatsApp Operações +351 924 451 271 (seg-sex 09h-13h e 14h-18h; não serve para reservas).<br><br>
-  <b>Emergência 24/7 (passageiros em trânsito):</b> +351 968 629 112. Nenhuma reclamação é aceite sem acionar a linha de emergência.<br><br>
-  <b>Alterações/cancelamentos:</b> até 48h sem custos; menos de 48h: 100% custos. No show: 100%.<br><br>
-  <b>Seguro de viagem:</b> obrigatório para todos os passageiros, contratado na origem.<br><br>
-  <b>Motorista de turismo:</b> profissional de turismo uniformizado (terno e gravata), não é guia — não pode acompanhar em monumentos. Para acompanhamento personalizado, solicitar guia oficial.<br><br>
-  <b>Força maior:</b> greves, manifestações ou fenómenos naturais — a Younique Tailor Tours não se responsabiliza por serviços impossíveis de executar.<br><br>
-  <b>Atrasos de voos:</b> serviços considerados No Show por atraso/perda de conexão não são da responsabilidade da Younique Tailor Tours.</div>`;
+  const sec=(t,items)=>`<div class="card"><h3 style="margin-bottom:10px">${t}</h3>`+items.map(i=>`<p style="font-size:13px;line-height:1.6;margin-bottom:9px"><b>· ${i[0]}:</b> ${i[1]}</p>`).join("")+`</div>`;
+  return (
+  sec("Validade e Reservas",[
+   ["Validade","este tarifário está válido de 01 de abril de 2026 até 31 de dezembro de 2026, ou até publicação de novo tarifário ou adenda."],
+   ["Serviços","este tarifário inclui somente as ofertas mais habituais. Caso não encontre o que procura, por favor consulte-nos e teremos todo o gosto em personalizar a experiência que deseja para os seus passageiros."],
+   ["Contactos de Operações","todos os pedidos de cotações e reservas devem ser enviados para o e-mail bookings@youniquetailortours.com. Para apoio operacional está disponível o WhatsApp de Operações +351 924 451 271, de segunda a sexta-feira, entre as 09h00 e as 13h00 e das 14h00 às 18h00. Este contacto não deve ser utilizado para reservas nem para passageiros em trânsito; qualquer pedido de cotação ou reserva enviado via WhatsApp não será considerado."],
+   ["Confirmação de serviços","todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours. Os valores apresentados servem somente o propósito de cotação/orçamentação. Apenas com uma confirmação formal (Fatura Proforma) se poderão considerar os serviços como reservados."],
+   ["Serviços de emergência","para passageiros em trânsito com serviços adquiridos, disponibilizamos uma linha de emergência 24/7 através de telefone celular/WhatsApp +351 968 629 112."],
+   ["Reclamações","seja qual for o serviço, nenhuma reclamação de passageiros será aceite sem que os nossos serviços de emergência tenham sido acionados."]])
+  +sec("Alterações, Cancelamentos e No Show",[
+   ["Alterações e/ou cancelamentos","até 48 horas antes: sem custos. Com menos de 48 horas: 100% de custos."],
+   ["No show","cobrado a 100%."]])
+  +sec("Seguro de Viagem e Força Maior",[
+   ["Seguro de viagem","todos os passageiros deverão ter, obrigatoriamente, um seguro de viagem contratado na origem, para cobertura de eventuais perdas e danos que possam ocorrer durante a viagem, nomeadamente furtos e roubos, assistência médica, despesas de repatriamento, assim como danos causados por terceiros ou casos de força maior. A Younique Tailor Tours declina qualquer responsabilidade por perdas, danos ou prejuízos, de ordem material, patrimonial, sanitária ou qualquer outra que não decorram exclusivamente da nossa atuação e/ou de nossos parceiros por nós contratados."],
+   ["Força maior","em casos de força maior como greves, manifestações ou fenómenos naturais (ex.: cheias, incêndios, terramotos ou quaisquer outros) sobre os quais a Younique Tailor Tours não tenha controle, iremos fazer tudo que esteja ao nosso alcance para que os serviços contratados sejam cumpridos, porém não nos responsabilizaremos por serviços que, derivado desses fatores, não possam ser efetuados. Nesses casos, deverão os passageiros ser instruídos a acionar o seguro de viagem para ressarcimento dos danos advindos."],
+   ["Atrasos de voos e perda de conexões aéreas","a Younique Tailor Tours não se responsabiliza por serviços considerados No Show por falta de comparência dos passageiros, no local e hora agendados, derivado de atrasos de voos e/ou perda de conexões aéreas. Nesses casos, deverão os pax ser instruídos a solicitar ressarcimento de danos junto das companhias aéreas e/ou junto da seguradora com quem contrataram o seguro de viagem."]])
+  +sec("Motorista de Turismo e Guias",[
+   ["Motorista de turismo","os tours privativos são efetuados em viatura de turismo dirigida por motorista de turismo, devidamente uniformizado de terno e gravata. É um profissional com formação em turismo e vasto conhecimento do destino, que conduzirá os passageiros e dará indicações sobre os locais a visitar e dicas do destino. No entanto não é guia e não pode, por lei, fazer serviço de guia: não pode abandonar a viatura, não pode entrar em monumentos nem acompanhar os passageiros em visitas. Caso pretenda um acompanhamento mais personalizado e profissional, solicite a inclusão de um guia oficial nos tours privativos (valores informados neste tarifário)."],
+   ["Guias","serviço de guia fora dos horários previstos e walking tours sob consulta."]])
+  +sec("Condições — Traslados Privativos",[
+   ["Tarifas","NET em EUROS por trajeto, válidas para todos os dias da semana, exceto feriados, datas festivas e datas de eventos que decorram na cidade, que serão informadas no ato da reserva."],
+   ["Serviço noturno","traslados efetuados entre as 22h00 e as 06h00 acrescem 25%. IVA e pedágios incluídos."],
+   ["Assistência","traslados até 05 pax incluem assistência local do motorista em português. Assistência no aeroporto/estação: 215,00 € — obrigatória incluir para serviços a partir de 06 pax."],
+   ["Bagagens","máximo 01 mala por pax até 23kg."],
+   ["Tempos de espera","no aeroporto: até 01h após aterragem. Na estação de trem/porto de cruzeiros: até 15 minutos após a chegada do trem/navio. No hotel: até 15 minutos após a hora indicada no voucher."],
+   ["Pontos de encontro","Aeroporto de Lisboa — junto ao desembarque · Estação Oriente — na plataforma junto à 1ª carruagem · Estação Santa Apolónia — junto à saída da respetiva plataforma · Aeroporto do Porto — junto ao desembarque · Estação Campanhã — no interior do edifício principal · Estação São Bento — na plataforma junto à 1ª carruagem · Aeroportos do Funchal e Ponta Delgada — junto ao desembarque · Aeroporto/estação de outras cidades — a informar no voucher. Caso não encontre o motorista em 10 minutos, acione os serviços de emergência."],
+   ["Porto de cruzeiros","pode haver custos adicionais para o acesso ao porto de cruzeiros. Disponibilidade e taxas adicionais on request."]])
+  +sec("Condições — Tours Privativos com Motorista",[
+   ["Tarifas","NET em EUROS, por serviço, válidas para todos os dias da semana, exceto feriados, datas festivas e datas de eventos, informadas no ato da reserva. Serviços efetuados com motorista falando português. IVA, pedágios e despesas do motorista incluídas."],
+   ["Duração","tour HD inclui até 04hrs de serviço (09h00-13h00 ou 14h00-18h00). Tour FD inclui até 08hrs de serviço (09h00-17h00). Serviço by night válido entre as 20h00 e as 00h00. Horas extras serão cobradas diretamente pelos motoristas."],
+   ["Não inclui","entradas nos monumentos, refeições e outros extras de carácter pessoal."],
+   ["Ponto de encontro","pick up e drop off em hotel central (Lisboa, Porto, Funchal, Ponta Delgada, Coimbra, Faro e ilhas). Outros pick ups sob consulta."],
+   ["Não opera","25 de dezembro e 1 de janeiro (alguns serviços também 26 de dezembro — ver descritivo)."]])
+  +sec("Condições — Experiências e Opcionais",[
+   ["Disponibilidade","opcionais disponíveis mediante consulta prévia e sujeitos a horários e disponibilidade de parceiros."],
+   ["Experiências nas Ilhas","válidas para mínimo de 02 pax ou pagamento do valor equivalente."],
+   ["Tickets Universidade de Coimbra","requerem um mínimo de 05 participantes ou o pagamento do valor equivalente. Não reembolsáveis."],
+   ["Experiências noturnas","sempre após as 19h00."],
+   ["Reserva de mesa em restaurantes","a Younique cobra uma taxa de reserva de mesa de 10,00 € por pessoa, por refeição. Podem existir taxas adicionais, de acordo com as políticas de reserva de cada restaurante."]])
+  +sec("Condições — Tours Regulares",[
+   ["Tarifas","NET em EUROS por pax. Não inclui refeições nem entradas nos monumentos (salvo expressamente indicado) e extras de carácter pessoal."],
+   ["Crianças","preço para crianças on request."],
+   ["Alterações","preço, frequência e operação poderão sofrer alterações sem aviso prévio."],
+   ["Pontos de encontro","Lisboa — Terminal Grayline, Alameda Edgar Cardoso 1070-051 (junto ao Parque Eduardo VII) · Porto — Rua Mouzinho da Silveira 352, 4050-418 (junto à estação de São Bento) · Funchal — ponto de encontro a confirmar no voucher. Meeting point a confirmar no voucher."]])
+  +sec("Descritivos",[
+   ["Âmbito","os descritivos são meramente informativos e não vinculativos, podendo ser adaptados conforme as preferências dos passageiros, respeitando sempre o horário e a rota acordados. Os tours privativos não incluem entradas para os monumentos e/ou atividades, guias nem refeições."],
+   ["Programação","a programação apresentada refere-se a um serviço panorâmico, sendo que a compra de ingressos para monumentos poderá implicar ajustes, a fim de garantir o cumprimento do serviço contratado."]]));
 }
 
 /* ==================== COTAÇÃO ==================== */
@@ -721,7 +760,7 @@ function exportQuote(){
   let txt=`COTAÇÃO — Younique Tailor Tours DMC (Tarifário Portugal FIT 2026)\nData: ${now}\n${"=".repeat(60)}\n\n`;
   cart.forEach((it,i)=>{txt+=`${String(i+1).padStart(2,"0")}. ${it.d}\n    ${eurS(it.v)}\n`;});
   txt+=`\n${"=".repeat(60)}\nTOTAL NET: ${tot.toFixed(2).replace(".",",")} EUR\n\n`;
-  txt+=`Os valores servem apenas para cotação. Os serviços só ficam reservados após\nconfirmação formal (Fatura Proforma) da Younique Tailor Tours.\nAlterações/cancelamentos: até 48h sem custos; menos de 48h: 100% custos; No show: 100%.\nCotações e reservas: bookings@youniquetailortours.com`;
+  txt+=`DISCLAIMERS\n- Os valores servem apenas para cotação. Os serviços só ficam reservados após confirmação\n  formal (Fatura Proforma) da Younique Tailor Tours.\n- Alterações/cancelamentos: até 48h sem custos; menos de 48h: 100% custos. No show: 100%.\n- Tarifas NET em EUR, válidas todos os dias exceto feriados, datas festivas e eventos,\n  informadas no ato da reserva.\n- Traslados entre 22h00 e 06h00: +25%. Bagagens: 01 mala por pax até 23kg.\n- Tours HD até 04hrs; FD até 08hrs; by night 20h-00h. Horas extras cobradas pelo motorista.\n- Não inclui entradas, refeições e extras pessoais. Motorista de turismo não é guia; guia\n  oficial disponível mediante pedido.\n- Todos os passageiros devem ter seguro de viagem contratado na origem.\n- Serviços não executados por força maior (greves, manifestações, fenómenos naturais) não\n  dão direito a reembolso pela Younique Tailor Tours; acionar o seguro de viagem.\n- No Show por atraso de voo/perda de conexão: sem reembolso; recorrer à companhia aérea/seguro.\n- Nenhuma reclamação será aceite sem acionar a linha de emergência 24/7: +351 968 629 112.\n\nCotações e reservas: bookings@youniquetailortours.com | WhatsApp Operações: +351 924 451 271`;
   document.getElementById("quote-text").value=txt;
   document.getElementById("export-card").style.display="block";
   const mail="mailto:bookings@youniquetailortours.com?subject="+encodeURIComponent("Pedido de cotação — serviços Portugal")+"&body="+encodeURIComponent(txt);
