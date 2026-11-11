@@ -113,8 +113,8 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
 <main>
   <section class="hero">
     <div class="hero-inner">
-      <h2>Tarifário Geral de Serviços <em>Portugal FIT 2026</em></h2>
-      <p>Memórias para a vida. Traslados privativos, tours com motorista de turismo, experiências e tours regulares em Lisboa, Porto, Madeira, Açores e resto de Portugal. Consulte os preços e construa a sua cotação em segundos.</p>
+      <h2>Tarifário Geral de Serviços <em>Portugal &amp; Espanha FIT 2026</em></h2>
+      <p>Memórias para a vida. Traslados privativos, tours com motorista de turismo, experiências e tours regulares em Portugal (Lisboa, Porto, Madeira, Açores, Algarve, Coimbra) e em Espanha (Madrid, Barcelona, Sevilha, Andaluzia, Ilhas). Consulte os preços e construa a sua cotação em segundos.</p>
       <div class="hero-cta">
         <button class="btn-gold" onclick="showTab('tar')">Consultar Tarifário</button>
         <button class="btn-line" onclick="showTab('quo')">Fazer uma Cotação</button>
@@ -546,6 +546,133 @@ const REGDESCR = {
 "FD Oeste da Madeira sem almoço":"Terá a oportunidade de observar alguns dos marcos mais importantes da ilha: a variedade é a palavra-chave. Paragem em Câmara de Lobos, vila de pescadores, e em Cabo Girão, o mais alto promontório da Europa. Indo em direção ao litoral norte, passando pelo planalto do Paul da Serra, chegaremos a uma das aldeas mais populares da Madeira: Porto Moniz. Por fim, visitaremos as belas aldeias do Seixal e São Vicente. Este passeio passa por: Câmara de Lobos, Cabo Girão, Ribeira Brava, Encumeada, Paul da Serra, Porto Moniz, Seixal, São Vicente (almoço não incluído).",
 };
 
+/* ==================== DADOS DO TARIFÁRIO ESPANHA 2026 ==================== */
+TRANSFERS.push(
+ {zone:"ES · Madrid",label:"Madrid",assist:310,rows:[
+  ["Aeroporto de Madrid",80,115,150],["Estação Trem Madrid-Atocha",80,115,150],
+  ["Toledo",270,310,350],["Segóvia",335,430,475],["Ávila",360,475,525],
+  ["Bilbao",1200,1450,1575],["Salamanca",710,775,985],["San Sebastian",1500,1700,1800],
+  ["Sevilha",1700,1850,2025],["Valência",1200,1350,1500]]},
+ {zone:"ES · Barcelona",label:"Barcelona",assist:310,rows:[
+  ["Aeroporto de Barcelona",90,120,ONR],["Porto de Cruzeiros*",90,120,ONR],
+  ["Estação Trem Barcelona-Sants",90,120,ONR],["Montserrat",200,275,ONR],
+  ["Girona",375,425,ONR],["Tarragona",325,375,ONR],["Sitges",185,250,ONR],["Andorra",580,695,ONR]]},
+ {zone:"ES · Sevilha",label:"Sevilha",assist:310,rows:[
+  ["Aeroporto de Sevilha",115,140,ONR],["Estação Trem Santa Justa",115,140,ONR],
+  ["Granada",590,670,ONR],["Málaga",580,640,ONR],["Córdoba",370,410,ONR],
+  ["Jerez",340,395,ONR],["Marbella",730,780,ONR],["Madrid",1300,1500,ONR]]},
+ {zone:"ES · Valência",label:"Valência",assist:310,rows:[["Aeroporto / Porto de Cruzeiros* / Hotel central",75,95,ONR]]},
+ {zone:"ES · Santiago de Compostela",label:"Santiago de Compostela",assist:310,rows:[
+  ["Aeroporto / Hotel central",170,235,ONR],["Estação de Trem / Hotel central",120,150,ONR]]},
+ {zone:"ES · Córdoba",label:"Córdoba",assist:310,rows:[
+  ["Aeroporto / Hotel central",120,140,ONR],["Sevilha",370,410,ONR],
+  ["Málaga",470,520,ONR],["Granada",490,540,ONR]]},
+ {zone:"ES · Málaga*",label:"Málaga",assist:310,rows:[
+  ["Aeroporto / Hotel central",120,160,ONR],["Marbella",220,270,ONR],["Ronda",410,450,ONR],
+  ["Granada",390,450,ONR],["Córdoba",470,520,ONR],["Sevilha",580,640,ONR]]},
+ {zone:"ES · Granada",label:"Granada",assist:310,rows:[
+  ["Aeroporto / Estação Trem / Hotel central",115,140,ONR],["Málaga",390,450,ONR],
+  ["Córdoba",490,540,ONR],["Madrid",995,1100,ONR],["Marbella",570,610,ONR],["Sevilha",590,670,ONR]]},
+ {zone:"ES · Tenerife (Canárias)",label:"Tenerife",assist:ONR,rows:[
+  ["Playa las Américas / Costa Adeje / Los Cristianos",ONR,ONR,ONR],["Santa Cruz de Tenerife",ONR,ONR,ONR]]},
+ {zone:"ES · Gran Canaria (Canárias)",label:"Gran Canaria",assist:ONR,rows:[
+  ["Las Palmas",ONR,ONR,ONR],["Maspalomas",ONR,ONR,ONR]]},
+ {zone:"ES · Lanzarote (Canárias)",label:"Lanzarote",assist:ONR,rows:[
+  ["Puerto del Carmen",ONR,ONR,ONR],["Costa Teguise",ONR,ONR,ONR],["Playa Blanca",ONR,ONR,ONR]]},
+ {zone:"ES · Fuerteventura (Canárias)",label:"Fuerteventura",assist:ONR,rows:[["Corralejo",ONR,ONR,ONR]]},
+ {zone:"ES · Ibiza (Baleares)",label:"Ibiza",assist:ONR,rows:[
+  ["Ibiza",155,205,225],["Playa D'en Bossa",155,205,225],["Sta. Eulalia",185,205,225]]},
+ {zone:"ES · Maiorca (Baleares)",label:"Maiorca",assist:ONR,rows:[["Palma",150,175,200],["Magaluf",225,275,325]]},
+ {zone:"ES · Menorca (Baleares)",label:"Menorca",assist:ONR,rows:[["Punta Prima",95,120,130],["Cala Galdana",140,160,210]]}
+);
+TOURS.push(
+ {loc:"Madrid",guideHD:450,guideFD:725,tours:[
+  ["HD Madrid 09h-13h ou 14h-18h",375,425,475],["HD Toledo 08h-13h ou 14h-19h",410,475,550],
+  ["HD Escorial e Vale dos Caídos 08h-13h ou 14h-19h",475,515,575],["Madrid by Night 03hrs",400,455,485],
+  ["FD Madrid 09h-17h",595,600,700],["FD Toledo 09h-17h",575,650,750],
+  ["FD Madrid + Toledo 09h-17h",650,850,950],["FD Ávila + Segóvia 09h-17h",750,900,1000],
+  ["Carro à Disposição 04 hrs com 70km",400,455,500],["Carro à Disposição 08 hrs com 120km",550,650,750]]},
+ {loc:"Barcelona",guideHD:450,guideFD:725,tours:[
+  ["HD Barcelona 09h-13h ou 14h-18h",350,425,ONR],["HD Barcelona de Gaudí 09h-13h ou 14h-18h",350,425,ONR],
+  ["HD Montserrat 08h-13h ou 14h-19h",550,650,ONR],["FD Barcelona 09h-17h",600,650,ONR],
+  ["FD Barcelona + Montserrat 09h-17h",690,800,ONR],["FD Sitges 09h-17h",690,785,ONR],
+  ["FD Girona + Figueres 09h-17h",775,900,ONR],["FD Costa Brava 09h-17h",750,875,ONR],
+  ["Carro à Disposição 04 hrs com 70km",375,450,ONR],["Carro à Disposição 08 hrs com 120km",625,700,ONR]]},
+ {loc:"Sevilha",guideHD:450,guideFD:725,tours:[
+  ["HD Sevilha 09h-13h ou 14h-18h",340,440,ONR],["Sevilha by Night 20h-23h",350,510,ONR],
+  ["FD Sevilha 09h-17h",540,670,ONR],["FD Granada 09h-17h",930,1050,ONR],
+  ["FD Córdoba 09h-17h",770,870,ONR],["FD Jerez + Cádiz 09h-17h",695,860,ONR],
+  ["FD Ronda 09h-17h",710,920,ONR],
+  ["Carro à Disposição 04 hrs com 60km",360,450,ONR],["Carro à Disposição 08 hrs com 100km",550,690,ONR]]},
+ {loc:"Valência",guideHD:450,guideFD:725,tours:[["HD Valência 09h-13h ou 14h-18h",280,325,ONR]]},
+ {loc:"Santiago de Compostela",guideHD:450,guideFD:725,tours:[
+  ["HD Santiago de Compostela 09h-13h ou 14h-18h",395,475,ONR],["FD Santiago de Compostela 09h-17h",620,695,ONR]]},
+ {loc:"Córdoba",guideHD:450,guideFD:725,tours:[
+  ["FD Córdoba 09h-17h",620,720,ONR],["FD Ronda 09h-17h",770,870,ONR],
+  ["FD Sevilha 09h-17h",770,870,ONR],["FD Granada 09h-17h",950,1050,ONR]]},
+ {loc:"Málaga",guideHD:450,guideFD:725,tours:[
+  ["HD Málaga 09h-13h ou 14h-18h",330,390,ONR],["FD Málaga 09h-17h",650,790,ONR],["FD Granada 09h-17h",870,980,ONR]]},
+ {loc:"Granada",guideHD:450,guideFD:725,tours:[
+  ["HD Granada 09h-13h ou 14h-18h",290,360,ONR],["FD Granada 09h-17h",560,680,ONR],
+  ["FD Marbella 09h-17h",790,860,ONR],["FD Sevilha 09h-17h",970,1100,ONR],
+  ["FD Ronda 09h-17h",890,990,ONR],["FD Córdoba 09h-17h",950,1050,ONR],
+  ["Carro à Disposição 04 hrs com 60km",290,360,ONR],["Carro à Disposição 08 hrs com 100km",560,680,ONR]]}
+);
+OPCIONAIS["Experiências Madrid"]=[
+ ["Ticket Palácio Real de Madrid (com audioguia)","On Request"],["Ticket Museu do Prado (com audioguia)","On Request"],
+ ["Ticket Museu Reina Sofia (visita livre)","On Request"],["Ticket Museu Thyssen-Bornemisza (com audioguia)","On Request"],
+ ["Almoço sem bebidas no Parador de Toledo","On Request"],["Almoço sem bebidas no Parador de Ávila","On Request"],
+ ["Jantar Degustação com Show de Flamenco no Corral de La Morería","On Request"]];
+OPCIONAIS["Experiências Barcelona"]=[
+ ["Ticket Sagrada Família (com audioguia)","On Request"],["Ticket Sagrada Família com Torre (com audioguia)","On Request"],
+ ["Ticket Park Guell (visita livre)","On Request"],["Ticket Casa Milà (La Pedrera) (com audioguia)","On Request"],
+ ["Ticket Casa Batlló (com audioguia)","On Request"],["Freixenet Tour (Montserrat)","On Request"],
+ ["Ticket Dalí Teatro-Museu (Girona/Figueres)","On Request"]];
+OPCIONAIS["Experiências Sevilha"]=[
+ ["Ticket Alcázar de Sevilha (visita livre)","On Request"],["Ticket Catedral de Sevilha (com audioguia)","On Request"],
+ ["Ticket Alhambra (Granada, com audioguia)","On Request"],["Ticket Mezquita-Catedral Córdoba (com audioguia)","On Request"]];
+REGULARS["Tours Regulares Madrid"]=[
+ "HD Madrid Highlights AM","HD Madrid Highlights com Museu do Prado","HD Madrid Highlights com Palácio Real",
+ "HD Toledo com Catedral AM","HD Toledo Essencial PM","HD Escorial e Vale dos Caídos","FD Ávila & Segóvia com Alcázar"];
+REGULARS["Tours Regulares Barcelona"]=[
+ "Barcelona Highlights AM","FD Barcelona com Sagrada Família & Park Guell","HD Montserrat AM","HD Montserrat PM",
+ "FD Costa Brava","FD Girona, Figueres & Dalí","FD Barcelona & Montserrat","FD Girona","FD Vinhos & Cavas da Catalunha"];
+REGULARS["Tours Regulares Sevilha"]=[
+ "HD Sevilha Monumental","FD Granada c/ Alhambra","FD Córdoba & Mesquita Catedral","FD Ronda"];
+Object.assign(DESCR,{
+ "HD Madrid 09h-13h ou 14h-18h":"Encontro no lobby do hotel com motorista e saída para tour privativo de meio-dia pela cidade de Madrid, onde poderá contemplar a elegante Praça do Oriente, Praça de Espanha, o Parque del Oeste, Príncipe Pio, Puente del Rey, a Ermita Virgen del Puerto — que oferece uma das melhores vistas da cidade — terminando na Puente de Segóvia. Daqui, siga até a Plaza Mayor, a Plaza de la Villa, Puerta del Sol, Neptuno, Atocha, Puerta de Alcalá, Calle Alcalá, o Parque do Retiro e a imponente Praça de Touros.",
+ "FD Madrid 09h-17h":"Tour privativo de dia inteiro pela cidade de Madrid, com os contrastes da cidade: a elegante Praça do Oriente, Praça de Espanha, o Parque del Oeste, Príncipe Pio, Puente del Rey, a Ermita Virgen del Puerto, a Puente de Segóvia, Plaza Mayor, Plaza de la Villa, Puerta del Sol, Neptuno, Atocha, Puerta de Alcalá, Calle Alcalá, o Parque do Retiro e a Praça de Touros. Continue o tour pelo Madrid Moderno, com os seus edifícios modernos e jardins, o Paseo de la Castellana, até à Plaza de Castilla (Puerta de Europa), descendo para o Estádio Santiago Bernabéu, Plaza de la Cibeles, Gran Via e Plaza del Callao.",
+ "Madrid by Night 03hrs":"Mergulhe na atmosfera encantadora da cidade à noite, enquanto descobre sua rica história e cultura. Sugerimos incluir um jantar com show de Flamenco, onde poderá saborear a autêntica cozinha espanhola e vivenciar o intenso e apaixonante mundo do flamenco (não incluído). É uma noite repleta de paixão, sabor e espetáculo que nunca esquecerá.",
+ "HD Toledo 08h-13h ou 14h-19h":"A 70 km de Madrid, Toledo é \"Cidade Património da Humanidade\", cidade-museu de grande beleza artística e uma das mais antigas da Europa, chamada de \"cidade das três culturas\", já que ali viviam juntos cristãos, muçulmanos e judeus. Na cidade encontra edifícios de quase todos os períodos da história (mouriscas, góticas, mudéjar, renascentista e barroco). Nesta cidade viveu também o grande pintor El Greco, no século XVI. Ao longo do tour serão feitas paragens para fotos. Recomenda-se calçado confortável.",
+ "HD Escorial e Vale dos Caídos 08h-13h ou 14h-19h":"A visita inicia pelo Escorial, que comemora a Batalha de San Quintín e é o Panteão dos restos mortais do Imperador Carlos V. A sua construção foi regida pela razão, simetria e equilíbrio e guarda os grandes expoentes do humanismo renascentista — por este motivo foi considerada a Oitava Maravilha do Mundo. Segue-se a Basílica do Valle de los Caídos, construída entre 1940 e 1959 para honrar os espanhóis que morreram durante a Guerra Civil, escavada na montanha a 1350 metros de altitude, com uma impressionante cruz de 150 metros. Recomenda-se calçado confortável.",
+ "FD Toledo 09h-17h":"Toledo é \"Cidade Património da Humanidade\", cidade-museu de grande beleza e uma das mais antigas da Europa, chamada de \"cidade das três culturas\". Aqui viveu o grande pintor El Greco, no século XVI. No centro histórico poderá visitar monumentos como a Catedral, a Igreja de Santo Tomé com \"O Enterro do Conde de Orgaz\", a Sinagoga de Santa María la Blanca, o Mosteiro de San Juan de los Reyes e as lojas onde poderá ver a técnica do Damasceno (arte de embutir ouro e prata em ferro). Tempo livre para almoço na cidade. Recomenda-se calçado confortável.",
+ "FD Madrid + Toledo 09h-17h":"Saída em direção a Toledo — \"Cidade Património da Humanidade\", cidade-museu de grande beleza artística e chamada de \"cidade das três culturas\", já que viviam juntos cristãos, muçulmanos e judeus. Aqui viveu o grande pintor El Greco no século XVI. Chegada a Madrid ao início da tarde para panorâmica da cidade: o elegante Parque del Oeste, Príncipe Pio, Puente del Rey, Ermita Virgen del Puerto, Puente de Segóvia, Plaza Mayor, Plaza de la Villa, Puerta del Sol, Neptuno, Atocha, Puerta de Alcalá, Calle Alcalá, o Parque Retiro e a imponente Praça de Touros.",
+ "FD Ávila + Segóvia 09h-17h":"Saída em direção a Ávila, uma cidade que preserva a mais antiga e mais completa Muralha de Espanha (século XI). Os seus 2500 m de muralha romana e 90 torres ao redor da cidade velha abrigam grande parte do seu tesouro monumental. Durante a visita, não perca o Museu e Convento de Santa Teresa de Jesus, a Catedral (exterior), a Plaza Mayor e a Basílica de San Vicente. Pela tarde siga para Segóvia, famosa pelos seus aquedutos romanos. Foi residência de alguns reis de Castela e tem um dos mais notáveis conjuntos medievais de Espanha. A catedral foi considerada \"A Dama das Catedrais espanholas\" e o Alcázar, o mais espetacular castelo de Espanha.",
+ "HD Barcelona 09h-13h ou 14h-18h":"Encontro com o motorista no lobby do hotel e saída para visita da cidade de Barcelona. Comece o passeio no centro histórico onde pode visitar a Via Laietana, a Catedral, o Bairro Gótico e a Plaça Sant Jaume. Após imersão nas tradições da cidade, siga para a área moderna — com a celebração dos Jogos Olímpicos, esta zona à beira-mar ressuscitou. Visite a Vila e o Porto Olímpico e suba até Montjuïc, seguindo para o Estádio Olímpico Lluís Companys, o Palau St. Jordi e a Torre de Calatrava. Finalmente, sugerimos visita ao Poble Espanyol, uma seleção de construções típicas da Espanha.",
+ "HD Barcelona de Gaudí 09h-13h ou 14h-18h":"Encontro com o motorista no lobby do hotel e saída para conhecer a capital do modernismo, onde viveu e trabalhou o famoso arquiteto António Gaudí. A Sagrada Família é um dos edifícios mais visitados do mundo — obra-prima inacabada de Gaudí e o monumento mais famoso de Barcelona. Daqui, siga a visita pela Barcelona da Arte: desfrute de um passeio pelo Park Güell, declarado monumento artístico e património mundial pela UNESCO (sugerimos comprar o ingresso com antecedência para a área monumental). O passeio continua pelo Passeig de Gràcia para ver edifícios famosos de Gaudí, como La Pedrera e Casa Batlló.",
+ "FD Barcelona 09h-17h":"O passeio começa no centro histórico para visitar lugares como a Via Laietana, a Catedral e o seu claustro (obrigatório uso de calças e camisa de manga longa), o Bairro Gótico e a Plaça Sant Jaume. Visite a Vila e o Porto Olímpico e suba até Montjuïc, o Estádio Olímpico Lluís Companys, o Palau St. Jordi, a Torre de Calatrava e o Poble Espanyol. Tempo livre para almoço na cidade. Pela tarde, conheça o local onde viveu e trabalhou Gaudí: a Sagrada Família, o Park Güell (património mundial pela UNESCO) e o Passeig de Gràcia com La Pedrera e Casa Batlló.",
+ "HD Montserrat 08h-13h ou 14h-19h":"Encontro com o motorista no lobby do hotel e saída para as montanhas de Montserrat, que atingem a altura de 1.236 metros. A subida até Montserrat será feita em \"trem Zipper\" (ingresso não incluído), que o deixa no meio do mosteiro. As rochas de Montserrat são compostas de uma areia, quase cimento natural, que durante séculos foi modificada pelo vento e pela chuva, dando-lhes uma forma estranha e variada. Visite a Basílica Real de Montserrat, que abriga a escultura românica do século XII da Virgem Madona Negra.",
+ "FD Barcelona + Montserrat 09h-17h":"Visita de Barcelona: o centro histórico com a Via Laietana, a Catedral e o seu claustro, o Bairro Gótico, a Plaça Sant Jaume, a Vila e o Porto Olímpico, Montjuïc, o Palau St. Jordi e a Torre de Calatrava, terminando no Poble Espanyol. Pela tarde, viagem para as montanhas de Montserrat (1.236 metros), com subida em \"trem Zipper\" (ingresso não incluído). Visite a Basílica Real de Montserrat, que abriga a escultura românica do século XII da Virgem Madona Negra.",
+ "FD Sitges 09h-17h":"Saída para visita a Sitges. Graças às suas ruas estreitas, praias e oferta cultural e gastronómica, Sitges é o lugar perfeito para degustar a costa mediterrânica. Sugerimos que visite a Casa Bacardí, onde saberá mais sobre a história da famosa família Bacardí, conhecida pelo seu rum, e onde tem a possibilidade de fazer o seu cocktail personalizado. Em seguida visite as caves Freixenet, onde irá aprender como se confeciona o famoso espumante, o Cava, terminando com um passeio de trem na parte moderna da adega e degustação de uma taça de cava.",
+ "FD Girona + Figueres 09h-17h":"Saída para visita a duas grandes cidades do norte da Catalunha: Figueres, com o Teatro Museu Dalí entre as suas principais atrações, e Girona, uma cidade monumental, com um dos bairros judeus mais bem preservados da Europa. Em Girona vai viver a história através das pequenas ruas no centro, a Catedral e as famosas casas cor pastel ao longo do rio.",
+ "FD Costa Brava 09h-17h":"Saída para descobrir a Costa de Girona, batizada há 100 anos como Costa Brava. A Costa Brava também deve a sua fama às suas aldeias de pescadores, casas caiadas de branco, com paredes e ruas estreitas e sinuosas, que ainda hoje mantêm esse charme único. Esta área tem sido ao longo do tempo local de entrada das diferentes culturas e civilizações que foram deixando a sua marca, como prova existem alguns locais com grande influência greco-romana. A nossa intenção é mostrar num dia os lugares mais representativos e emblemáticos desta maravilhosa costa espanhola.",
+ "HD Sevilha 09h-13h ou 14h-18h":"Encontro com o motorista no lobby do hotel e saída para visitar Sevilha, onde poderá admirar as bandeiras da Grande Exposição Ibero-Americana de 1929. Passe pela Plaza de América, de onde pode seguir para o Alcázar de Sevilha e a Catedral de Sevilha, que detém o título de ser a maior do mundo construída em estilo gótico. Ao lado dela, tem a oportunidade de subir ao topo da Giralda. Continue para o porto da América e a Torre del Oro até ao antigo bairro judeu de Sevilha e ao Bairro de Santa Cruz. Termine o tour na margem do Guadalquivir, apreciando a vista panorâmica da mundialmente famosa Plaza de Toros de la Maestranza.",
+ "FD Sevilha 09h-17h":"Encontro com o motorista no lobby do hotel e saída para visitar Sevilha, onde poderá admirar as bandeiras da Grande Exposição Ibero-Americana de 1929. Passe pela Plaza de América, o Alcázar de Sevilha (ingressos não incluídos) e a Catedral de Sevilha, a maior do mundo em estilo gótico, com a oportunidade de subir à Giralda. Continue para o porto da América e a Torre del Oro até ao antigo bairro judeu e ao Bairro de Santa Cruz. O tour termina na margem do Guadalquivir, com vista panorâmica da Plaza de Toros de la Maestranza.",
+ "Sevilha by Night 20h-23h":"Nenhuma visita a Sevilha estaria completa sem conhecer a arte pela qual a Andaluzia é conhecida em todo o mundo: a paixão flamenca pela dança em Sevilha. Panorâmica noturna pelos monumentos da cidade como a Praça de Espanha, Plaza de América, a iluminação da Plaza de Toros de la Maestranza, a Torre del Oro ou o Palácio de San Telmo, um trabalho exemplar do barroco sevilhano. Após o passeio, sugerimos incluir um jantar com show de flamenco, com cozinha andaluza tradicional e a arte da dança que se originou há mais de 3 séculos.",
+ "FD Granada 09h-17h":"Saída para Granada. Uma caminhada através da Alhambra, Património Mundial pela UNESCO, é obrigatória para quem visita a cidade (ingressos não incluídos). No interior deste complexo palaciano poderá encontrar o Alcázar, o Palácio Nazarís e o Generalife. O Palácio Nazarís é composto pelo palácio Mexuar, o Palácio de Comares e o palácio dos Leões. O Generalife é o Palácio de Verão, rodeado por extensos jardins com vegetação distintamente islâmica. No final, panorâmica ao centro histórico com os seus bairros Judeu, árabe e cristão.",
+ "FD Córdoba 09h-17h":"Saída para Córdoba. Conhecida como a \"Cidade das Três Culturas\", por ter sido morada de cristãos, judeus e muçulmanos, Córdoba respira beleza e história. Visite a Mesquita-Catedral, Património Mundial e o monumento mais importante da arte islâmica do Ocidente — os seus mosaicos dourados e a linha infinita de arcos vermelhos e brancos produzem um deleite visual. Não perca o Alcázar de los Reyes Cristianos e o Bairro Judeu, com suas ruas estreitas e casas brancas cheias de flores, e a bela \"Calle de las Flores\", um dos lugares mais tradicionais de Córdoba.",
+ "FD Jerez + Cádiz 09h-17h":"Saída para o património cultural e natural de Cádiz e de Jerez de la Frontera. Passando pelos campos do Guadalquivir e paisagens da Serra de Grazalema, chegada a Jerez, conhecida pelos seus cavalos, vinho e flamenco. Visita ao centro da cidade, onde poderá ir a uma cave de vinho de xerez para desfrutar de uma prova e perceber melhor o processo de produção. Siga para Cádiz, com sua atmosfera e orla marítima únicas, história rica e gastronomia deliciosa. Antes de regressar, sugerimos visitar uma das suas praias.",
+ "FD Ronda 09h-17h":"Saída para Ronda. Comece a visita pelos jardins do séc. XIX, junto à Alameda do Tajo, onde se encontra a famosa Praça de Touros de Ronda, reconhecida como uma das mais antigas construídas em pedra. Visite o Puente Nuevo, com vista sobre o Tajo de Ronda, e monumentos como a Casa de San Juan Bosco. Na cidade pode visitar a Ponte Velha, a Ponte de Felipe V e a Igreja de Santa Maria, com a Torre Mudéjar. No Museu do Vinho de Ronda poderá aprender 6.000 anos da história do vinho, com degustação de vinhos locais (ingressos não incluídos).",
+ "HD Valência 09h-13h ou 14h-18h":"Tour de highlights de Valência. Comece por explorar a futurística Cidade das Artes e das Ciências e o famoso Porto Copa América. Atravesse os portões medievais da cidade, regressando ao centro histórico onde poderá visitar as Ruínas Romanas e a Catedral de Santa Maria, consagrada em 1238 e de estilo gótico. Passeie pelas diversas praças (sendo a Plaza Ayuntamiento a mais famosa) e pela Lonja de la Seda, edifício do século XV originalmente utilizado para o comércio de seda e considerada uma \"Wall Street\" medieval.",
+ "HD Santiago de Compostela 09h-13h ou 14h-18h":"Conheça o destino final de milhares de peregrinos — Santiago de Compostela, cidade extraordinariamente rica, considerada em 1985 Património Cultural da Humanidade pela UNESCO. Comece a visita pela Praça do Obradoiro, de onde poderá seguir até à Catedral de Santiago de Compostela, cuja construção foi iniciada em 1045 e só terminou passados 200 anos. Recomendamos visita ao seu interior e ao seu museu. Passeie pelo centro histórico, com as bonitas e vibrantes ruas medievais e lojas de artesanato local.",
+ "FD Santiago de Compostela 09h-17h":"Conheça o destino final de milhares de peregrinos — Santiago de Compostela, cidade extraordinariamente rica, considerada em 1985 Património Cultural da Humanidade pela UNESCO. Comece a visita pela Praça do Obradoiro, de onde poderá seguir até à Catedral de Santiago de Compostela, cuja construção foi iniciada em 1045 e só terminou passados 200 anos. Recomendamos visita ao seu interior e ao seu museu. Passeie pelo centro histórico, com as bonitas e vibrantes ruas medievais e lojas de artesanato local.",
+ "HD Málaga 09h-13h ou 14h-18h":"Tour de highlights de Málaga. Comece por explorar o Monte Gibralfaro, uma colina a 130 metros de altitude de onde terá uma das vistas mais incríveis para a cidade. Passeio pelo exterior do Castelo Gibralfaro, forte de origem moura do século XIV. Regresse ao centro histórico, onde poderá passear pela Plaza de la Merced, a Fortaleza dos Mouros La Alcazaba e o Teatro Romano. Destaque para a Catedral de Málaga, cuja origem se situa em 1497. Sugerimos também visita à Igreja de São João e ao Pedregalejo, bairro de origens piscatórias.",
+ "FD Málaga 09h-17h":"Tour de highlights de Málaga. Comece por explorar o Monte Gibralfaro, uma colina a 130 metros de altitude de onde terá uma das vistas mais incríveis para a cidade. Passeio pelo exterior do Castelo Gibralfaro, forte de origem moura do século XIV. Regresse ao centro histórico, onde poderá passear pela Plaza de la Merced, a Fortaleza dos Mouros La Alcazaba e o Teatro Romano. Destaque para a Catedral de Málaga, cuja origem se situa em 1497. Sugerimos também visita à Igreja de São João e ao Pedregalejo, bairro de origens piscatórias.",
+ "HD Granada 09h-13h ou 14h-18h":"Tour panorâmico de Granada. Comece por visitar o centro histórico, que representa com harmonia uma herança cultural enorme com influências cristãs, judaicas e mouriscas. Sugerimos visita à Catedral e Mosteiro de Granada. Atravesse o bairro medieval Albaicín, com as suas casas brancas e ruas sinuosas que o levarão até ao Rio Darro, de onde poderá observar um dos monumentos mais visitados do mundo: a Alhambra e os Jardins do Generalife. Recomendamos visita à Alhambra, palácio-fortaleza do século IX, Património Mundial da UNESCO.",
+ "FD Granada 09h-17h":"Tour panorâmico de Granada. Comece por visitar o centro histórico, que representa com harmonia uma herança cultural enorme com influências cristãs, judaicas e mouriscas. Sugerimos visita à Catedral e Mosteiro de Granada. Atravesse o bairro medieval Albaicín, com as suas casas brancas e ruas sinuosas que o levarão até ao Rio Darro, de onde poderá observar um dos monumentos mais visitados do mundo: a Alhambra e os Jardins do Generalife. Recomendamos visita à Alhambra, palácio-fortaleza do século IX, Património Mundial da UNESCO.",
+ "FD Marbella 09h-17h":"Desfrute de um dia inesquecível explorando as belezas e encantos de Marbella, onde irá conhecer os principais pontos turísticos da região, apreciar vistas deslumbrantes e mergulhar na rica cultura e história desta cidade costeira. Visite o encantador centro histórico de Marbella, com suas ruas estreitas, praças pitorescas e arquitetura tradicional. Visite a Plaza de los Naranjos, onde encontrará restaurantes e lojas locais, e o Parque de la Alameda, um oásis verde no coração da cidade."
+});
+
 const VEH = [{k:"sedan",n:"SEDAN",p:"01-02 PAX"},{k:"minivan",n:"MINI VAN",p:"03-05 PAX"},
              {k:"van",n:"VAN",p:"06-07 PAX"},{k:"minibus",n:"MINI BUS",p:"08-12 PAX"},{k:"adapt",n:"ADAPTADO",p:"01-03 PAX"}];
 
@@ -553,13 +680,25 @@ const eur = v => v===null||v===undefined ? '<span class="or">On Request</span>' 
 const eurS = v => v===null||v===undefined ? "On Request" : v.toFixed(2).replace(".",",")+" €";
 
 /* ==================== NAVEGAÇÃO TARIFÁRIO ==================== */
+const trIdx=l=>TRANSFERS.findIndex(z=>z.label===l||z.zone===l);
+const tuIdx=l=>TOURS.findIndex(t=>t.loc===l);
 const DESTS = [
- {id:"lisboa",name:"Lisboa",sections:[["tr",0],["tu",0],["op","Experiências Lisboa"],["rg","Tours Regulares Lisboa"]]},
- {id:"porto",name:"Porto",sections:[["tr",1],["tu",1],["op","Experiências Porto"],["rg","Tours Regulares Porto"]]},
- {id:"madeira",name:"Madeira",sections:[["tr",2],["tu",2],["op","Experiências Ilhas"],["rg","Tours Regulares Funchal"]]},
- {id:"acores",name:"Açores",sections:[["tr",3],["tr",4],["tr",5],["tr",6],["tr",7],["tr",8],["tr",9],["tr",10],["tu",3],["tu",4],["tu",5],["tu",6],["tu",7],["tu",8],["tu",9],["tu",10]]},
- {id:"algarve",name:"Algarve (Faro)",sections:[["tr",11],["tu",12],["op","Experiências Algarve"]]},
- {id:"coimbra",name:"Coimbra e Centro",sections:[["tr",12],["tu",11],["exp",0],["op","Experiências Centro"]]}
+ {id:"lisboa",name:"Lisboa",sections:[["tr",trIdx("Lisboa")],["tu",tuIdx("Lisboa")],["op","Experiências Lisboa"],["rg","Tours Regulares Lisboa"]]},
+ {id:"porto",name:"Porto",sections:[["tr",trIdx("Porto")],["tu",tuIdx("Porto")],["op","Experiências Porto"],["rg","Tours Regulares Porto"]]},
+ {id:"madeira",name:"Madeira",sections:[["tr",trIdx("Madeira – Funchal")],["tu",tuIdx("Funchal")],["op","Experiências Ilhas"],["rg","Tours Regulares Funchal"]]},
+ {id:"acores",name:"Açores",sections:[3,4,5,6,7,8,9,10].map(i=>["tr",i]).concat([3,4,5,6,7,8,9,10].map(i=>["tu",i]))},
+ {id:"algarve",name:"Algarve (Faro)",sections:[["tr",trIdx("Algarve – Faro")],["tu",tuIdx("Faro")],["op","Experiências Algarve"]]},
+ {id:"coimbra",name:"Coimbra e Centro",sections:[["tr",trIdx("Coimbra")],["tu",tuIdx("Coimbra")],["exp",0],["op","Experiências Centro"]]},
+ {id:"madrid",name:"Madrid",sections:[["tr",trIdx("ES · Madrid")],["tu",tuIdx("Madrid")],["op","Experiências Madrid"],["rg","Tours Regulares Madrid"]]},
+ {id:"barcelona",name:"Barcelona",sections:[["tr",trIdx("ES · Barcelona")],["tu",tuIdx("Barcelona")],["op","Experiências Barcelona"],["rg","Tours Regulares Barcelona"]]},
+ {id:"sevilha",name:"Sevilha",sections:[["tr",trIdx("ES · Sevilha")],["tu",tuIdx("Sevilha")],["op","Experiências Sevilha"],["rg","Tours Regulares Sevilha"]]},
+ {id:"esoutras",name:"Espanha — Outras Cidades",sections:[
+   ["tr",trIdx("ES · Valência")],["tr",trIdx("ES · Santiago de Compostela")],["tr",trIdx("ES · Córdoba")],
+   ["tr",trIdx("ES · Málaga*")],["tr",trIdx("ES · Granada")],
+   ["tu",tuIdx("Valência")],["tu",tuIdx("Santiago de Compostela")],["tu",tuIdx("Córdoba")],["tu",tuIdx("Málaga")],["tu",tuIdx("Granada")]]},
+ {id:"esilhas",name:"Espanha — Ilhas",sections:[
+   ["tr",trIdx("ES · Tenerife (Canárias)")],["tr",trIdx("ES · Gran Canaria (Canárias)")],["tr",trIdx("ES · Lanzarote (Canárias)")],
+   ["tr",trIdx("ES · Fuerteventura (Canárias)")],["tr",trIdx("ES · Ibiza (Baleares)")],["tr",trIdx("ES · Maiorca (Baleares)")],["tr",trIdx("ES · Menorca (Baleares)")]]}
 ];
 OPCIONAIS["Experiências Algarve"]=[["Passeio de Barco pelas Grutas de Benagil","On Request"]];
 OPCIONAIS["Experiências Centro"]=[["Ticket Museu Vista Alegre (Ílhavo) – livre","On Request"],["Passeio de Moliceiro com degustação de ovos moles","On Request"]];
@@ -586,7 +725,10 @@ function buildSidebar(){
   const ul=document.getElementById("cat-list");ul.innerHTML="";
   const li=document.createElement("li");li.textContent="Condições Gerais";li.dataset.id="cond";
   li.onclick=()=>showCat("cond");ul.appendChild(li);
+  let lastCountry="";
   DESTS.forEach(d=>{
+    const country=d.id==="madrid"||d.id==="barcelona"||d.id==="sevilha"||d.id==="esoutras"||d.id==="esilhas"?"ESPANHA":"PORTUGAL";
+    if(country!==lastCountry){const g=document.createElement("li");g.className="grp";g.textContent=country;ul.appendChild(g);lastCountry=country;}
     const li=document.createElement("li");li.textContent=d.name;li.dataset.id=d.id;
     li.onclick=()=>showCat(d.id);ul.appendChild(li);
   });
@@ -597,7 +739,7 @@ function showCat(id){
   const ttl=document.getElementById("tar-title"),sub=document.getElementById("tar-sub");
   if(id==="cond"){
     ttl.textContent="Condições Gerais";
-    sub.textContent="Tarifário Geral Serviços Portugal FIT · Válido de 01/04/2026 a 31/12/2026. Todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours.";
+    sub.textContent="Tarifários Gerais Serviços Portugal & Espanha FIT · Válido de 01/04/2026 a 31/12/2026. Todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours.";
     body.innerHTML=condHTML();return;
   }
   const d=DESTS.find(x=>x.id===id);if(!d)return;
@@ -611,13 +753,13 @@ function showCat(id){
   }).join("");
 }
 function trTable(z,withNote){
-  let h=(withNote?'<div class="note">Tarifas por trajeto, válidas todos os dias exceto feriados/datas festivas. Entre 22h00 e 06h00: +25%. IVA e pedágios incluídos. Bagagens: 01 mala por pax até 23kg. Assistência no aeroporto/estação: 215,00 € (obrigatória a partir de 06 pax).</div>':"")+`<table><tr><th>${z.zone}</th>${VEH.map(v=>`<th class="num">${v.n}<br><small>${v.p}</small></th>`).join("")}</tr>`;
+  let h=(withNote?'<div class="note">Tarifas por trajeto, válidas todos os dias exceto feriados/datas festivas. Entre 22h00 e 06h00: +25%. IVA e pedágios incluídos. Bagagens: 01 mala por pax até 23kg. Assistência no aeroporto/estação: ${z.assist==null?"On Request":eurS(z.assist)} (obrigatória a partir de 06 pax).</div>':"")+`<table><tr><th>${z.zone}</th>${VEH.map(v=>`<th class="num">${v.n}<br><small>${v.p}</small></th>`).join("")}</tr>`;
   z.rows.forEach(r=>{h+=`<tr><td>${r[0]}</td>${[r[1],r[2],r[3],ONR,ONR].map(x=>`<td class="num">${eur(x)}</td>`).join("")}</tr>`;});
   h+=`</table><p style="font-size:12px;color:var(--muted)">*Pode haver custos adicionais para acesso ao porto de cruzeiros (on request).</p>`;
   return h;
 }
 function tuTable(l,withNote){
-  let h=(withNote?'<div class="note">Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD 325,00 € / FD 425,00 €.</div>':"")+`<table><tr><th>PICK UP & DROP OFF — ${l.loc}</th><th class="num">SEDAN<br><small>01-02 PAX</small></th><th class="num">MINI VAN<br><small>03-05 PAX</small></th><th class="num">VAN<br><small>06-07 PAX</small></th><th class="num">ADAPTADO<br><small>01-03 PAX</small></th></tr>`;
+  let h=(withNote?'<div class="note">Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD ${eurS(l.guideHD||325)} / FD ${eurS(l.guideFD||425)}.</div>':"")+`<table><tr><th>PICK UP & DROP OFF — ${l.loc}</th><th class="num">SEDAN<br><small>01-02 PAX</small></th><th class="num">MINI VAN<br><small>03-05 PAX</small></th><th class="num">VAN<br><small>06-07 PAX</small></th><th class="num">ADAPTADO<br><small>01-03 PAX</small></th></tr>`;
   l.tours.forEach(t=>{h+=`<tr><td>${t[0]}</td><td class="num">${eur(t[1])}</td><td class="num">${eur(t[2])}</td><td class="num">${eur(t[3])}</td><td class="num">${eur(ONR)}</td></tr>`;
     if(DESCR[t[0]])h+=`<tr class="desc-row"><td colspan="5"><details><summary>Descritivo</summary><p>${DESCR[t[0]]}</p><p class="d-note">Descritivo meramente informativo e não vinculativo, podendo ser adaptado conforme as preferências dos passageiros, respeitando sempre o horário e a rota acordados. Não inclui entradas para monumentos e/ou atividades, guias nem refeições. A programação refere-se a um serviço panorâmico; a compra de ingressos poderá implicar ajustes.</p></details></td></tr>`;});
   return h+"</table>";
@@ -685,6 +827,13 @@ function condHTML(){
    ["Crianças","preço para crianças on request."],
    ["Alterações","preço, frequência e operação poderão sofrer alterações sem aviso prévio."],
    ["Pontos de encontro","Lisboa — Terminal Grayline, Alameda Edgar Cardoso 1070-051 (junto ao Parque Eduardo VII) · Porto — Rua Mouzinho da Silveira 352, 4050-418 (junto à estação de São Bento) · Funchal — ponto de encontro a confirmar no voucher. Meeting point a confirmar no voucher."]])
+  +sec("Condições — Espanha",[
+   ["Alterações/cancelamentos","tours privativos: até 48 horas antes, sem custos; menos de 48 horas, 100% custos. Tours regulares: até 96 horas (04 dias úteis) antes, sem custos; menos de 96 horas, 100% custos. No show cobrado a 100%."],
+   ["Assistência","traslados até 05 pax incluem assistência local do motorista em espanhol (português mediante disponibilidade). Assistência no aeroporto/estação: 310,00 € em Madrid, Barcelona, Sevilha e outras cidades — obrigatória a partir de 06 pax. Nas Ilhas Canárias e Baleares: On Request."],
+   ["Época alta — Málaga","nos meses de Junho, Julho, Agosto e Setembro aplica-se uma taxa adicional de 20% (época alta)."],
+   ["Tours privativos","serviço by night válido entre as 20h00 e as 23h00. Guia Oficial: HD 450,00 € / FD 725,00 €."],
+   ["Pontos de encontro","Madrid — Aeroporto junto ao desembarque · Estação Puerta de Atocha — Hall de Chegadas do piso 1, em frente ao Ponto de Informação de Turismo · Barcelona — Estação Sants, junto da porta interior do McDonald's · Sevilha — Estação Santa Justa, a informar no voucher · Outras cidades — a informar no voucher."],
+   ["Tours regulares — meeting points","Madrid — C/ San Nicolás 15 (junto à Plaza de Ramales) · Barcelona — Carrer d'Alí Bei 80, interior da Estació del Nord, piso 0, frente à plataforma 19 · Sevilha — Oficina de Naturanda, Calle Francos 19, 41004 Sevilla."]])
   +sec("Descritivos",[
    ["Âmbito","os descritivos são meramente informativos e não vinculativos, podendo ser adaptados conforme as preferências dos passageiros, respeitando sempre o horário e a rota acordados. Os tours privativos não incluem entradas para os monumentos e/ou atividades, guias nem refeições."],
    ["Programação","a programação apresentada refere-se a um serviço panorâmico, sendo que a compra de ingressos para monumentos poderá implicar ajustes, a fim de garantir o cumprimento do serviço contratado."]]));
@@ -704,11 +853,15 @@ function fillSelect(el,items){el.innerHTML=items.map(i=>`<option value="${i[0]}"
 function fillTrRoutes(){
   const z=TRANSFERS[+document.getElementById("q-tr-zone").value];
   fillSelect(document.getElementById("q-tr-route"),z.rows.map((r,i)=>[i,r[0]]));
+  const a=z.assist===undefined?215:z.assist;
+  document.querySelector('label[for="q-tr-assist"]').textContent=`Assistência no aeroporto/estação (${a==null?"On Request":a.toFixed(2).replace(".",",")+" €"}) — incluída automaticamente a partir de 06 pax`;
   renderQuote();
 }
 function fillTours(){
   const l=TOURS[+document.getElementById("q-tu-loc").value];
   fillSelect(document.getElementById("q-tu-tour"),l.tours.map((t,i)=>[i,t[0]]));
+  const ghd=l.guideHD||325,gfd=l.guideFD||425;
+  document.getElementById("q-tu-guide").innerHTML=`<option value="no">Não incluir</option><option value="hd">Guia Oficial Half Day (${ghd.toFixed(2).replace(".",",")} €)</option><option value="fd">Guia Oficial Full Day (${gfd.toFixed(2).replace(".",",")} €)</option>`;
   renderQuote();
 }
 function autoAssist(){
@@ -735,8 +888,13 @@ function addTransfer(){
   let base=price;let nightAdd=0;
   if(night){nightAdd=base*0.25;base=base*1.25;}
   const items=[{d:`Traslado ${z.label} → ${r[0]} · ${v.n} · ${pax} pax${night?" (serviço noturno +25%)":""}`,v:base}];
-  if(assist)items.push({d:"Assistência no aeroporto/estação (obrigatória a partir de 06 pax)",v:215});
-  msg.innerHTML = paxAssist?`<div class="okbox">Assistência de aeroporto/estação (215,00 €) incluída automaticamente — obrigatória para ${pax} pax.</div>`:"";
+  const aPrice=z.assist===undefined?215:z.assist;
+  if(assist&&aPrice==null){
+    msg.innerHTML=`<div class="warnbox">Assistência obrigatória a partir de 06 pax, mas On Request nesta zona — contacte bookings@youniquetailortours.com.</div>`;
+  }else{
+    if(assist)items.push({d:`Assistência no aeroporto/estação (obrigatória a partir de 06 pax)`,v:aPrice});
+    msg.innerHTML = paxAssist?`<div class="okbox">Assistência de aeroporto/estação (${eurS(aPrice)}) incluída automaticamente — obrigatória para ${pax} pax.</div>`:"";
+  }
   items.forEach(it=>cart.push(it));
   renderQuote();
 }
@@ -753,8 +911,8 @@ function addTour(){
   if(price===null||price===undefined){msg.innerHTML=`<div class="warnbox">Este tour está On Request para ${v.n}. Contacte bookings@youniquetailortours.com.</div>`;return;}
   msg.innerHTML="";
   cart.push({d:`Tour ${loc.loc}: ${t[0]} · ${v.n} · ${pax} pax`,v:price});
-  if(g==="hd")cart.push({d:"Guia Oficial Half Day 09h-13h ou 14h-18h",v:325});
-  if(g==="fd")cart.push({d:"Guia Oficial Full Day 09h-17h",v:425});
+  if(g==="hd")cart.push({d:"Guia Oficial Half Day 09h-13h ou 14h-18h",v:loc.guideHD||325});
+  if(g==="fd")cart.push({d:"Guia Oficial Full Day 09h-17h",v:loc.guideFD||425});
   renderQuote();
 }
 function addExp(){
