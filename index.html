@@ -943,18 +943,18 @@ function buildSidebar(){
   const ul=document.getElementById("cat-list");ul.innerHTML="";
   const li=document.createElement("li");li.textContent=t("cond");li.dataset.id="cond";
   li.onclick=()=>showCat("cond");ul.appendChild(li);
-  let lastCountry="";
+  let lastCountry="",curSub=null;
   DESTS.forEach(d=>{
-    let grp=null,sub=null;
     const country=d.id==="madrid"||d.id==="barcelona"||d.id==="sevilha"||d.id==="esoutras"||d.id==="esilhas"?(LANG==="es"?"ESPAÑA":"ESPANHA"):"PORTUGAL";
     if(country!==lastCountry){
-      grp=document.createElement("li");grp.className="grp";grp.textContent=country;
-      sub=document.createElement("ul");sub.className="sub";
+      const grp=document.createElement("li");grp.className="grp";grp.textContent=country;
+      const sub=document.createElement("ul");sub.className="sub";
       grp.onclick=()=>{grp.classList.toggle("open");sub.classList.toggle("open");};
-      ul.appendChild(grp);ul.appendChild(sub);lastCountry=country;
+      ul.appendChild(grp);ul.appendChild(sub);
+      curSub=sub;lastCountry=country;
     }
     const li=document.createElement("li");li.textContent=tx(d.name);li.dataset.id=d.id;
-    li.onclick=()=>showCat(d.id);sub.appendChild(li);
+    li.onclick=()=>showCat(d.id);curSub.appendChild(li);
   });
 }
 function showCat(id){
