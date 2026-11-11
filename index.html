@@ -576,7 +576,7 @@ TRANSFERS.push(
  {zone:"ES · Córdoba",label:"Córdoba",assist:310,rows:[
   ["Aeroporto / Hotel central",120,140,ONR],["Sevilha",370,410,ONR],
   ["Málaga",470,520,ONR],["Granada",490,540,ONR]]},
- {zone:"ES · Málaga*",label:"Málaga",assist:310,rows:[
+ {zone:"ES · Málaga*",label:"Málaga",assist:310,note:"malaga_note",rows:[
   ["Aeroporto / Hotel central",120,160,ONR],["Marbella",220,270,ONR],["Ronda",410,450,ONR],
   ["Granada",390,450,ONR],["Córdoba",470,520,ONR],["Sevilha",580,640,ONR]]},
  {zone:"ES · Granada",label:"Granada",assist:310,rows:[
@@ -619,7 +619,7 @@ TOURS.push(
  {loc:"Córdoba",guideHD:450,guideFD:725,tours:[
   ["FD Córdoba 09h-17h",620,720,ONR],["FD Ronda 09h-17h",770,870,ONR],
   ["FD Sevilha 09h-17h",770,870,ONR],["FD Granada 09h-17h",950,1050,ONR]]},
- {loc:"Málaga",guideHD:450,guideFD:725,tours:[
+ {loc:"Málaga",guideHD:450,guideFD:725,note:"malaga_note",tours:[
   ["HD Málaga 09h-13h ou 14h-18h",330,390,ONR],["FD Málaga 09h-17h",650,790,ONR],["FD Granada 09h-17h",870,980,ONR]]},
  {loc:"Granada",guideHD:450,guideFD:725,tours:[
   ["HD Granada 09h-13h ou 14h-18h",290,360,ONR],["FD Granada 09h-17h",560,680,ONR],
@@ -822,6 +822,7 @@ const T={
   sub_cond:"Tarifários Gerais Serviços Portugal & Espanha FIT · Válido de 01/04/2026 a 31/12/2026. Todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours.",
   sub_dest:"Traslados, tours privativos, experiências e tours regulares · Tarifas NET em EUR · Válido 01/04/2026 – 31/12/2026",
   note_tr:'Tarifas por trajeto, válidas todos os dias exceto feriados/datas festivas. Entre 22h00 e 06h00: +25%. IVA e pedágios incluídos. Bagagens: 01 mala por pax até 23kg. Assistência no aeroporto/estação: {A} (obrigatória a partir de 06 pax).',
+  malaga_note:"*Nos meses de Junho, Julho, Agosto e Setembro, aplica-se uma taxa adicional de 20% (época alta). Málaga.",
   note_tu:"Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD {GHD} / FD {GFD}.",
   note_rg:"Tarifas NET em EUR por pax. Não inclui refeições nem entradas (salvo indicado). Preço para crianças on request. Preço, frequência e operação poderão sofrer alterações sem aviso prévio.",
   note_op:"Reserva de mesa em restaurante: taxa de 10,00 € por pessoa, por refeição. Podem existir taxas adicionais conforme o restaurante. Opcionais mediante consulta prévia e sujeitos a horários e disponibilidade de parceiros.",
@@ -865,6 +866,7 @@ const T={
   sub_cond:"Tarifarios Generales de Servicios Portugal & España FIT · Válido del 01/04/2026 al 31/12/2026. Todos los servicios requieren confirmación de reserva por parte de Younique Tailor Tours.",
   sub_dest:"Traslados, tours privados, experiencias y tours regulares · Tarifas NET en EUR · Válido 01/04/2026 – 31/12/2026",
   note_tr:'Tarifas por trayecto, válidas todos los días excepto festivos y fechas señaladas. Entre las 22h00 y las 06h00: +25%. IVA y peajes incluidos. Equipaje: 01 maleta por pax hasta 23kg. Asistencia en aeropuerto/estación: {A} (obligatoria a partir de 06 pax).',
+  malaga_note:"*En los meses de junio, julio, agosto y septiembre, se aplica un suplemento adicional del 20% (temporada alta). Málaga.",
   note_tu:"Pick up & drop off en hotel céntrico. HD hasta 04h (09h-13h o 14h-18h); FD hasta 08h (09h-17h); by night 20h-00h. No incluye entradas, comidas ni guía. IVA, peajes y gastos del chófer incluidos. Guía Oficial: HD {GHD} / FD {GFD}.",
   note_rg:"Tarifas NET en EUR por pax. No incluye comidas ni entradas (salvo indicación expresa). Precio para niños a consulta. Precio, frecuencia y operación podrán sufrir cambios sin previo aviso.",
   note_op:"Reserva de mesa en restaurante: tasa de 10,00 € por persona, por comida. Pueden existir tasas adicionales según el restaurante. Opcionales previa consulta y sujetos a horarios y disponibilidad de socios.",
@@ -992,6 +994,7 @@ function trTable(z,withNote){
   let h=(withNote?`<div class="note">${tf("note_tr",{A:aTxt})}</div>`:"")+`<table><tr><th>${tx(z.zone)}</th>${VEH.map(v=>`<th class="num">${v.n}<br><small>${v.p}</small></th>`).join("")}</tr>`;
   z.rows.forEach(r=>{h+=`<tr><td>${tx(r[0])}</td>${[r[1],r[2],r[3],ONR,ONR].map(x=>`<td class="num">${eur(x)}</td>`).join("")}</tr>`;});
   h+=`</table><p style="font-size:12px;color:var(--muted)">${t("note_port")}</p>`;
+  if(z.note)h+=`<p class="warnbox">${t(z.note)}</p>`;
   return h;
 }
 function tuTable(l,withNote){
@@ -1001,6 +1004,7 @@ function tuTable(l,withNote){
   const ghd=l.guideHD||325,gfd=l.guideFD||425,oou=LANG==="es"?"o":"ou";
   h+=`<tr class="guide-row"><td><b>${tx("Guia Oficial")} Half Day 09h-13h ${oou} 14h-18h</b></td><td colspan="4" class="num"><b>${eurS(ghd)}</b></td></tr>`;
   h+=`<tr class="guide-row"><td><b>${tx("Guia Oficial")} Full Day 09h-17h</b></td><td colspan="4" class="num"><b>${eurS(gfd)}</b></td></tr>`;
+  if(l.note)h+=`<tr class="desc-row"><td colspan="5"><p class="warnbox">${t(l.note)}</p></td></tr>`;
   return h+"</table>";
 }
 function opTable(k){
