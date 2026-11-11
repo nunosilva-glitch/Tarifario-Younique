@@ -86,6 +86,10 @@ details summary{cursor:pointer;font-size:12px;color:var(--gold);font-weight:600}
 details p{font-size:13px;color:var(--txt);line-height:1.55;margin-top:8px;padding:10px 12px;background:#faf7f0;border-radius:8px}
 details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:italic}
 .desc-row td{border-top:none;padding:0 10px 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:12px;color:var(--navy);text-decoration:none;box-shadow:0 1px 4px rgba(35,31,32,.08);transition:border-color .15s}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+.sec-title{font-size:17px;color:var(--navy);border-left:4px solid var(--gold);padding-left:12px;margin:28px 0 12px;scroll-margin-top:72px;font-family:Georgia,"Times New Roman",serif}
 @media print{header,nav,aside,footer,.no-print{display:none!important}main{display:block}body{background:#fff}}
 </style>
 </head>
@@ -549,44 +553,71 @@ const eur = v => v===null||v===undefined ? '<span class="or">On Request</span>' 
 const eurS = v => v===null||v===undefined ? "On Request" : v.toFixed(2).replace(".",",")+" €";
 
 /* ==================== NAVEGAÇÃO TARIFÁRIO ==================== */
-const CATS = [];
-TRANSFERS.forEach((z,i)=>CATS.push({id:"tr"+i,g:"Traslados Privativos",n:z.label}));
-TOURS.forEach((l,i)=>CATS.push({id:"tu"+i,g:"Tours Privativos",n:l.label}));
-Object.keys(OPCIONAIS).forEach((k,i)=>CATS.push({id:"op"+i,g:"Experiências",n:k.replace("Experiências ","")}));
-EXPS.forEach((e,i)=>CATS.push({id:"ex"+i,g:"Experiências",n:e.name.split("—")[0].trim().slice(0,28)+"…"}));
-Object.keys(REGULARS).forEach((k,i)=>CATS.push({id:"rg"+i,g:"Tours Regulares",n:k.replace("Tours Regulares ","")}));
-CATS.push({id:"cond",g:"Informações",n:"Condições Gerais"});
+const DESTS = [
+ {id:"lisboa",name:"Lisboa",sections:[["tr",0],["tu",0],["op","Experiências Lisboa"],["rg","Tours Regulares Lisboa"]]},
+ {id:"porto",name:"Porto",sections:[["tr",1],["tu",1],["op","Experiências Porto"],["rg","Tours Regulares Porto"]]},
+ {id:"madeira",name:"Madeira",sections:[["tr",2],["tu",2],["op","Experiências Ilhas"],["rg","Tours Regulares Funchal"]]},
+ {id:"acores",name:"Açores",sections:[["tr",3],["tr",4],["tr",5],["tr",6],["tr",7],["tr",8],["tr",9],["tr",10],["tu",3],["tu",4],["tu",5],["tu",6],["tu",7],["tu",8],["tu",9],["tu",10]]},
+ {id:"algarve",name:"Algarve (Faro)",sections:[["tr",11],["tu",12],["op","Experiências Algarve"]]},
+ {id:"coimbra",name:"Coimbra e Centro",sections:[["tr",12],["tu",11],["exp",0],["op","Experiências Centro"]]}
+];
+OPCIONAIS["Experiências Algarve"]=[["Passeio de Barco pelas Grutas de Benagil","On Request"]];
+OPCIONAIS["Experiências Centro"]=[["Ticket Museu Vista Alegre (Ílhavo) – livre","On Request"],["Passeio de Moliceiro com degustação de ovos moles","On Request"]];
 
+function secName(s){
+  const t=s[0],v=s[1];
+  if(t==="tr")return "Traslados — "+TRANSFERS[v].label||TRANSFERS[v].zone;
+  if(t==="tu")return "Tours Privativos — "+TOURS[v].loc;
+  if(t==="op")return v.replace("Experiências ","Experiências: ");
+  if(t==="rg")return "Tours Regulares — "+v.replace("Tours Regulares ","");
+  if(t==="exp")return "Experiências com preço (por pax)";
+  return "";
+}
+function renderSection(s,withNote){
+  const t=s[0],v=s[1];
+  if(t==="tr")return trTable(TRANSFERS[v],withNote);
+  if(t==="tu")return tuTable(TOURS[v],withNote);
+  if(t==="op")return opTable(v);
+  if(t==="rg")return rgTable(v,withNote);
+  if(t==="exp")return EXPS.map(e=>expTable(e)).join("");
+  return "";
+}
 function buildSidebar(){
-  const ul=document.getElementById("cat-list");let lastG="";
-  CATS.forEach(c=>{
-    if(c.g!==lastG){const li=document.createElement("li");li.className="grp";li.textContent=c.g;ul.appendChild(li);lastG=c.g;}
-    const li=document.createElement("li");li.textContent=c.n;li.dataset.id=c.id;
-    li.onclick=()=>showCat(c.id);ul.appendChild(li);
+  const ul=document.getElementById("cat-list");ul.innerHTML="";
+  const li=document.createElement("li");li.textContent="Condições Gerais";li.dataset.id="cond";
+  li.onclick=()=>showCat("cond");ul.appendChild(li);
+  DESTS.forEach(d=>{
+    const li=document.createElement("li");li.textContent=d.name;li.dataset.id=d.id;
+    li.onclick=()=>showCat(d.id);ul.appendChild(li);
   });
 }
 function showCat(id){
   document.querySelectorAll("#cat-list li").forEach(li=>li.classList.toggle("active",li.dataset.id===id));
-  const c=CATS.find(x=>x.id===id);const body=document.getElementById("tar-body");
-  document.getElementById("tar-title").textContent=(c.g+" — "+c.n);
-  document.getElementById("tar-sub").textContent="Tarifas NET em EUR. "+(c.g==="Traslados Privativos"?"Por trajeto. Acréscimo de 25% entre 22h00 e 06h00. IVA e pedágios incluídos.":c.g==="Tours Privativos"?"Por serviço, com motorista de turismo. HD até 04hrs, FD até 08hrs.":"");
-  if(id==="cond"){body.innerHTML=condHTML();return;}
-  if(id.startsWith("tr")){const z=TRANSFERS[+id.slice(2)];body.innerHTML=trTable(z);return;}
-  if(id.startsWith("tu")){const l=TOURS[+id.slice(2)];body.innerHTML=tuTable(l);return;}
-  if(id.startsWith("op")){const k=Object.keys(OPCIONAIS)[+id.slice(2)];body.innerHTML=opTable(k);return;}
-  if(id.startsWith("ex")){const e=EXPS[+id.slice(2)];body.innerHTML=expTable(e);return;}
-  if(id.startsWith("rg")){const k=Object.keys(REGULARS)[+id.slice(2)];body.innerHTML=rgTable(k);return;}
+  const body=document.getElementById("tar-body");
+  const ttl=document.getElementById("tar-title"),sub=document.getElementById("tar-sub");
+  if(id==="cond"){
+    ttl.textContent="Condições Gerais";
+    sub.textContent="Tarifário Geral Serviços Portugal FIT · Válido de 01/04/2026 a 31/12/2026. Todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours.";
+    body.innerHTML=condHTML();return;
+  }
+  const d=DESTS.find(x=>x.id===id);if(!d)return;
+  ttl.textContent=d.name;
+  sub.textContent="Traslados, tours privativos, experiências e tours regulares · Tarifas NET em EUR · Válido 01/04/2026 – 31/12/2026";
+  const chips=`<div class="chips">`+d.sections.map((s,i)=>`<a class="chip" href="#${d.id}-s${i}">${secName(s)}</a>`).join("")+`</div>`;
+  let first=true;
+  body.innerHTML=chips+d.sections.map((s,i)=>{
+    const out=`<h3 class="sec-title" id="${d.id}-s${i}">${secName(s)}</h3>`+renderSection(s,first);
+    first=false;return out;
+  }).join("");
 }
-function trTable(z){
-  let h=`<div class="note">Tarifas por trajeto, válidas todos os dias exceto feriados/datas festivas. Entre 22h00 e 06h00: +25%. IVA e pedágios incluídos. Bagagens: 01 mala por pax até 23kg. Assistência no aeroporto/estação: 215,00 € (obrigatória a partir de 06 pax).</div>
-  <table><tr><th>${z.zone}</th>${VEH.map(v=>`<th class="num">${v.n}<br><small>${v.p}</small></th>`).join("")}</tr>`;
+function trTable(z,withNote){
+  let h=(withNote?'<div class="note">Tarifas por trajeto, válidas todos os dias exceto feriados/datas festivas. Entre 22h00 e 06h00: +25%. IVA e pedágios incluídos. Bagagens: 01 mala por pax até 23kg. Assistência no aeroporto/estação: 215,00 € (obrigatória a partir de 06 pax).</div>':"")+`<table><tr><th>${z.zone}</th>${VEH.map(v=>`<th class="num">${v.n}<br><small>${v.p}</small></th>`).join("")}</tr>`;
   z.rows.forEach(r=>{h+=`<tr><td>${r[0]}</td>${[r[1],r[2],r[3],ONR,ONR].map(x=>`<td class="num">${eur(x)}</td>`).join("")}</tr>`;});
   h+=`</table><p style="font-size:12px;color:var(--muted)">*Pode haver custos adicionais para acesso ao porto de cruzeiros (on request).</p>`;
   return h;
 }
-function tuTable(l){
-  let h=`<div class="note">Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD 325,00 € / FD 425,00 €.</div>
-  <table><tr><th>PICK UP & DROP OFF — ${l.loc}</th><th class="num">SEDAN<br><small>01-02 PAX</small></th><th class="num">MINI VAN<br><small>03-05 PAX</small></th><th class="num">VAN<br><small>06-07 PAX</small></th><th class="num">ADAPTADO<br><small>01-03 PAX</small></th></tr>`;
+function tuTable(l,withNote){
+  let h=(withNote?'<div class="note">Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD 325,00 € / FD 425,00 €.</div>':"")+`<table><tr><th>PICK UP & DROP OFF — ${l.loc}</th><th class="num">SEDAN<br><small>01-02 PAX</small></th><th class="num">MINI VAN<br><small>03-05 PAX</small></th><th class="num">VAN<br><small>06-07 PAX</small></th><th class="num">ADAPTADO<br><small>01-03 PAX</small></th></tr>`;
   l.tours.forEach(t=>{h+=`<tr><td>${t[0]}</td><td class="num">${eur(t[1])}</td><td class="num">${eur(t[2])}</td><td class="num">${eur(t[3])}</td><td class="num">${eur(ONR)}</td></tr>`;
     if(DESCR[t[0]])h+=`<tr class="desc-row"><td colspan="5"><details><summary>Descritivo</summary><p>${DESCR[t[0]]}</p><p class="d-note">Descritivo meramente informativo e não vinculativo, podendo ser adaptado conforme as preferências dos passageiros, respeitando sempre o horário e a rota acordados. Não inclui entradas para monumentos e/ou atividades, guias nem refeições. A programação refere-se a um serviço panorâmico; a compra de ingressos poderá implicar ajustes.</p></details></td></tr>`;});
   return h+"</table>";
@@ -594,7 +625,7 @@ function tuTable(l){
 function opTable(k){
   let h=`<table><tr><th>${k}</th><th>Preço</th></tr>`;
   OPCIONAIS[k].forEach(o=>{h+=`<tr><td>${o[0]}</td><td class="or">${o[1]} (mediante disponibilidade)</td></tr>`;});
-  return h+`</table><div class="note">Reserva de mesa em restaurante: taxa de 10,00 € por pessoa, por refeição.</div>`;
+  return h+`</table><div class="note">Reserva de mesa em restaurante: taxa de 10,00 € por pessoa, por refeição. Podem existir taxas adicionais conforme o restaurante. Opcionais mediante consulta prévia e sujeitos a horários e disponibilidade de parceiros.</div>`;
 }
 function expTable(e){
   return `<table><tr><th>${e.name}</th><th class="num">Preço NET</th></tr>
@@ -602,13 +633,13 @@ function expTable(e){
   <tr><td>Pax extra (máx. 07 pax, cada)</td><td class="num">${eur(e.extra)}</td></tr></table>
   <p style="font-size:12px;color:var(--muted)">${e.note}</p>`;
 }
-function rgTable(k){
-  let h=`<div class="note">Tarifas NET em EUR por pax. Não inclui refeições nem entradas (salvo indicado). Preço para crianças on request. Preço, frequência e operação podem sofrer alterações sem aviso prévio.</div>
-  <table><tr><th>${k} — Meeting point & drop off</th><th>Frequência / Preço</th></tr>`;
+function rgTable(k,withNote){
+  let h=(withNote?'<div class="note">Tarifas NET em EUR por pax. Não inclui refeições nem entradas (salvo indicado). Preço para crianças on request. Preço, frequência e operação poderão sofrer alterações sem aviso prévio.</div>':"")+`<table><tr><th>${k} — Meeting point & drop off</th><th>Frequência / Preço</th></tr>`;
   REGULARS[k].forEach(r=>{h+=`<tr><td>${r}</td><td class="or">ON REQUEST</td></tr>`;
     if(REGDESCR[r])h+=`<tr class="desc-row"><td colspan="2"><details><summary>Descritivo</summary><p>${REGDESCR[r]}</p><p class="d-note">Descritivo apenas informativo e não vinculativo, podendo sofrer alterações por motivos que nos sejam alheios. Frequência e operação poderão sofrer alterações sem aviso prévio.</p></details></td></tr>`;});
   return h+"</table>";
 }
+
 function condHTML(){
   const sec=(t,items)=>`<div class="card"><h3 style="margin-bottom:10px">${t}</h3>`+items.map(i=>`<p style="font-size:13px;line-height:1.6;margin-bottom:9px"><b>· ${i[0]}:</b> ${i[1]}</p>`).join("")+`</div>`;
   return (
@@ -779,7 +810,7 @@ function showTab(t){
   document.getElementById("cotacao").style.display=t==="quo"?"block":"none";
   document.getElementById("side-tar").style.display=t==="tar"?"block":"none";
   document.querySelector("main").style.flexDirection=t==="tar"?"row":"column";
-  if(t==="tar"&&!document.getElementById("cat-list").children.length){buildSidebar();showCat("tr0");}
+  if(t==="tar"&&!document.getElementById("cat-list").children.length){buildSidebar();showCat("cond");}
 }
 fillSelect(document.getElementById("q-tr-zone"),TRANSFERS.map((z,i)=>[i,z.label]));
 fillSelect(document.getElementById("q-tu-loc"),TOURS.map((l,i)=>[i,l.loc]));
