@@ -47,6 +47,7 @@ aside li.grp:hover{color:var(--navy)}
 aside ul.sub{list-style:none;display:none;padding-left:8px}
 aside ul.sub.open{display:block}
 aside ul.sub li{font-size:13px}
+tr.guide-row td{background:#efe9dc;border-top:2px solid var(--gold)}
 section.content{flex:1;min-width:0}
 h2.page-title{font-size:20px;color:var(--navy);margin-bottom:4px;font-weight:700}
 p.page-sub{font-size:12.5px;color:var(--muted);margin-bottom:16px}
@@ -997,6 +998,9 @@ function tuTable(l,withNote){
   let h=(withNote?`<div class="note">${tf("note_tu",{GHD:eurS(l.guideHD||325),GFD:eurS(l.guideFD||425)})}</div>`:"")+`<table><tr><th>PICK UP & DROP OFF — ${tx(l.loc)}</th><th class="num">SEDAN<br><small>01-02 PAX</small></th><th class="num">MINI VAN<br><small>03-05 PAX</small></th><th class="num">VAN<br><small>06-07 PAX</small></th><th class="num">ADAPTADO<br><small>01-03 PAX</small></th></tr>`;
   l.tours.forEach(tu=>{h+=`<tr><td>${tx(tu[0])}</td><td class="num">${eur(tu[1])}</td><td class="num">${eur(tu[2])}</td><td class="num">${eur(tu[3])}</td><td class="num">${eur(ONR)}</td></tr>`;
     if(DESCR[tu[0]])h+=`<tr class="desc-row"><td colspan="5"><details><summary>${t("dsc")}</summary><p>${LANG==="es"?(DESCR_ES[tu[0]]||tx(DESCR[tu[0]])):DESCR[tu[0]]}</p><p class="d-note">${t("dnote_pv")}</p></details></td></tr>`;});
+  const ghd=l.guideHD||325,gfd=l.guideFD||425,oou=LANG==="es"?"o":"ou";
+  h+=`<tr class="guide-row"><td><b>${tx("Guia Oficial")} Half Day 09h-13h ${oou} 14h-18h</b></td><td colspan="4" class="num"><b>${eurS(ghd)}</b></td></tr>`;
+  h+=`<tr class="guide-row"><td><b>${tx("Guia Oficial")} Full Day 09h-17h</b></td><td colspan="4" class="num"><b>${eurS(gfd)}</b></td></tr>`;
   return h+"</table>";
 }
 function opTable(k){
