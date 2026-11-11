@@ -6,46 +6,63 @@
 <title>Tarifário Younique Tailor Tours — Cotações</title>
 <style>
 :root{
-  --navy:#1c2b4a; --gold:#b98a2f; --bg:#f5f2ec; --card:#ffffff; --line:#e3ddd0;
+  --navy:#1c2b4a; --navy2:#14213a; --gold:#b98a2f; --gold2:#d4a94a; --bg:#f5f2ec; --card:#ffffff; --line:#e3ddd0;
   --txt:#2b2b2b; --muted:#7a7468; --ok:#2e7d32; --warn:#b26a00;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:15px}
-header{background:var(--navy);color:#fff;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-header h1{font-size:19px;font-weight:600;letter-spacing:.3px}
-header h1 span{color:var(--gold)}
-header .meta{font-size:12px;opacity:.85;text-align:right;line-height:1.5}
-nav.tabs{background:#14213a;display:flex;gap:0;padding:0 28px}
-nav.tabs button{background:none;border:none;color:#cfd6e4;padding:12px 22px;font-size:14px;cursor:pointer;border-bottom:3px solid transparent}
-nav.tabs button.active{color:#fff;border-bottom-color:var(--gold);font-weight:600}
+header{background:linear-gradient(90deg,var(--navy2) 0%,var(--navy) 55%,#2a3d63 100%);color:#fff;padding:16px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;box-shadow:0 2px 12px rgba(20,33,58,.35)}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#14213a;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3);border:2px solid rgba(255,255,255,.35)}
+.brand-txt h1{font-size:19px;font-weight:700;letter-spacing:.4px}
+.brand-txt h1 span{color:var(--gold2)}
+.brand-txt .tagline{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#9fb0d4;margin-top:1px}
+header .meta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.badge{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:#dfe5f2;font-size:11px;padding:5px 12px;border-radius:999px;letter-spacing:.4px}
+.hero{max-width:1200px;margin:0 auto;padding:34px 28px 6px;flex:0 0 100%;order:-1}
+.hero-inner{background:linear-gradient(115deg,var(--navy2) 0%,var(--navy) 48%,#31446e 100%);border-radius:18px;padding:40px 44px;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(28,43,74,.25)}
+.hero-inner::after{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(212,169,74,.35),transparent 70%)}
+.hero h2{font-size:26px;font-weight:800;line-height:1.25;max-width:560px}
+.hero h2 em{color:var(--gold2);font-style:normal}
+.hero p{margin-top:12px;font-size:14px;line-height:1.65;color:#c6d0e6;max-width:640px}
+.hero-cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#14213a;font-weight:700;border:none;border-radius:8px;padding:11px 22px;font-size:14px;cursor:pointer;box-shadow:0 3px 10px rgba(185,138,47,.4)}
+.btn-gold:hover{filter:brightness(1.08)}
+.btn-line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:11px 22px;font-size:14px;cursor:pointer}
+.btn-line:hover{border-color:var(--gold2);color:var(--gold2)}
+nav.tabs{background:var(--navy2);display:flex;gap:0;padding:0 30px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+nav.tabs button{background:none;border:none;color:#aeb9d3;padding:13px 24px;font-size:14px;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s}
+nav.tabs button.active{color:#fff;border-bottom-color:var(--gold2);font-weight:700}
 nav.tabs button:hover{color:#fff}
-main{max-width:1200px;margin:0 auto;padding:24px 28px;display:flex;gap:24px;min-height:70vh}
-aside{width:250px;flex-shrink:0}
-aside .box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+main{max-width:1200px;margin:0 auto;padding:22px 28px 40px;display:flex;flex-wrap:wrap;gap:24px;min-height:70vh}
+aside{width:252px;flex-shrink:0}
+aside .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 3px 14px rgba(28,43,74,.07);position:sticky;top:64px;max-height:calc(100vh - 84px);overflow:auto}
 aside h3{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:10px}
 aside ul{list-style:none}
-aside li{padding:6px 8px;border-radius:6px;cursor:pointer;font-size:13.5px}
-aside li:hover{background:#efe9dc}
-aside li.active{background:var(--navy);color:#fff}
+aside li{padding:7px 10px;border-radius:8px;cursor:pointer;font-size:13.5px;transition:background .12s}
+aside li:hover{background:#efe9dc;padding-left:13px}
+aside li.active{background:linear-gradient(90deg,var(--navy),#2a3d63);color:#fff;box-shadow:0 2px 6px rgba(28,43,74,.25)}
 aside li .grp{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:8px 8px 2px;cursor:default}
 aside li.active .grp,aside li:hover .grp{color:inherit}
 section.content{flex:1;min-width:0}
-h2.page-title{font-size:17px;color:var(--navy);margin-bottom:4px}
+h2.page-title{font-size:20px;color:var(--navy);margin-bottom:4px;font-weight:700}
 p.page-sub{font-size:12.5px;color:var(--muted);margin-bottom:16px}
-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13.5px;margin-bottom:18px}
-th{background:var(--navy);color:#fff;padding:9px 10px;text-align:left;font-weight:600;font-size:12.5px}
-td{padding:8px 10px;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:13.5px;margin-bottom:18px;box-shadow:0 3px 14px rgba(28,43,74,.07)}
+th{background:linear-gradient(90deg,var(--navy2),var(--navy));color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:12.5px;letter-spacing:.3px}
+td{padding:9px 12px;border-top:1px solid var(--line)}
+tbody tr:hover td{background:#faf8f3}
 tr.subth td{background:#eef1f7;font-weight:600;color:var(--navy);font-size:12.5px}
 .num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .or{color:var(--muted);font-style:italic}
-button.act{background:var(--gold);color:#fff;border:none;border-radius:6px;padding:6px 12px;font-size:12.5px;cursor:pointer}
-button.act:hover{background:#a3761f}
+button.act{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 2px 8px rgba(185,138,47,.35)}
+button.act:hover{filter:brightness(1.07)}
+button.act:active{transform:translateY(1px)}
 button.ghost{background:none;border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:12.5px;cursor:pointer;color:var(--txt)}
 button.ghost:hover{border-color:var(--navy)}
 .note{background:#fdf6e3;border:1px solid #ead9a8;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#6b5a1e;margin-bottom:16px}
 /* cotação */
 .quote-layout{display:grid;grid-template-columns:1fr 380px;gap:24px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 3px 14px rgba(28,43,74,.07)}
 .card h3{font-size:14px;color:var(--navy);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
 label{display:block;font-size:12.5px;color:var(--muted);margin:10px 0 4px}
 select,input[type=number],input[type=text]{width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;font-size:14px;background:#fff}
@@ -63,8 +80,9 @@ select,input[type=number],input[type=text]{width:100%;padding:8px;border:1px sol
 .warnbox{background:#fdecea;border:1px solid #f2b8b5;border-radius:8px;padding:8px 12px;font-size:12.5px;color:#8a2320;margin-top:10px}
 .okbox{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:8px 12px;font-size:12.5px;color:#2e5d32;margin-top:10px}
 textarea{width:100%;height:220px;font-family:Consolas,monospace;font-size:12px;padding:10px;border:1px solid var(--line);border-radius:6px;background:#fbfaf7}
-footer{background:var(--navy);color:#9aa5bd;font-size:11.5px;padding:14px 28px;text-align:center}
-@media(max-width:900px){main{flex-direction:column}aside{width:100%}.quote-layout{grid-template-columns:1fr}}
+footer{background:var(--navy2);color:#9aa5bd;font-size:11.5px;padding:18px 28px;text-align:center;line-height:1.8}
+footer b{color:#d4a94a}
+@media(max-width:900px){main{flex-direction:column}aside{width:100%}aside .box{position:static;max-height:none}.quote-layout{grid-template-columns:1fr}.hero{padding:20px 16px 4px}.hero-inner{padding:28px 22px}.hero h2{font-size:21px}header{padding:12px 16px}nav.tabs{padding:0 10px}main{padding:18px 14px 30px}}
 details{margin:4px 0}
 details summary{cursor:pointer;font-size:12px;color:var(--gold);font-weight:600}
 details p{font-size:13px;color:var(--txt);line-height:1.55;margin-top:8px;padding:10px 12px;background:#faf7f0;border-radius:8px}
@@ -75,10 +93,17 @@ details p{font-size:13px;color:var(--txt);line-height:1.55;margin-top:8px;paddin
 <body>
 
 <header>
-  <h1>Younique Tailor <span>Tours</span> — Tarifário Portugal FIT</h1>
+  <div class="brand">
+    <div class="logo">Y</div>
+    <div class="brand-txt">
+      <h1>Younique Tailor <span>Tours</span></h1>
+      <p class="tagline">DMC · Portugal</p>
+    </div>
+  </div>
   <div class="meta">
-    Válido de 01/04/2026 a 31/12/2026 · Valores NET em EUR<br>
-    Cotações e reservas: bookings@youniquetailortours.com
+    <span class="badge">Válido 01/04/2026 – 31/12/2026</span>
+    <span class="badge">Valores NET · EUR</span>
+    <span class="badge">RNAVT 4279</span>
   </div>
 </header>
 <nav class="tabs">
@@ -87,6 +112,16 @@ details p{font-size:13px;color:var(--txt);line-height:1.55;margin-top:8px;paddin
 </nav>
 
 <main>
+  <section class="hero">
+    <div class="hero-inner">
+      <h2>Tarifário Geral de Serviços <em>Portugal FIT 2026</em></h2>
+      <p>Traslados privativos, tours com motorista de turismo, experiências e tours regulares em Lisboa, Porto, Madeira, Açores e resto de Portugal. Consulte os preços e construa a sua cotação em segundos.</p>
+      <div class="hero-cta">
+        <button class="btn-gold" onclick="showTab('tar')">Consultar Tarifário</button>
+        <button class="btn-line" onclick="showTab('quo')">Fazer uma Cotação</button>
+      </div>
+    </div>
+  </section>
   <!-- ===================== TARIFÁRIO ===================== -->
   <aside id="side-tar">
     <div class="box">
@@ -241,8 +276,8 @@ details p{font-size:13px;color:var(--txt);line-height:1.55;margin-top:8px;paddin
 </main>
 
 <footer>
-  Younique Tailor Tours DMC · Rua das Azenhas, 26 A — Barcarena, 2730-270 Lisboa · T (+351) 219 263 381 · RNAVT 4279<br>
-  Emergência 24/7 (pax em trânsito): +351 968 629 112 · WhatsApp Operações (dias úteis): +351 924 451 271
+  <b>Younique Tailor Tours DMC</b> · Rua das Azenhas, 26 A — Barcarena, 2730-270 Lisboa · T (+351) 219 263 381 · RNAVT 4279<br>
+  Cotações e reservas: bookings@youniquetailortours.com · WhatsApp Operações (dias úteis): +351 924 451 271 · Emergência 24/7: +351 968 629 112
 </footer>
 
 <script>
