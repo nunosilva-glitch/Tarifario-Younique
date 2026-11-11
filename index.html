@@ -40,8 +40,13 @@ aside ul{list-style:none}
 aside li{padding:7px 10px;border-radius:8px;cursor:pointer;font-size:13.5px;transition:background .12s}
 aside li:hover{background:#efe9dc;padding-left:13px}
 aside li.active{background:linear-gradient(90deg,var(--navy),#3a3126);color:#fff;box-shadow:0 2px 6px rgba(35,31,32,.25)}
-aside li .grp{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:8px 8px 2px;cursor:default}
-aside li.active .grp,aside li:hover .grp{color:inherit}
+aside li.grp{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:8px 8px 2px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+aside li.grp::after{content:"\25B8";font-size:10px}
+aside li.grp.open::after{content:"\25BE"}
+aside li.grp:hover{color:var(--navy)}
+aside ul.sub{list-style:none;display:none;padding-left:8px}
+aside ul.sub.open{display:block}
+aside ul.sub li{font-size:13px}
 section.content{flex:1;min-width:0}
 h2.page-title{font-size:20px;color:var(--navy);margin-bottom:4px;font-weight:700}
 p.page-sub{font-size:12.5px;color:var(--muted);margin-bottom:16px}
@@ -938,17 +943,24 @@ function buildSidebar(){
   const ul=document.getElementById("cat-list");ul.innerHTML="";
   const li=document.createElement("li");li.textContent=t("cond");li.dataset.id="cond";
   li.onclick=()=>showCat("cond");ul.appendChild(li);
-  let lastCountry="";
+  let lastCountry="",grp=null,sub=null;
   DESTS.forEach(d=>{
     const country=d.id==="madrid"||d.id==="barcelona"||d.id==="sevilha"||d.id==="esoutras"||d.id==="esilhas"?(LANG==="es"?"ESPAÑA":"ESPANHA"):"PORTUGAL";
-    if(country!==lastCountry){const g=document.createElement("li");g.className="grp";g.textContent=country;ul.appendChild(g);lastCountry=country;}
+    if(country!==lastCountry){
+      grp=document.createElement("li");grp.className="grp";grp.textContent=country;
+      sub=document.createElement("ul");sub.className="sub";
+      grp.onclick=()=>{grp.classList.toggle("open");sub.classList.toggle("open");};
+      ul.appendChild(grp);ul.appendChild(sub);lastCountry=country;
+    }
     const li=document.createElement("li");li.textContent=tx(d.name);li.dataset.id=d.id;
-    li.onclick=()=>showCat(d.id);ul.appendChild(li);
+    li.onclick=()=>showCat(d.id);sub.appendChild(li);
   });
 }
 function showCat(id){
   currentCat=id;
   document.querySelectorAll("#cat-list li").forEach(li=>li.classList.toggle("active",li.dataset.id===id));
+  const act=document.querySelector('#cat-list li[data-id="'+id+'"]');
+  if(act){const s=act.closest("ul.sub");if(s&&!s.classList.contains("open")){s.classList.add("open");s.previousElementSibling.classList.add("open");}}
   const body=document.getElementById("tar-body");
   const ttl=document.getElementById("tar-title"),sub=document.getElementById("tar-sub");
   if(id==="cond"){
