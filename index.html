@@ -1332,9 +1332,10 @@ function fillExps(){
   const L=expList();
   const locs=[...new Set(L.map(e=>e.city))];
   const sel=document.getElementById("q-ex-loc");
-  const curLoc=locs[+sel.value||0];
+  const cur=Math.min(+sel.value||0,locs.length-1);
   fillSelect(sel,locs.map((l,i)=>[i,tx(l)]));
-  const loc=locs[+sel.value||0]||curLoc;
+  sel.value=cur;
+  const loc=locs[cur];
   fillSelect(document.getElementById("q-ex-item"),L.map((e,i)=>[i,tx(e.name)+(e.or?" — On Request":"")]).filter(x=>L[x[0]].city===loc));
 }
 fillExps();
