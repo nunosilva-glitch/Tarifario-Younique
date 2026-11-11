@@ -1233,7 +1233,7 @@ function renderQuote(){
 }
 function exportQuote(){
   const tot=cart.reduce((s,it)=>s+(it.v||0),0);
-  const now=new Date().toLocaleDateString("pt-PT");
+  const now=new Date().toLocaleDateString("pt-PT")+" "+new Date().toLocaleTimeString("pt-PT",{hour:"2-digit",minute:"2-digit"});
   let txt=`${t("exp_hdr")}\n${t("exp_date")} ${now}\n${"=".repeat(60)}\n\n`;
   cart.forEach((it,i)=>{txt+=`${String(i+1).padStart(2,"0")}. ${it.d}\n    ${eurS(it.v)}\n`;});
   txt+=`\n${"=".repeat(60)}\n${t("exp_total")} ${tot.toFixed(2).replace(".",",")} EUR\n\n`;
@@ -1250,7 +1250,7 @@ function copyQuote(){
 function printQuote(){
   const logoEl=document.querySelector("img.logo");
   const logo=logoEl?logoEl.src:"";
-  const now=new Date().toLocaleDateString(LANG==="es"?"es-ES":"pt-PT");
+  const now=new Date().toLocaleDateString(LANG==="es"?"es-ES":"pt-PT")+" · "+new Date().toLocaleTimeString(LANG==="es"?"es-ES":"pt-PT",{hour:"2-digit",minute:"2-digit"});
   const rows=cart.map((it,i)=>`<tr><td class="n">${String(i+1).padStart(2,"0")}</td><td>${it.d}</td><td class="r">${it.v==null?"On Request":it.v.toFixed(2).replace(".",",")+" €"}</td></tr>`).join("");
   const tot=cart.reduce((s,it)=>s+(it.v||0),0);
   const w=window.open("","_blank");
