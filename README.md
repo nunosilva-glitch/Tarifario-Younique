@@ -11,7 +11,7 @@ App web (ficheiro único `index.html`, sem dependências, funciona offline) base
 3. **Separador "Cotação"** — construir cotações:
    - Traslados: viatura calculada pelo nº de pax, acréscimo noturno +25% (22h–06h),
      assistência de aeroporto (220 €, obrigatória a partir de 06 pax).
-   - Tours privativos com guia oficial opcional (HD/FD conforme o destino: Lisboa/Porto 315/430 €, ilhas 480/640 €, Coimbra/Faro 295/400 €).
+   - Tours privativos com guia oficial opcional (HD/FD conforme o destino: Lisboa/Porto 315/430 €, ilhas 480/640 €, Coimbra/Faro 315/430 €).
    - Experiências por pax (Universidade de Coimbra, Coimbra by Night com Fado,
      Walking Tour Petiscos, Bairrada Wine Tour).
    - Reserva de mesa em restaurante (10 €/pax/refeição).
