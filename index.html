@@ -110,7 +110,7 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
   </div>
   <div class="meta">
     <div class="langsw"><button id="lang-pt" onclick="setLang('pt')">PT</button><button id="lang-es" onclick="setLang('es')">ES</button></div>
-    <span class="badge">Válido 01/04/2026 – 31/12/2026</span>
+    <span class="badge">Válido 01/01/2027 – 31/12/2027</span>
     <span class="badge">Valores NET · EUR</span>
   </div>
 </header>
@@ -122,7 +122,7 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
 <main>
   <section class="hero">
     <div class="hero-inner">
-      <h2 data-i18n-html="hero_h2">Tarifário Geral de Serviços <em>Portugal &amp; Espanha FIT 2026</em></h2>
+      <h2 data-i18n-html="hero_h2">Tarifário Geral de Serviços <em>Portugal &amp; Espanha FIT 2027</em></h2>
       <p data-i18n="hero_p">Memórias para a vida. Traslados privativos, tours com motorista de turismo, experiências e tours regulares em Portugal (Lisboa, Porto, Madeira, Açores, Algarve, Coimbra) e em Espanha (Madrid, Barcelona, Sevilha, Andaluzia, Ilhas). Consulte os preços e construa a sua cotação em segundos.</p>
       <div class="hero-cta">
         <button class="btn-gold" onclick="showTab('tar')" data-i18n="btn_tar">Consultar Tarifário</button>
@@ -179,7 +179,7 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
           </div>
           <div class="chk">
             <input type="checkbox" id="q-tr-assist" onchange="renderQuote()">
-            <label for="q-tr-assist" style="margin:0;color:var(--txt)">Assistência no aeroporto/estação (215,00 €) — incluída automaticamente a partir de 06 pax</label>
+            <label for="q-tr-assist" style="margin:0;color:var(--txt)">Assistência no aeroporto/estação (220,00 €) — incluída automaticamente a partir de 06 pax</label>
           </div>
           <div style="margin-top:14px">
             <button class="act" onclick="addTransfer()" data-i18n="btn_add_tr">Adicionar traslado à cotação</button>
@@ -294,148 +294,148 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
 </footer>
 
 <script>
-/* ==================== DADOS DO TARIFÁRIO 2026 ==================== */
+/* ==================== DADOS DO TARIFÁRIO 2027 ==================== */
 const ONR = null; // "On Request"
 
 const TRANSFERS = [
  {zone:"Lisboa", label:"Lisboa", rows:[
-  ["Aeroporto / Porto de Cruzeiros* / Estação de Trem de Lisboa",50,70,110],
-  ["Costa de Cascais / Sintra",100,125,145],
-  ["Évora",320,355,430],
-  ["Coimbra",430,495,530],
-  ["Fátima",320,355,430],
-  ["Faro (Portimão a Faro)",625,685,760],
-  ["Porto",655,710,785]]},
+  ["Aeroporto / Porto de Cruzeiros* / Estação de Trem de Lisboa",57,78,128],
+  ["Costa de Cascais / Sintra",117,144,160],
+  ["Évora",363,402,465],
+  ["Coimbra",487,560,571],
+  ["Fátima",363,402,465],
+  ["Faro (Portimão a Faro)",706,743,854],
+  ["Porto",834,953,1117]]},
  {zone:"Porto", label:"Porto", rows:[
-  ["Aeroporto / Porto de Cruzeiros* / Estação de Trem do Porto",50,80,120],
-  ["Vila Nova de Gaia",60,90,130],
-  ["Braga",130,200,230],
-  ["Aveiro",200,250,275],
-  ["Coimbra",270,350,450],
-  ["Lamego / Pinhão / Régua",255,350,400],
-  ["Lisboa",655,710,785],
-  ["Fátima",390,450,510],
-  ["Viana do Castelo",170,230,270],
-  ["Santiago de Compostela (Espanha)",485,595,725]]},
+  ["Aeroporto / Porto de Cruzeiros* / Estação de Trem do Porto",84,120,139],
+  ["Vila Nova de Gaia",72,102,139],
+  ["Braga",204,263,329],
+  ["Aveiro",250,289,329],
+  ["Coimbra",349,440,519],
+  ["Lamego / Pinhão / Régua",355,493,552],
+  ["Lisboa",834,953,1117],
+  ["Fátima",575,683,755],
+  ["Viana do Castelo",194,297,355],
+  ["Santiago de Compostela (Espanha)",612,813,911]]},
  {zone:"Madeira – Funchal", label:"Madeira – Funchal", rows:[
-  ["Aeroporto do Funchal / Porto de Cruzeiros*",65,75,85],
-  ["Caniço / Santa Cruz / Machico",65,75,85],
-  ["Estreito Câmara de Lobos",90,100,120],
-  ["Ponta do Sol",110,120,130],
-  ["Calheta / São Vicente / Encumeada",120,130,140]]},
- {zone:"Açores – Ilha de São Miguel", label:"Açores – S. Miguel", rows:[
-  ["Aeroporto de Ponta Delgada",55,80,110],
-  ["Lagoa",55,95,130],
-  ["Ribeira Grande / Caloura",60,90,140],
-  ["Capelas / Rabo de Peixe",60,90,135],
-  ["Vila Franca",70,105,140],
-  ["Furnas",90,150,225],
-  ["Povoação",120,200,265],
-  ["Nordeste",130,225,305]]},
+  ["Aeroporto do Funchal / Porto de Cruzeiros*",105,117,144],
+  ["Caniço / Santa Cruz / Machico",ONR,ONR,ONR],
+  ["Estreito Câmara de Lobos",ONR,ONR,ONR],
+  ["Ponta do Sol",ONR,ONR,ONR],
+  ["Calheta / São Vicente / Encumeada",163,185,226]]},
+ {zone:"Açores – Ilha de S. Miguel", label:"Açores – S. Miguel", rows:[
+  ["Aeroporto de Ponta Delgada",63,90,121],
+  ["Lagoa",63,105,142],
+  ["Ribeira Grande / Caloura",69,100,153],
+  ["Capelas / Rabo de Peixe",79,100,147],
+  ["Vila Franca",79,116,153],
+  ["Furnas",100,163,242],
+  ["Povoação",132,216,284],
+  ["Nordeste",142,242,326]]},
  {zone:"Açores – Ilha Terceira", label:"Açores – Terceira", rows:[
-  ["Praia da Vitória / Angra do Heroísmo",40,65,75]]},
+  ["Praia da Vitória / Angra do Heroísmo",48,74,84]]},
  {zone:"Açores – Ilha do Faial", label:"Açores – Faial", rows:[
-  ["Horta",45,70,95]]},
+  ["Horta",53,79,105]]},
  {zone:"Açores – Ilha do Pico", label:"Açores – Pico", rows:[
-  ["Madalena",80,100,130],["Lajes",90,170,185]]},
+  ["Madalena",90,111,142],["Lajes",100,184,200]]},
  {zone:"Açores – Ilha das Flores", label:"Açores – Flores", rows:[
-  ["Lajes das Flores / Fajã Grande",ONR,ONR,ONR]]},
- {zone:"Açores – Ilha de São Jorge", label:"Açores – S. Jorge", rows:[
-  ["Velas",55,80,90]]},
+  ["Lajes das Flores / Fajã Grande",70,90,115]]},
+ {zone:"Açores – Ilha de S. Jorge", label:"Açores – S. Jorge", rows:[
+  ["Velas",63,90,100]]},
  {zone:"Açores – Ilha de Santa Maria", label:"Açores – Sta. Maria", rows:[
-  ["Santa Maria",60,100,110]]},
+  ["Santa Maria",69,111,121]]},
  {zone:"Açores – Ilha Graciosa", label:"Açores – Graciosa", rows:[
-  ["Graciosa",50,80,110]]},
+  ["Graciosa",58,90,121]]},
  {zone:"Algarve – Faro", label:"Algarve – Faro", rows:[
-  ["Aeroporto de Faro",60,80,ONR],
-  ["Portimão",140,160,ONR],
-  ["Vilamoura",60,80,ONR],
-  ["Albufeira",90,110,ONR],
-  ["Carvoeiro",130,150,ONR],
-  ["Lisboa",625,685,ONR]]},
+  ["Aeroporto de Faro",73,97,ONR],
+  ["Portimão",170,194,ONR],
+  ["Vilamoura",73,97,ONR],
+  ["Albufeira",110,134,ONR],
+  ["Carvoeiro",ONR,ONR,ONR],
+  ["Lisboa",706,743,ONR]]},
  {zone:"Coimbra", label:"Coimbra", rows:[
-  ["Estação Trem Coimbra-B",80,115,ONR],
-  ["Lisboa",430,495,530],
-  ["Porto",270,350,450]]}
+  ["Estação Trem Coimbra-B",91,131,ONR],
+  ["Lisboa",487,560,571],
+  ["Porto",349,440,519]]}
 ];
 
 const TOURS = [
- {loc:"Lisboa", label:"Lisboa", tours:[
-  ["HD Lisboa 9h-13h ou 14h-18h",225,245,285],
-  ["HD Sintra, Cascais e Estoril 9h-13h ou 14h-18h",230,290,305],
-  ["HD Fátima 8h-13h ou 14h-19h",390,455,510],
-  ["Lisboa by Night 20h-00h",240,260,295],
-  ["Serviço à Disposição 04hrs com 120km 9h-13h ou 14h-18h",230,275,310],
-  ["FD Lisboa 9h-17h",285,340,370],
-  ["FD Sintra, Cabo da Roca, Cascais e Estoril 9h-17h",285,340,370],
-  ["FD Arrábida, Sesimbra, Setúbal e Palmela 9h-17h",330,365,425],
-  ["FD Évora 9h-17h",460,520,620],
-  ["FD Fátima, Batalha, Nazaré e Óbidos 9h-17h",450,500,550],
-  ["Serviço à Disposição 08hrs com 150km 9h-17h",280,340,385]]},
- {loc:"Porto", label:"Porto", tours:[
-  ["HD Porto 09h-13h ou 14h-18h",225,270,300],
-  ["HD Aveiro 08h-13h ou 14h-19h",325,450,475],
-  ["Porto by Night 20h-00h",250,300,350],
-  ["Serviço à Disposição 04hrs com 80km 09h-13h ou 14h-18h",250,300,350],
-  ["FD Porto 9h-17h",320,420,480],
-  ["FD Braga e Guimarães 9h-17h",365,470,550],
-  ["FD Viana do Castelo, Ponte de Lima e Barcelos 9h-17h",365,470,550],
-  ["FD Douro 9h-17h",365,470,550],
-  ["FD Aveiro e Coimbra 9h-17h",380,520,590],
-  ["FD Santiago de Compostela 9h-17h",625,700,800],
-  ["Serviço à Disposição 08hrs com 130km",350,470,510]]},
- {loc:"Funchal", label:"Funchal (Madeira)", tours:[
-  ["HD Funchal 09h-13h ou 14h-18h",190,220,260],
-  ["HD Eira do Serrado, Curral das Freiras 09h-13h ou 14h-18h",190,225,260],
-  ["HD Cabo Girão, Pico dos Barcelos, Cristo Rei 09h-13h ou 14h-18h",190,225,260],
-  ["HD Câmara de Lobos, Monte 09h-13h ou 14h-18h",190,225,260],
-  ["Funchal by Night 20h-00h",200,225,260],
-  ["FD Funchal 09h-17h",375,400,450],
-  ["FD Grande Madeira 09h-17h",410,535,610]]},
- {loc:"Ponta Delgada", label:"Ponta Delgada (S. Miguel)", tours:[
-  ["HD Lagoa do Fogo e Cerâmica 09h-13h ou 14h-18h",150,310,450],
-  ["HD Sete Cidades e Estufas de Ananás 09h-13h ou 14h-18h",150,310,450],
-  ["FD Lagoa do Fogo e Sete Cidades 09h-17h",320,700,1100],
-  ["FD Sete Cidades e Estufas de Ananás 09h-17h",320,700,1050],
-  ["FD Nordeste e Povoação 09h-17h",320,700,1050],
-  ["FD Vale das Furnas 09h-17h",340,785,1100],
-  ["FD Lagoa do Fogo e Furnas 09h-17h",330,790,1100]]},
- {loc:"Ilha Terceira", label:"Ilha Terceira (Açores)", tours:[
-  ["HD Biscoitos e Praia da Vitória 09h-13h ou 14h-18h",210,325,450],
-  ["FD Biscoitos e Praia da Vitória c/ Almoço 09h-17h",320,500,700]]},
- {loc:"Ilha do Faial", label:"Ilha do Faial (Açores)", tours:[
-  ["HD Capelinhos e Caldeira 09h-13h ou 14h-18h",195,395,550],
-  ["FD Capelinhos e Caldeira c/ Almoço 09h-17h",335,620,875]]},
- {loc:"Ilha do Pico", label:"Ilha do Pico (Açores)", tours:[
-  ["FD Madalena, Lajes e Montanha c/ Almoço + Ferry + Museu 09h-17h",340,700,1000]]},
- {loc:"Ilha das Flores", label:"Ilha das Flores (Açores)", tours:[
+ {loc:"Lisboa", label:"Lisboa", guideHD:315, guideFD:430, tours:[
+  ["HD Lisboa 9h-13h ou 14h-18h",223,245,286],
+  ["HD Sintra, Cascais e Estoril 9h-13h ou 14h-18h",263,329,330],
+  ["HD Fátima 8h-13h ou 14h-19h",441,516,550],
+  ["Lisboa by Night 20h-00h",272,297,320],
+  ["Serviço à Disposição 04hrs com 120km 9h-13h ou 14h-18h",245,304,331],
+  ["FD Lisboa 9h-17h",294,342,407],
+  ["FD Sintra, Cabo da Roca, Cascais e Estoril 9h-17h",308,353,436],
+  ["FD Arrábida, Sesimbra, Setúbal e Palmela 9h-17h",349,396,462],
+  ["FD Évora 9h-17h",510,584,662],
+  ["FD Fátima, Batalha, Nazaré e Óbidos 9h-17h",499,549,592],
+  ["Serviço à Disposição 08hrs com 150km 9h-17h",308,353,407]]},
+ {loc:"Porto", label:"Porto", guideHD:315, guideFD:430, tours:[
+  ["HD Porto 09h-13h ou 14h-18h",204,ONR,328],
+  ["HD Aveiro 08h-13h ou 14h-19h",355,451,493],
+  ["Porto by Night 20h-00h",242,315,375],
+  ["Serviço à Disposição 04hrs com 80km 09h-13h ou 14h-18h",ONR,ONR,ONR],
+  ["FD Porto 9h-17h",363,452,499],
+  ["FD Braga e Guimarães 9h-17h",441,494,565],
+  ["FD Viana do Castelo, Ponte de Lima e Barcelos 9h-17h",473,552,618],
+  ["FD Douro 9h-17h",460,539,624],
+  ["FD Aveiro e Coimbra 9h-17h",467,552,690],
+  ["FD Santiago de Compostela 9h-17h",667,775,959],
+  ["Serviço à Disposição 08hrs com 130km",378,504,519]]},
+ {loc:"Funchal", label:"Funchal (Madeira)", guideHD:480, guideFD:640, tours:[
+  ["HD Funchal 09h-13h ou 14h-18h",269,342,382],
+  ["HD Eira do Serrado, Curral das Freiras 09h-13h ou 14h-18h",ONR,ONR,ONR],
+  ["HD Cabo Girão, Pico dos Barcelos, Cristo Rei 09h-13h ou 14h-18h",ONR,ONR,ONR],
+  ["HD Câmara de Lobos, Monte 09h-13h ou 14h-18h",ONR,ONR,ONR],
+  ["Funchal by Night 20h-00h",ONR,ONR,ONR],
+  ["FD Funchal 09h-17h",394,447,487],
+  ["FD Grande Madeira 09h-17h",ONR,ONR,ONR]]},
+ {loc:"Ponta Delgada", label:"Ponta Delgada (S. Miguel)", guideHD:480, guideFD:640, tours:[
+  ["HD Lagoa do Fogo e Cerâmica 09h-13h ou 14h-18h",195,414,580],
+  ["HD Sete Cidades e Estufas de Ananás 09h-13h ou 14h-18h",195,414,580],
+  ["FD Lagoa do Fogo e Sete Cidades 09h-17h",389,854,1195],
+  ["FD Sete Cidades e Estufas de Ananás 09h-17h",390,827,1158],
+  ["FD Nordeste e Povoação 09h-17h",389,854,1195],
+  ["FD Vale das Furnas 09h-17h",426,940,1315],
+  ["FD Lagoa do Fogo e Furnas 09h-17h",426,940,1315]]},
+ {loc:"Ilha Terceira", label:"Ilha Terceira (Açores)", guideHD:480, guideFD:640, tours:[
+  ["HD Biscoitos e Praia da Vitória 09h-13h ou 14h-18h",260,369,517],
+  ["FD Biscoitos e Praia da Vitória c/ Almoço 09h-17h",426,745,832]]},
+ {loc:"Ilha do Faial", label:"Ilha do Faial (Açores)", guideHD:480, guideFD:640, tours:[
+  ["HD Capelinhos e Caldeira 09h-13h ou 14h-18h",205,444,621],
+  ["FD Capelinhos e Caldeira c/ Almoço 09h-17h",407,751,1052]]},
+ {loc:"Ilha do Pico", label:"Ilha do Pico (Açores)", guideHD:480, guideFD:640, tours:[
+  ["FD Madalena, Lajes e Montanha c/ Almoço + Ferry + Museu 09h-17h",470,954,1336]]},
+ {loc:"Ilha das Flores", label:"Ilha das Flores (Açores)", guideHD:480, guideFD:640, tours:[
   ["FD Caldeirão e Vila Nova do Corvo c/ Almoço 09h-17h",ONR,ONR,ONR],
-  ["FD Rocha dos Bordões e Lagoas c/ Almoço 09h-17h",ONR,ONR,ONR]]},
- {loc:"Ilha de São Jorge", label:"Ilha de S. Jorge (Açores)", tours:[
-  ["FD Urzelina, Topo e Fajãs c/ Almoço 09h-17h",380,635,800]]},
- {loc:"Ilha de Santa Maria", label:"Ilha de Sta. Maria (Açores)", tours:[
-  ["FD Vila do Porto e S. Lourenço 09h-17h",775,990,1300]]},
- {loc:"Ilha Graciosa", label:"Ilha Graciosa (Açores)", tours:[
-  ["FD Santa Cruz e Vila da Praia c/ Almoço 09h-17h",260,550,760]]},
- {loc:"Coimbra", label:"Coimbra", tours:[
-  ["HD Coimbra 09h-13h ou 14h-18h",330,430,ONR],
-  ["FD Coimbra 9h-17h",455,530,ONR],
-  ["FD Aveiro, Bussaco, Curia, Ílhavo, Costa Nova 9h-17h",580,755,ONR],
-  ["FD Fátima, Tomar e Penela 9h-17h",580,755,ONR],
-  ["FD Conímbriga, Rabaçal e Castelo de Penela 9h-17h",580,755,ONR],
-  ["FD Foz d'Égua, Piódão e Fraga da Pena 9h-17h",580,755,ONR],
-  ["FD Tomar, Batalha e Alcobaça 9h-17h",580,755,ONR]]},
- {loc:"Faro", label:"Faro (Algarve)", tours:[
-  ["HD Algarve 09h-13h ou 14h-18h",300,400,ONR],
-  ["FD Algarve 9h-17h",550,700,ONR]]}
+  ["FD Rocha dos Bordões e Lagoas c/ Almoço 09h-17h",407,881,1233]]},
+ {loc:"Ilha de S. Jorge", label:"Ilha de S. Jorge (Açores)", guideHD:480, guideFD:640, tours:[
+  ["FD Urzelina, Topo e Fajãs c/ Almoço 09h-17h",445,684,890]]},
+ {loc:"Ilha de Santa Maria", label:"Ilha de Sta. Maria (Açores)", guideHD:480, guideFD:640, tours:[
+  ["FD Vila do Porto e S. Lourenço 09h-17h",856,1014,1370]]},
+ {loc:"Ilha Graciosa", label:"Ilha Graciosa (Açores)", guideHD:480, guideFD:640, tours:[
+  ["FD Santa Cruz e Vila da Praia c/ Almoço 09h-17h",427,854,1195]]},
+ {loc:"Coimbra", label:"Coimbra", guideHD:295, guideFD:400, tours:[
+  ["HD Coimbra 09h-13h ou 14h-18h",372,485,ONR],
+  ["FD Coimbra 9h-17h",512,597,ONR],
+  ["FD Aveiro, Bussaco, Curia, Ílhavo, Costa Nova 9h-17h",653,849,ONR],
+  ["FD Fátima, Tomar e Penela 9h-17h",653,849,ONR],
+  ["FD Conímbriga, Rabaçal e Castelo de Penela 9h-17h",653,849,ONR],
+  ["FD Foz d'Égua, Piódão e Fraga da Pena 9h-17h",653,849,ONR],
+  ["FD Tomar, Batalha e Alcobaça 9h-17h",653,849,ONR]]},
+ {loc:"Faro", label:"Faro (Algarve)", guideHD:295, guideFD:400, tours:[
+  ["HD Algarve 09h-13h ou 14h-18h",345,409,ONR],
+  ["FD Algarve 9h-17h",665,786,ONR]]}
 ];
 
 /* Experiências com preço NET por pax (base mínima + pax extra até 07 pax) */
 const EXPS = [
- {loc:"Coimbra",name:"Ticket Universidade de Coimbra (inclui guia) — Coimbra/Aveiro", base:360, extra:25, min:1, note:"Mín. 05 participantes ou pagamento do valor equivalente. Não reembolsável."},
- {loc:"Coimbra",name:"HD Coimbra by Night c/ Jantar e Show de Fado 04hrs (inclui guia)", base:410, extra:130, min:1, note:"Mín. 01 pax."},
- {loc:"Coimbra",name:"HD Walking Tour Petiscos 04 hrs (inclui guia)", base:310, extra:110, min:2, note:"Mín. 02 pax."},
- {loc:"Coimbra",name:"FD Bairrada Wine Tour c/ Visita a Caves + Almoço + Museu 08hrs", base:610, extra:135, min:1, note:"Mín. 01 pax."}
+ {loc:"Coimbra",name:"Ticket Universidade de Coimbra (inclui guia) — Coimbra/Aveiro", base:425, extra:35, min:1, note:"Mín. 05 participantes ou pagamento do valor equivalente. Não reembolsável."},
+ {loc:"Coimbra",name:"HD Coimbra by Night c/ Jantar e Show de Fado 04hrs (inclui guia)", base:469, extra:158, min:1, note:"Mín. 01 pax."},
+ {loc:"Coimbra",name:"HD Walking Tour Petiscos 04 hrs (inclui guia)", base:357, extra:137, min:2, note:"Mín. 02 pax."},
+ {loc:"Coimbra",name:"FD Bairrada Wine Tour c/ Visita a Caves + Almoço + Museu 08hrs", base:731, extra:163, min:1, note:"Mín. 01 pax."}
 ];
 function expList(){
   const L=[];
@@ -498,7 +498,7 @@ const OPCIONAIS = {
   ["Passeio de Barco pelas Grutas de Benagil (Algarve)","On Request"]]
 };
 
-/* Descritivos dos tours (fonte: tarifário 2026, páginas 21-49) */
+/* Descritivos dos tours (fonte: tarifário 2027) */
 const DESCR = {
 "HD Lisboa 9h-13h ou 14h-18h":"Começamos pelo Bairro de Belém, com panorâmica da Torre de Belém, símbolo histórico de Portugal construído no século XVI, Património Mundial da UNESCO e obra-prima do estilo manuelino, que desempenhou papel crucial nas grandes navegações portuguesas. Em seguida, possibilidade de visitar o Mosteiro dos Jerónimos, obra-prima da arquitetura portuguesa classificada pela UNESCO (opcional). Por fim, explore os carismáticos bairros de Alfama e Rossio, mergulhando na atmosfera autêntica da cidade, além das principais praças como Praça do Comércio, Rossio e Restauradores, finalizando com vista panorâmica sobre a cidade num dos seus mais belos mirantes.",
 "FD Lisboa 9h-17h":"Começamos pelo Bairro de Belém, com panorâmica da Torre de Belém, símbolo histórico de Portugal construído no século XVI, Património Mundial da UNESCO e obra-prima do estilo manuelino, que desempenhou papel crucial nas grandes navegações portuguesas. Em seguida, possibilidade de visitar o Mosteiro dos Jerónimos, obra-prima da arquitetura portuguesa classificada pela UNESCO (opcional). Por fim, explore os carismáticos bairros de Alfama e Rossio, mergulhando na atmosfera autêntica da cidade, além das principais praças como Praça do Comércio, Rossio e Restauradores, finalizando com vista panorâmica sobre a cidade num dos seus mais belos mirantes.",
@@ -820,7 +820,7 @@ let currentCat=null;
 const T={
  pt:{
   tab_tar:"Tarifário",tab_quo:"Cotação",cats:"Categorias",cond:"Condições Gerais",
-  hero_h2:'Tarifário Geral de Serviços <em>Portugal &amp; Espanha FIT 2026</em>',
+  hero_h2:'Tarifário Geral de Serviços <em>Portugal &amp; Espanha FIT 2027</em>',
   hero_p:"Memórias para a vida. Traslados privativos, tours com motorista de turismo, experiências e tours regulares em Portugal (Lisboa, Porto, Madeira, Açores, Algarve, Coimbra) e em Espanha (Madrid, Barcelona, Sevilha, Andaluzia, Ilhas). Consulte os preços e construa a sua cotação em segundos.",
   btn_tar:"Consultar Tarifário",btn_quo:"Fazer uma Cotação",
   card1:"1 · Traslado Privativo",card2:"2 · Tour Privativo com Motorista de Turismo",
@@ -839,8 +839,8 @@ const T={
   th_price:"Preço",th_freq:"Frequência / Preço",th_net:"Preço NET",
   lbl_base:"Base (mín. ",lbl_extra:"Pax extra (máx. 07 pax, cada)",
   no_guide:"Não incluir",
-  sub_cond:"Tarifários Gerais Serviços Portugal & Espanha FIT · Válido de 01/04/2026 a 31/12/2026. Todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours.",
-  sub_dest:"Traslados, tours privativos, experiências e tours regulares · Tarifas NET em EUR · Válido 01/04/2026 – 31/12/2026",
+  sub_cond:"Tarifários Gerais Serviços Portugal & Espanha FIT · Válido de 01/01/2027 a 31/12/2027. Todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours.",
+  sub_dest:"Traslados, tours privativos, experiências e tours regulares · Tarifas NET em EUR · Válido 01/01/2027 – 31/12/2027",
   note_tr:'Tarifas por trajeto, válidas todos os dias exceto feriados/datas festivas. Entre 22h00 e 06h00: +25%. IVA e pedágios incluídos. Bagagens: 01 mala por pax até 23kg. Assistência no aeroporto/estação: {A} (obrigatória a partir de 06 pax).',
   malaga_note:"*Nos meses de Junho, Julho, Agosto e Setembro, aplica-se uma taxa adicional de 20% (época alta). Málaga.",
   note_tu:"Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD {GHD} / FD {GFD}.",
@@ -857,14 +857,14 @@ const T={
   msg_or_tour:"Este tour está On Request para {V}. Contacte bookings@youniquetailortours.com.",
   ok_assist:"Assistência de aeroporto/estação ({A}) incluída automaticamente — obrigatória para {P} pax.",
   warn_assist_or:"Assistência obrigatória a partir de 06 pax, mas On Request nesta zona — contacte bookings@youniquetailortours.com.",
-  exp_hdr:"COTAÇÃO — Younique Tailor Tours DMC (Tarifário Portugal & Espanha FIT 2026)",
+  exp_hdr:"COTAÇÃO — Younique Tailor Tours DMC (Tarifário Portugal & Espanha FIT 2027)",
   exp_date:"Data:",exp_total:"TOTAL NET:",exp_disc:"DISCLAIMERS",
   exp_mail_sub:"Pedido de cotação — serviços Portugal & Espanha",
   footer1:"Cotações e reservas: bookings@youniquetailortours.com · WhatsApp Operações (dias úteis): +351 924 451 271 · Emergência 24/7: +351 968 629 112"
  },
  es:{
   tab_tar:"Tarifario",tab_quo:"Cotización",cats:"Categorías",cond:"Condiciones Generales",
-  hero_h2:'Tarifario General de Servicios <em>Portugal &amp; España FIT 2026</em>',
+  hero_h2:'Tarifario General de Servicios <em>Portugal &amp; España FIT 2027</em>',
   hero_p:"Recuerdos para toda la vida. Traslados privativos, tours con chófer de turismo, experiencias y tours regulares en Portugal (Lisboa, Oporto, Madeira, Azores, Algarve, Coímbra) y en España (Madrid, Barcelona, Sevilla, Andalucía, Islas). Consulte los precios y prepare su cotización en segundos.",
   btn_tar:"Consultar Tarifario",btn_quo:"Hacer una Cotización",
   card1:"1 · Traslado Privativo",card2:"2 · Tour Privado con Chófer de Turismo",
@@ -883,8 +883,8 @@ const T={
   th_price:"Precio",th_freq:"Frecuencia / Precio",th_net:"Precio NET",
   lbl_base:"Base (mín. ",lbl_extra:"Pax extra (máx. 07 pax, cada)",
   no_guide:"No incluir",
-  sub_cond:"Tarifarios Generales de Servicios Portugal & España FIT · Válido del 01/04/2026 al 31/12/2026. Todos los servicios requieren confirmación de reserva por parte de Younique Tailor Tours.",
-  sub_dest:"Traslados, tours privados, experiencias y tours regulares · Tarifas NET en EUR · Válido 01/04/2026 – 31/12/2026",
+  sub_cond:"Tarifarios Generales de Servicios Portugal & España FIT · Válido del 01/01/2027 al 31/12/2027. Todos los servicios requieren confirmación de reserva por parte de Younique Tailor Tours.",
+  sub_dest:"Traslados, tours privados, experiencias y tours regulares · Tarifas NET en EUR · Válido 01/01/2027 – 31/12/2027",
   note_tr:'Tarifas por trayecto, válidas todos los días excepto festivos y fechas señaladas. Entre las 22h00 y las 06h00: +25%. IVA y peajes incluidos. Equipaje: 01 maleta por pax hasta 23kg. Asistencia en aeropuerto/estación: {A} (obligatoria a partir de 06 pax).',
   malaga_note:"*En los meses de junio, julio, agosto y septiembre, se aplica un suplemento adicional del 20% (temporada alta). Málaga.",
   note_tu:"Pick up & drop off en hotel céntrico. HD hasta 04h (09h-13h o 14h-18h); FD hasta 08h (09h-17h); by night 20h-00h. No incluye entradas, comidas ni guía. IVA, peajes y gastos del chófer incluidos. Guía Oficial: HD {GHD} / FD {GFD}.",
@@ -901,7 +901,7 @@ const T={
   msg_or_tour:"Este tour está On Request para {V}. Contacte bookings@youniquetailortours.com.",
   ok_assist:"Asistencia de aeropuerto/estación ({A}) incluida automáticamente — obligatoria para {P} pax.",
   warn_assist_or:"Asistencia obligatoria a partir de 06 pax, pero On Request en esta zona — contacte bookings@youniquetailortours.com.",
-  exp_hdr:"COTIZACIÓN — Younique Tailor Tours DMC (Tarifario Portugal & España FIT 2026)",
+  exp_hdr:"COTIZACIÓN — Younique Tailor Tours DMC (Tarifario Portugal & España FIT 2027)",
   exp_date:"Fecha:",exp_total:"TOTAL NET:",exp_disc:"AVISOS",
   exp_mail_sub:"Solicitud de cotización — servicios Portugal & España",
   footer1:"Cotizaciones y reservas: bookings@youniquetailortours.com · WhatsApp Operaciones (días laborables): +351 924 451 271 · Emergencia 24/7: +351 968 629 112"
@@ -1050,7 +1050,7 @@ function condHTML(){
   const sec=(t,items)=>`<div class="card"><h3 style="margin-bottom:10px">${t}</h3>`+items.map(i=>`<p style="font-size:13px;line-height:1.6;margin-bottom:9px"><b>· ${i[0]}:</b> ${i[1]}</p>`).join("")+`</div>`;
   return (
   sec("Validade e Reservas",[
-   ["Validade","este tarifário está válido de 01 de abril de 2026 até 31 de dezembro de 2026, ou até publicação de novo tarifário ou adenda."],
+   ["Validade","este tarifário está válido de 01 de janeiro de 2027 até 31 de dezembro de 2027, ou até publicação de novo tarifário ou adenda."],
    ["Serviços","este tarifário inclui somente as ofertas mais habituais. Caso não encontre o que procura, por favor consulte-nos e teremos todo o gosto em personalizar a experiência que deseja para os seus passageiros."],
    ["Contactos de Operações","todos os pedidos de cotações e reservas devem ser enviados para o e-mail bookings@youniquetailortours.com. Para apoio operacional está disponível o WhatsApp de Operações +351 924 451 271, de segunda a sexta-feira, entre as 09h00 e as 13h00 e das 14h00 às 18h00. Este contacto não deve ser utilizado para reservas nem para passageiros em trânsito; qualquer pedido de cotação ou reserva enviado via WhatsApp não será considerado."],
    ["Confirmação de serviços","todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours. Os valores apresentados servem somente o propósito de cotação/orçamentação. Apenas com uma confirmação formal (Fatura Proforma) se poderão considerar os serviços como reservados. Toda a operação da Younique Tailor Tours rege-se pelas seguintes <a href=\"https://e5a5aae1-a263-46c6-977a-735ba7284311.filesusr.com/ugd/09435c_745e54ee69c14e42a05a7bc6f04d8e7b.pdf\" target=\"_blank\" rel=\"noopener\">condições gerais de operação</a>."],
@@ -1070,7 +1070,7 @@ function condHTML(){
   +sec("Condições — Traslados Privativos",[
    ["Tarifas","NET em EUROS por trajeto, válidas para todos os dias da semana, exceto feriados, datas festivas e datas de eventos que decorram na cidade, que serão informadas no ato da reserva."],
    ["Serviço noturno","traslados efetuados entre as 22h00 e as 06h00 acrescem 25%. IVA e pedágios incluídos."],
-   ["Assistência","traslados até 05 pax incluem assistência local do motorista em português. Assistência no aeroporto/estação: 215,00 € — obrigatória incluir para serviços a partir de 06 pax."],
+   ["Assistência","traslados até 05 pax incluem assistência local do motorista em português. Assistência no aeroporto/estação: 220,00 € — obrigatória incluir para serviços a partir de 06 pax."],
    ["Bagagens","máximo 01 mala por pax até 23kg."],
    ["Tempos de espera","no aeroporto: até 01h após aterragem. Na estação de trem/porto de cruzeiros: até 15 minutos após a chegada do trem/navio. No hotel: até 15 minutos após a hora indicada no voucher."],
    ["Pontos de encontro","Aeroporto de Lisboa — junto ao desembarque · Estação Oriente — na plataforma junto à 1ª carruagem · Estação Santa Apolónia — junto à saída da respetiva plataforma · Aeroporto do Porto — junto ao desembarque · Estação Campanhã — no interior do edifício principal · Estação São Bento — na plataforma junto à 1ª carruagem · Aeroportos do Funchal e Ponta Delgada — junto ao desembarque · Aeroporto/estação de outras cidades — a informar no voucher. Caso não encontre o motorista em 10 minutos, acione os serviços de emergência."],
@@ -1118,7 +1118,7 @@ function fillSelect(el,items){el.innerHTML=items.map(i=>`<option value="${i[0]}"
 function fillTrRoutes(){
   const z=TRANSFERS[+document.getElementById("q-tr-zone").value];
   fillSelect(document.getElementById("q-tr-route"),z.rows.map((r,i)=>[i,r[0]]));
-  const a=z.assist===undefined?215:z.assist;
+  const a=z.assist===undefined?220:z.assist;
   document.querySelector('label[for="q-tr-assist"]').textContent=tf("lbl_assist",{A:a==null?"On Request":a.toFixed(2).replace(".",",")+" €"});
   const ad=document.getElementById("q-tr-adapt");
   ad.innerHTML=`<option value="no">${t("lbl_no")}</option><option value="yes">${t("lbl_yes")}</option>`;
@@ -1172,7 +1172,7 @@ function addTransfer(){
   let base=price;let nightAdd=0;
   if(night){nightAdd=base*0.25;base=base*1.25;}
   const items=[{d:`${tx("Traslado")} ${tx(z.label||z.zone)} → ${tx(r[0])} · ${v.n} · ${pax} pax${night?" ("+t("night_lbl")+")":""}`,v:base}];
-  const aPrice=z.assist===undefined?215:z.assist;
+  const aPrice=z.assist===undefined?220:z.assist;
   if(assist&&aPrice==null){
     msg.innerHTML=`<div class="warnbox">${t("warn_assist_or")}</div>`;
   }else{
@@ -1286,7 +1286,7 @@ function condHTML_ES(){
   const sec=(t,items)=>`<div class="card"><h3 style="margin-bottom:10px">${t}</h3>`+items.map(i=>`<p style="font-size:13px;line-height:1.6;margin-bottom:9px"><b>· ${i[0]}:</b> ${i[1]}</p>`).join("")+`</div>`;
   return (
   sec("Validez y Reservas",[
-   ["Validez","este tarifario está válido del 01 de abril de 2026 hasta el 31 de diciembre de 2026, o hasta la publicación de un nuevo tarifario o addenda."],
+   ["Validez","este tarifario está válido del 01 de enero de 2027 hasta el 31 de diciembre de 2027, o hasta la publicación de un nuevo tarifario o addenda."],
    ["Servicios","este tarifario incluye únicamente las ofertas más habituales. Si no encuentra lo que busca, consúltenos y tendremos mucho gusto en personalizar la experiencia que desea para sus pasajeros."],
    ["Contactos de Operaciones","todas las solicitudes de cotizaciones y reservas deben enviarse a bookings@youniquetailortours.com. Para apoyo operacional está disponible el WhatsApp de Operaciones +351 924 451 271, de lunes a viernes, de 09h00 a 13h00 y de 14h00 a 18h00. Este contacto no debe utilizarse para reservas ni para pasajeros en tránsito; cualquier solicitud enviada por WhatsApp no será considerada."],
    ["Confirmación de servicios","todos los servicios requieren confirmación de reserva por parte de Younique Tailor Tours. Los valores presentados sirven únicamente para cotización. Solo con una confirmación formal (Factura Proforma) se podrán considerar los servicios como reservados. Toda la operación de Younique Tailor Tours se rige por las siguientes <a href=\"https://e5a5aae1-a263-46c6-977a-735ba7284311.filesusr.com/ugd/09435c_745e54ee69c14e42a05a7bc6f04d8e7b.pdf\" target=\"_blank\" rel=\"noopener\">condiciones generales de operación</a>."],
@@ -1307,7 +1307,7 @@ function condHTML_ES(){
   +sec("Condiciones — Traslados Privativos",[
    ["Tarifas","NET en EUROS por trayecto, válidas todos los días de la semana, excepto festivos, fechas señaladas y fechas de eventos, que serán informadas en el momento de la reserva."],
    ["Servicio nocturno","traslados efectuados entre las 22h00 y las 06h00: recargo del 25%. IVA y peajes incluidos."],
-   ["Asistencia","traslados hasta 05 pax incluyen asistencia local del chófer en español (portugués sujeto a disponibilidad). Asistencia en aeropuerto/estación: 215,00 € en Portugal / 310,00 € en España — obligatoria a partir de 06 pax. En las Islas Canárias y Baleares: On Request."],
+   ["Asistencia","traslados hasta 05 pax incluyen asistencia local del chófer en español (portugués sujeto a disponibilidad). Asistencia en aeropuerto/estación: 220,00 € en Portugal / 310,00 € en España — obligatoria a partir de 06 pax. En las Islas Canárias y Baleares: On Request."],
    ["Equipaje","máximo 01 maleta por pax hasta 23kg."],
    ["Tiempos de espera","en el aeropuerto: hasta 01h tras el aterrizaje. En la estación de tren/puerto de cruceros: hasta 15 minutos tras la llegada del tren/barco. En el hotel: hasta 15 minutos tras la hora indicada en el voucher."],
    ["Puntos de encuentro","Lisboa — Aeropuerto junto al desembarque · Estación Oriente — en el andén junto al 1er vagón · Estación Santa Apolónia — junto a la salida · Oporto — Aeropuerto junto al desembarque · Campanhã — en el interior del edificio principal · São Bento — en el andén junto al 1er vagón · Madrid — Aeropuerto junto al desembarque · Puerta de Atocha — Hall de Llegadas de la planta 1, frente al Punto de Información de Turismo · Barcelona — Estación Sants, junto a la puerta interior del McDonald's · Sevilla — Estación Santa Justa, a informar en el voucher · Funchal y Ponta Delgada — junto al desembarque · Otras ciudades — a informar en el voucher. Si no encuentra al chófer en 10 minutos, active los servicios de emergencia."],
