@@ -1010,7 +1010,7 @@ function showCat(id){
   }).join("");
 }
 function trTable(z,withNote){
-  const aTxt=z.assist==null?"On Request":eurS(z.assist);
+  const aTxt=z.assist===undefined?eurS(230):(z.assist==null?"On Request":eurS(z.assist));
   let h=(withNote?`<div class="note">${tf("note_tr",{A:aTxt})}</div>`:"")+`<table><tr><th>${tx(z.zone)}</th>${VEH.map(v=>`<th class="num">${v.n}<br><small>${v.p}</small></th>`).join("")}</tr>`;
   z.rows.forEach(r=>{h+=`<tr><td>${tx(r[0])}</td>${[r[1],r[2],r[3],ONR,ONR].map(x=>`<td class="num">${eur(x)}</td>`).join("")}</tr>`;});
   h+=`</table><p style="font-size:12px;color:var(--muted)">${t("note_port")}</p>`;
