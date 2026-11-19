@@ -179,7 +179,7 @@ details .d-note{font-size:11px;color:var(--muted);margin-top:6px;font-style:ital
           </div>
           <div class="chk">
             <input type="checkbox" id="q-tr-assist" onchange="renderQuote()">
-            <label for="q-tr-assist" style="margin:0;color:var(--txt)">Assistência no aeroporto/estação (220,00 €) — incluída automaticamente a partir de 06 pax</label>
+            <label for="q-tr-assist" style="margin:0;color:var(--txt)">Assistência no aeroporto/estação (230,00 €) — incluída automaticamente a partir de 06 pax</label>
           </div>
           <div style="margin-top:14px">
             <button class="act" onclick="addTransfer()" data-i18n="btn_add_tr">Adicionar traslado à cotação</button>
@@ -305,16 +305,16 @@ const TRANSFERS = [
   ["Coimbra",487,560,571],
   ["Fátima",363,402,465],
   ["Faro (Portimão a Faro)",706,743,854],
-  ["Porto",834,953,1117]]},
+  ["Porto",725,743,845]]},
  {zone:"Porto", label:"Porto", rows:[
-  ["Aeroporto / Porto de Cruzeiros* / Estação de Trem do Porto",84,120,139],
-  ["Vila Nova de Gaia",72,102,139],
+  ["Aeroporto / Porto de Cruzeiros* / Estação de Trem do Porto",57,89,125],
+  ["Vila Nova de Gaia",65,102,144],
   ["Braga",204,263,329],
   ["Aveiro",250,289,329],
   ["Coimbra",349,440,519],
   ["Lamego / Pinhão / Régua",355,493,552],
-  ["Lisboa",834,953,1117],
-  ["Fátima",575,683,755],
+  ["Lisboa",725,743,845],
+  ["Fátima",572,683,755],
   ["Viana do Castelo",194,297,355],
   ["Santiago de Compostela (Espanha)",612,813,911]]},
  {zone:"Madeira – Funchal", label:"Madeira – Funchal", rows:[
@@ -351,45 +351,45 @@ const TRANSFERS = [
   ["Portimão",170,194,ONR],
   ["Vilamoura",73,97,ONR],
   ["Albufeira",110,134,ONR],
-  ["Carvoeiro",ONR,ONR,ONR],
-  ["Lisboa",706,743,ONR]]},
+  ["Carvoeiro",159,182,ONR],
+  ["Lisboa",755,966,ONR]]},
  {zone:"Coimbra", label:"Coimbra", rows:[
-  ["Estação Trem Coimbra-B",91,131,ONR],
+  ["Estação Trem Coimbra-B",91,128,ONR],
   ["Lisboa",487,560,571],
   ["Porto",349,440,519]]}
 ];
 
 const TOURS = [
- {loc:"Lisboa", label:"Lisboa", guideHD:315, guideFD:430, tours:[
-  ["HD Lisboa 9h-13h ou 14h-18h",223,245,286],
-  ["HD Sintra, Cascais e Estoril 9h-13h ou 14h-18h",263,329,330],
-  ["HD Fátima 8h-13h ou 14h-19h",441,516,550],
-  ["Lisboa by Night 20h-00h",272,297,320],
+ {loc:"Lisboa", label:"Lisboa", guideHD:350, guideFD:450, tours:[
+  ["HD Lisboa 9h-13h ou 14h-18h",233,255,298],
+  ["HD Sintra, Cascais e Estoril 9h-13h ou 14h-18h",245,304,331],
+  ["HD Fátima 8h-13h ou 14h-19h",431,510,584],
+  ["Lisboa by Night 20h-00h",249,275,308],
   ["Serviço à Disposição 04hrs com 120km 9h-13h ou 14h-18h",245,304,331],
-  ["FD Lisboa 9h-17h",294,342,407],
-  ["FD Sintra, Cabo da Roca, Cascais e Estoril 9h-17h",308,353,436],
-  ["FD Arrábida, Sesimbra, Setúbal e Palmela 9h-17h",349,396,462],
-  ["FD Évora 9h-17h",510,584,662],
-  ["FD Fátima, Batalha, Nazaré e Óbidos 9h-17h",499,549,592],
-  ["Serviço à Disposição 08hrs com 150km 9h-17h",308,353,407]]},
- {loc:"Porto", label:"Porto", guideHD:315, guideFD:430, tours:[
-  ["HD Porto 09h-13h ou 14h-18h",204,260,328],
-  ["HD Aveiro 08h-13h ou 14h-19h",355,451,493],
-  ["Porto by Night 20h-00h",242,315,375],
-  ["Serviço à Disposição 04hrs com 80km 09h-13h ou 14h-18h",ONR,ONR,ONR],
-  ["FD Porto 9h-17h",363,452,499],
-  ["FD Braga e Guimarães 9h-17h",441,494,565],
+  ["FD Lisboa 9h-17h",306,355,407],
+  ["FD Sintra, Cabo da Roca, Cascais e Estoril 9h-17h",308,367,436],
+  ["FD Arrábida, Sesimbra, Setúbal e Palmela 9h-17h",349,396,481],
+  ["FD Évora 9h-17h",510,584,689],
+  ["FD Fátima, Batalha, Nazaré e Óbidos 9h-17h",499,571,650],
+  ["Serviço à Disposição 08hrs com 150km 9h-17h",320,367,422]]},
+ {loc:"Porto", label:"Porto", guideHD:350, guideFD:450, tours:[
+  ["HD Porto 09h-13h ou 14h-18h",242,284,368],
+  ["HD Aveiro 08h-13h ou 14h-19h",355,469,493],
+  ["Porto by Night 20h-00h",250,300,350],
+  ["Serviço à Disposição 04hrs com 80km 09h-13h ou 14h-18h",267,315,390],
+  ["FD Porto 9h-17h",368,460,499],
+  ["FD Braga e Guimarães 9h-17h",441,499,565],
   ["FD Viana do Castelo, Ponte de Lima e Barcelos 9h-17h",473,552,618],
   ["FD Douro 9h-17h",460,539,624],
   ["FD Aveiro e Coimbra 9h-17h",467,552,690],
-  ["FD Santiago de Compostela 9h-17h",667,775,959],
-  ["Serviço à Disposição 08hrs com 130km",378,504,519]]},
+  ["FD Santiago de Compostela 9h-17h",697,775,959],
+  ["Serviço à Disposição 08hrs com 130km",368,478,519]]},
  {loc:"Funchal", label:"Funchal (Madeira)", guideHD:480, guideFD:640, tours:[
   ["HD Funchal 09h-13h ou 14h-18h",269,342,382],
   ["HD Eira do Serrado, Curral das Freiras 09h-13h ou 14h-18h",ONR,ONR,ONR],
   ["HD Cabo Girão, Pico dos Barcelos, Cristo Rei 09h-13h ou 14h-18h",ONR,ONR,ONR],
   ["HD Câmara de Lobos, Monte 09h-13h ou 14h-18h",ONR,ONR,ONR],
-  ["Funchal by Night 20h-00h",ONR,ONR,ONR],
+  ["Funchal by Night 20h-00h",338,436,476],
   ["FD Funchal 09h-17h",394,447,487],
   ["FD Grande Madeira 09h-17h",ONR,ONR,ONR]]},
  {loc:"Ponta Delgada", label:"Ponta Delgada (S. Miguel)", guideHD:480, guideFD:640, tours:[
@@ -398,7 +398,7 @@ const TOURS = [
   ["FD Lagoa do Fogo e Sete Cidades 09h-17h",389,854,1195],
   ["FD Sete Cidades e Estufas de Ananás 09h-17h",390,827,1158],
   ["FD Nordeste e Povoação 09h-17h",389,854,1195],
-  ["FD Vale das Furnas 09h-17h",426,940,1315],
+  ["FD Vale das Furnas 09h-17h",426,940,1310],
   ["FD Lagoa do Fogo e Furnas 09h-17h",426,940,1315]]},
  {loc:"Ilha Terceira", label:"Ilha Terceira (Açores)", guideHD:480, guideFD:640, tours:[
   ["HD Biscoitos e Praia da Vitória 09h-13h ou 14h-18h",260,369,517],
@@ -417,7 +417,7 @@ const TOURS = [
   ["FD Vila do Porto e S. Lourenço 09h-17h",856,1014,1370]]},
  {loc:"Ilha Graciosa", label:"Ilha Graciosa (Açores)", guideHD:480, guideFD:640, tours:[
   ["FD Santa Cruz e Vila da Praia c/ Almoço 09h-17h",427,854,1195]]},
- {loc:"Coimbra", label:"Coimbra", guideHD:315, guideFD:430, tours:[
+ {loc:"Coimbra", label:"Coimbra", guideHD:350, guideFD:450, tours:[
   ["HD Coimbra 09h-13h ou 14h-18h",372,485,ONR],
   ["FD Coimbra 9h-17h",512,597,ONR],
   ["FD Aveiro, Bussaco, Curia, Ílhavo, Costa Nova 9h-17h",653,849,ONR],
@@ -425,7 +425,7 @@ const TOURS = [
   ["FD Conímbriga, Rabaçal e Castelo de Penela 9h-17h",653,849,ONR],
   ["FD Foz d'Égua, Piódão e Fraga da Pena 9h-17h",653,849,ONR],
   ["FD Tomar, Batalha e Alcobaça 9h-17h",653,849,ONR]]},
- {loc:"Faro", label:"Faro (Algarve)", guideHD:315, guideFD:430, tours:[
+ {loc:"Faro", label:"Faro (Algarve)", guideHD:350, guideFD:450, tours:[
   ["HD Algarve 09h-13h ou 14h-18h",345,409,ONR],
   ["FD Algarve 9h-17h",665,786,ONR]]}
 ];
@@ -1070,7 +1070,7 @@ function condHTML(){
   +sec("Condições — Traslados Privativos",[
    ["Tarifas","NET em EUROS por trajeto, válidas para todos os dias da semana, exceto feriados, datas festivas e datas de eventos que decorram na cidade, que serão informadas no ato da reserva."],
    ["Serviço noturno","traslados efetuados entre as 22h00 e as 06h00 acrescem 25%. IVA e pedágios incluídos."],
-   ["Assistência","traslados até 05 pax incluem assistência local do motorista em português. Assistência no aeroporto/estação: 220,00 € — obrigatória incluir para serviços a partir de 06 pax."],
+   ["Assistência","traslados até 05 pax incluem assistência local do motorista em português. Assistência no aeroporto/estação: 230,00 € — obrigatória incluir para serviços a partir de 06 pax."],
    ["Bagagens","máximo 01 mala por pax até 23kg."],
    ["Tempos de espera","no aeroporto: até 01h após aterragem. Na estação de trem/porto de cruzeiros: até 15 minutos após a chegada do trem/navio. No hotel: até 15 minutos após a hora indicada no voucher."],
    ["Pontos de encontro","Aeroporto de Lisboa — junto ao desembarque · Estação Oriente — na plataforma junto à 1ª carruagem · Estação Santa Apolónia — junto à saída da respetiva plataforma · Aeroporto do Porto — junto ao desembarque · Estação Campanhã — no interior do edifício principal · Estação São Bento — na plataforma junto à 1ª carruagem · Aeroportos do Funchal e Ponta Delgada — junto ao desembarque · Aeroporto/estação de outras cidades — a informar no voucher. Caso não encontre o motorista em 10 minutos, acione os serviços de emergência."],
@@ -1118,7 +1118,7 @@ function fillSelect(el,items){el.innerHTML=items.map(i=>`<option value="${i[0]}"
 function fillTrRoutes(){
   const z=TRANSFERS[+document.getElementById("q-tr-zone").value];
   fillSelect(document.getElementById("q-tr-route"),z.rows.map((r,i)=>[i,r[0]]));
-  const a=z.assist===undefined?220:z.assist;
+  const a=z.assist===undefined?230:z.assist;
   document.querySelector('label[for="q-tr-assist"]').textContent=tf("lbl_assist",{A:a==null?"On Request":a.toFixed(2).replace(".",",")+" €"});
   const ad=document.getElementById("q-tr-adapt");
   ad.innerHTML=`<option value="no">${t("lbl_no")}</option><option value="yes">${t("lbl_yes")}</option>`;
@@ -1172,7 +1172,7 @@ function addTransfer(){
   let base=price;let nightAdd=0;
   if(night){nightAdd=base*0.25;base=base*1.25;}
   const items=[{d:`${tx("Traslado")} ${tx(z.label||z.zone)} → ${tx(r[0])} · ${v.n} · ${pax} pax${night?" ("+t("night_lbl")+")":""}`,v:base}];
-  const aPrice=z.assist===undefined?220:z.assist;
+  const aPrice=z.assist===undefined?230:z.assist;
   if(assist&&aPrice==null){
     msg.innerHTML=`<div class="warnbox">${t("warn_assist_or")}</div>`;
   }else{
@@ -1307,7 +1307,7 @@ function condHTML_ES(){
   +sec("Condiciones — Traslados Privativos",[
    ["Tarifas","NET en EUROS por trayecto, válidas todos los días de la semana, excepto festivos, fechas señaladas y fechas de eventos, que serán informadas en el momento de la reserva."],
    ["Servicio nocturno","traslados efectuados entre las 22h00 y las 06h00: recargo del 25%. IVA y peajes incluidos."],
-   ["Asistencia","traslados hasta 05 pax incluyen asistencia local del chófer en español (portugués sujeto a disponibilidad). Asistencia en aeropuerto/estación: 220,00 € en Portugal / 310,00 € en España — obligatoria a partir de 06 pax. En las Islas Canárias y Baleares: On Request."],
+   ["Asistencia","traslados hasta 05 pax incluyen asistencia local del chófer en español (portugués sujeto a disponibilidad). Asistencia en aeropuerto/estación: 230,00 € en Portugal / 310,00 € en España — obligatoria a partir de 06 pax. En las Islas Canárias y Baleares: On Request."],
    ["Equipaje","máximo 01 maleta por pax hasta 23kg."],
    ["Tiempos de espera","en el aeropuerto: hasta 01h tras el aterrizaje. En la estación de tren/puerto de cruceros: hasta 15 minutos tras la llegada del tren/barco. En el hotel: hasta 15 minutos tras la hora indicada en el voucher."],
    ["Puntos de encuentro","Lisboa — Aeropuerto junto al desembarque · Estación Oriente — en el andén junto al 1er vagón · Estación Santa Apolónia — junto a la salida · Oporto — Aeropuerto junto al desembarque · Campanhã — en el interior del edificio principal · São Bento — en el andén junto al 1er vagón · Madrid — Aeropuerto junto al desembarque · Puerta de Atocha — Hall de Llegadas de la planta 1, frente al Punto de Información de Turismo · Barcelona — Estación Sants, junto a la puerta interior del McDonald's · Sevilla — Estación Santa Justa, a informar en el voucher · Funchal y Ponta Delgada — junto al desembarque · Otras ciudades — a informar en el voucher. Si no encuentra al chófer en 10 minutos, active los servicios de emergencia."],
