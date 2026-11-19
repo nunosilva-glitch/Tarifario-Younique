@@ -1,7 +1,7 @@
 # Tarifário Younique Tailor Tours — App de Cotações
 
 App web (ficheiro único `index.html`, sem dependências, funciona offline) baseada no
-**Tarifário Geral Serviços Portugal FIT 2027** (válido 01/01/2027 a 31/12/2027). Espanha mantém FIT 2026 até novo tarifário..
+**Tarifário Geral Serviços Portugal FIT 2027** (válido 01/01/2027 a 31/12/2027). Portugal e Espanha FIT 2027 (assistência PT 230 € / ES 355 €; guia oficial PT 350/450 € ou 480/640 € nas ilhas, ES 505/775 €)..
 
 ## Como usar
 1. Abrir `index.html` num browser (basta duplo-clique no ficheiro).
