@@ -596,7 +596,7 @@ TRANSFERS.push(
  {zone:"ES · Córdoba",label:"Córdoba",assist:355,rows:[
   ["Aeroporto / Hotel central",125,146,ONR],["Sevilha",384,427,ONR],
   ["Málaga",476,565,ONR],["Granada",504,575,ONR]]},
- {zone:"ES · Málaga*",label:"Málaga",assist:355,note:"malaga_note",rows:[
+ {zone:"ES · Málaga*",label:"Málaga*",assist:355,note:"malaga_note",rows:[
   ["Aeroporto / Hotel central",128,172,ONR],["Marbella",236,289,ONR],["Ronda",ONR,ONR,ONR],
   ["Granada",418,482,ONR],["Córdoba",503,557,ONR],["Sevilha",621,685,ONR]]},
  {zone:"ES · Granada",label:"Granada",assist:355,rows:[
@@ -639,7 +639,7 @@ TOURS.push(
  {loc:"Córdoba",guideHD:505,guideFD:775,tours:[
   ["FD Córdoba 09h-17h",635,740,ONR],["FD Ronda 09h-17h",797,893,ONR],
   ["FD Sevilha 09h-17h",797,893,ONR],["FD Granada 09h-17h",993,1117,ONR]]},
- {loc:"Málaga*",guideHD:505,guideFD:775,note:"malaga_note_tu",tours:[
+ {loc:"Málaga*",guideHD:505,guideFD:775,note:"malaga_note",tours:[
   ["HD Málaga 09h-13h ou 14h-18h",296,343,ONR],["FD Málaga 09h-17h",566,685,ONR],["FD Granada 09h-17h",774,872,ONR]]},
  {loc:"Granada",guideHD:505,guideFD:775,tours:[
   ["HD Granada 09h-13h ou 14h-18h",296,370,ONR],["FD Granada 09h-17h",566,685,ONR],
@@ -842,8 +842,7 @@ const T={
   sub_cond:"Tarifários Gerais Serviços Portugal & Espanha FIT · Válido de 01/01/2027 a 31/12/2027. Todos os serviços carecem de confirmação de reserva por parte da Younique Tailor Tours.",
   sub_dest:"Traslados, tours privativos, experiências e tours regulares · Tarifas NET em EUR · Válido 01/01/2027 – 31/12/2027",
   note_tr:'Tarifas por trajeto, válidas todos os dias exceto feriados/datas festivas. Entre 22h00 e 06h00: +25%. IVA e pedágios incluídos. Bagagens: 01 mala por pax até 23kg. Assistência no aeroporto/estação: {A} (obrigatória a partir de 06 pax).',
-  malaga_note:"*Nos meses de Junho, Julho, Agosto e Setembro, aplica-se uma taxa adicional de 20% (época alta). Málaga.",
-  malaga_note_tu:"*Valores de época baixa. Nos meses de Junho, Julho, Agosto e Setembro aplica-se um suplemento de 20% (época alta).",
+  malaga_note:"*Valores de época baixa. Nos meses de Junho, Julho, Agosto e Setembro aplica-se um suplemento de 20% (época alta).",
   note_tu:"Pick up & drop off no hotel central. HD até 04hrs (09h-13h ou 14h-18h); FD até 08hrs (09h-17h); by night 20h-00h. Não inclui entradas, refeições ou guia. IVA, pedágios e despesas do motorista incluídos. Guia Oficial: HD {GHD} / FD {GFD}.",
   note_rg:"Tarifas NET em EUR por pax. Não inclui refeições nem entradas (salvo indicado). Preço para crianças on request. Preço, frequência e operação poderão sofrer alterações sem aviso prévio.",
   note_op:"Reserva de mesa em restaurante: taxa de 10,00 € por pessoa, por refeição. Podem existir taxas adicionais conforme o restaurante. Opcionais mediante consulta prévia e sujeitos a horários e disponibilidade de parceiros.",
@@ -887,8 +886,7 @@ const T={
   sub_cond:"Tarifarios Generales de Servicios Portugal & España FIT · Válido del 01/01/2027 al 31/12/2027. Todos los servicios requieren confirmación de reserva por parte de Younique Tailor Tours.",
   sub_dest:"Traslados, tours privados, experiencias y tours regulares · Tarifas NET en EUR · Válido 01/01/2027 – 31/12/2027",
   note_tr:'Tarifas por trayecto, válidas todos los días excepto festivos y fechas señaladas. Entre las 22h00 y las 06h00: +25%. IVA y peajes incluidos. Equipaje: 01 maleta por pax hasta 23kg. Asistencia en aeropuerto/estación: {A} (obligatoria a partir de 06 pax).',
-  malaga_note:"*En los meses de junio, julio, agosto y septiembre, se aplica un suplemento adicional del 20% (temporada alta). Málaga.",
-  malaga_note_tu:"*Valores de temporada baja. En los meses de junio, julio, agosto y septiembre se aplica un suplemento del 20% (temporada alta).",
+  malaga_note:"*Valores de temporada baja. En los meses de junio, julio, agosto y septiembre se aplica un suplemento del 20% (temporada alta).",
   note_tu:"Pick up & drop off en hotel céntrico. HD hasta 04h (09h-13h o 14h-18h); FD hasta 08h (09h-17h); by night 20h-00h. No incluye entradas, comidas ni guía. IVA, peajes y gastos del chófer incluidos. Guía Oficial: HD {GHD} / FD {GFD}.",
   note_rg:"Tarifas NET en EUR por pax. No incluye comidas ni entradas (salvo indicación expresa). Precio para niños a consulta. Precio, frecuencia y operación podrán sufrir cambios sin previo aviso.",
   note_op:"Reserva de mesa en restaurante: tasa de 10,00 € por persona, por comida. Pueden existir tasas adicionales según el restaurante. Opcionales previa consulta y sujetos a horarios y disponibilidad de socios.",
